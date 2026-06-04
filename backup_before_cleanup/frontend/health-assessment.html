@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Assessment | Med Nova - Smart Digital Healthcare</title>
+    <meta name="description" content="Take control of your health with Med Nova's smart assessment tools — BMI Calculator, Daily Calorie Calculator, Water Intake Calculator, and Blood Donation Eligibility Checker.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="stylesheet" href="css/style.css?v=1780419041">
+</head>
+
+<body>
+
+    <!-- NAVBAR START -->
+    <nav class="navbar navbar-expand-xl navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/logo.jpeg" onerror="this.src='https://placehold.co/50x50/04214f/ffffff?text=MN'"
+                    alt="Med Nova" class="brand-logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" title="Toggle navigation"
+                data-bs-target="#navSiteMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navSiteMenu">
+                <ul class="navbar-nav mx-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><span class="nav-dot"></span>About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html"><span class="nav-dot"></span>Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="doctors.html"><span class="nav-dot"></span>Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><span class="nav-dot"></span>Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="blood-donation.html" class="nav-link"><span class="nav-dot"></span>Donate Blood</a>
+                    </li>
+
+                                        <!-- SMART FEATURES -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="smartFeaturesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Smart Features
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="smartFeaturesDropdown">
+                            <li><a class="dropdown-item" href="diet_plan.html"><i class="fas fa-utensils text-success me-2"></i>Smart Diet Plan</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="ai_scanner.html"><i class="fas fa-microscope text-primary me-2"></i>AI Scan</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- URGENT RESPONSE -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="urgentResponseDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Urgent Response
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="urgentResponseDropdown">
+                            <li><a class="dropdown-item" href="emergency_sos.html"><i class="fas fa-satellite-dish text-danger me-2"></i>SOS Alerts</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="emergency_triage.html"><i class="fas fa-stethoscope text-primary me-2"></i>Fast Triage</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- HEALTH ASSESSMENT -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="healthAssessmentDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Health Assessment
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg ha-dropdown-menu" aria-labelledby="healthAssessmentDropdown">
+                            <li><a class="dropdown-item" href="health-assessment.html#bmi"><i class="fas fa-weight-scale text-primary me-2"></i>BMI Calculator</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#calories"><i class="fas fa-fire-flame-curved text-warning me-2"></i>Calorie Calculator</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#water"><i class="fas fa-glass-water text-info me-2"></i>Water Intake</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#blood-eligibility"><i class="fas fa-hand-holding-droplet text-danger me-2"></i>Donation Eligibility</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-1 mt-3 mt-xl-0">
+                    <a class="btn btn-primary btn-sm rounded-pill px-2" href="appointment.html">
+                        Get Appointment
+                    </a>
+                    <a class="btn btn-outline-primary btn-sm rounded-pill px-2" href="#hospitalLoginModal" data-bs-toggle="modal">
+                        Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- NAVBAR END -->
+
+    <!-- HERO SECTION -->
+    <header class="internal-hero">
+        <div class="container text-center text-white">
+            <div class="d-inline-flex align-items-center gap-2 mb-3 ha-hero-badge">
+                <i class="fas fa-shield-heart"></i>
+                <span>Preventive Healthcare</span>
+            </div>
+            <h1 class="display-4 fw-bold mb-3 internal-hero-title">Health Assessment</h1>
+            <p class="lead mx-auto opacity-75 max-w-700">Take control of your health with smart assessment tools
+                designed to promote preventive healthcare and healthier lifestyle decisions.</p>
+        </div>
+    </header>
+
+    <!-- TOOL CARDS SECTION -->
+    <section class="py-5 bg-soft">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h6 class="text-uppercase fw-bold text-primary">Assessment Tools</h6>
+                <h2 class="fw-bold fs-2 mb-3">Choose Your Health Check</h2>
+                <p class="text-muted mx-auto max-w-600">Professional-grade calculators to help you understand
+                    your body and make informed health decisions before consulting a doctor.</p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <!-- BMI Card -->
+                <div class="col-md-6 col-lg-3">
+                    <a href="#bmi" class="text-decoration-none">
+                        <div class="ha-tool-card h-100">
+                            <div class="ha-icon-box ha-icon-bmi">
+                                <i class="fas fa-weight-scale"></i>
+                            </div>
+                            <h5 class="fw-bold mb-2">BMI Calculator</h5>
+                            <p class="text-muted small mb-3">Calculate your Body Mass Index and understand your
+                                weight category for better health awareness.</p>
+                            <span class="ha-tool-cta">Calculate Now <i class="fas fa-arrow-right ms-1"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Calorie Card -->
+                <div class="col-md-6 col-lg-3">
+                    <a href="#calories" class="text-decoration-none">
+                        <div class="ha-tool-card h-100">
+                            <div class="ha-icon-box ha-icon-calorie">
+                                <i class="fas fa-fire-flame-curved"></i>
+                            </div>
+                            <h5 class="fw-bold mb-2">Daily Calorie</h5>
+                            <p class="text-muted small mb-3">Find your recommended daily calorie intake based on
+                                age, weight, height, and activity level.</p>
+                            <span class="ha-tool-cta">Calculate Now <i class="fas fa-arrow-right ms-1"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Water Intake Card -->
+                <div class="col-md-6 col-lg-3">
+                    <a href="#water" class="text-decoration-none">
+                        <div class="ha-tool-card h-100">
+                            <div class="ha-icon-box ha-icon-water">
+                                <i class="fas fa-glass-water"></i>
+                            </div>
+                            <h5 class="fw-bold mb-2">Water Intake</h5>
+                            <p class="text-muted small mb-3">Discover how many liters of water you need daily
+                                based on your weight and physical activity.</p>
+                            <span class="ha-tool-cta">Calculate Now <i class="fas fa-arrow-right ms-1"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Blood Donation Card -->
+                <div class="col-md-6 col-lg-3">
+                    <a href="#blood-eligibility" class="text-decoration-none">
+                        <div class="ha-tool-card h-100">
+                            <div class="ha-icon-box ha-icon-blood">
+                                <i class="fas fa-hand-holding-droplet"></i>
+                            </div>
+                            <h5 class="fw-bold mb-2">Donation Check</h5>
+                            <p class="text-muted small mb-3">Check if you're eligible to donate blood based on
+                                age, weight, and last donation date.</p>
+                            <span class="ha-tool-cta">Check Now <i class="fas fa-arrow-right ms-1"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== BMI CALCULATOR ===================== -->
+    <section id="bmi" class="py-5 bg-white ha-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="ha-calculator-card">
+                        <div class="ha-calc-header">
+                            <div class="ha-calc-header-icon ha-icon-bmi">
+                                <i class="fas fa-weight-scale"></i>
+                            </div>
+                            <div>
+                                <h3 class="fw-bold mb-1">BMI Calculator</h3>
+                                <p class="text-muted small mb-0">Body Mass Index — understand your weight category</p>
+                            </div>
+                        </div>
+
+                        <form id="bmiForm" class="mt-4">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <select class="form-select bg-light border-0" id="bmiHeightUnit" required>
+                                            <option value="cm" selected>Centimeters (cm)</option>
+                                            <option value="feet">Feet & Inches</option>
+                                        </select>
+                                        <label for="bmiHeightUnit">Height Unit</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating" id="bmiMetricGroup">
+                                        <input type="number" class="form-control bg-light border-0" id="bmiHeightCm"
+                                            placeholder="Height in cm" min="50" max="250" step="0.1" required>
+                                        <label for="bmiHeightCm">Height (cm)</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 d-none" id="bmiImperialGroup">
+                                    <div class="row g-3">
+                                        <div class="col-6">
+                                            <div class="form-floating">
+                                                <input type="number" class="form-control bg-light border-0" id="bmiHeightFeet"
+                                                    placeholder="Feet" min="1" max="8" step="1">
+                                                <label for="bmiHeightFeet">Feet</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-floating">
+                                                <input type="number" class="form-control bg-light border-0" id="bmiHeightInches"
+                                                    placeholder="Inches" min="0" max="11" step="1">
+                                                <label for="bmiHeightInches">Inches</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 bmi-unit-hint text-muted small" id="bmiHeightHint">
+                                    Enter your height in centimeters.
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control bg-light border-0" id="bmiWeight"
+                                            placeholder="Weight" min="10" max="500" step="0.1" required>
+                                        <label for="bmiWeight">Weight (kg)</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn btn-primary w-100 py-3 rounded-pill fw-bold">
+                                        <i class="fas fa-calculator me-2"></i>Calculate BMI
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- BMI Result -->
+                        <div id="bmiResult" class="ha-result-container mt-4 d-none">
+                            <div class="ha-result-card">
+                                <div class="ha-result-value" id="bmiValue">--</div>
+                                <div class="ha-result-label">Your BMI</div>
+                                <div class="ha-result-badge" id="bmiBadge">--</div>
+                            </div>
+                            <div class="ha-result-bar mt-3">
+                                <div class="ha-bar-track">
+                                    <div class="ha-bar-segment ha-bar-under w-25">Underweight</div>
+                                    <div class="ha-bar-segment ha-bar-normal w-25">Normal</div>
+                                    <div class="ha-bar-segment ha-bar-over w-25">Overweight</div>
+                                    <div class="ha-bar-segment ha-bar-obese w-25">Obese</div>
+                                </div>
+                                <div class="ha-bar-pointer" id="bmiPointer"></div>
+                            </div>
+                            <div class="ha-tip mt-4" id="bmiTip"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CALORIE CALCULATOR ===================== -->
+    <section id="calories" class="py-5 bg-soft ha-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="ha-calculator-card">
+                        <div class="ha-calc-header">
+                            <div class="ha-calc-header-icon ha-icon-calorie">
+                                <i class="fas fa-fire-flame-curved"></i>
+                            </div>
+                            <div>
+                                <h3 class="fw-bold mb-1">Daily Calorie Calculator</h3>
+                                <p class="text-muted small mb-0">Find your recommended daily calorie intake</p>
+                            </div>
+                        </div>
+
+                        <form id="calorieForm" class="mt-4">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control bg-light border-0" id="calAge"
+                                            placeholder="Age" min="10" max="120" required>
+                                        <label for="calAge">Age (years)</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select class="form-select bg-light border-0" id="calGender" required>
+                                            <option value="" disabled selected>Select</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                        </select>
+                                        <label for="calGender">Gender</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control bg-light border-0" id="calHeight"
+                                            placeholder="Height" min="50" max="250" step="0.1" required>
+                                        <label for="calHeight">Height (cm)</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control bg-light border-0" id="calWeight"
+                                            placeholder="Weight" min="10" max="500" step="0.1" required>
+                                        <label for="calWeight">Weight (kg)</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <select class="form-select bg-light border-0" id="calActivity" required>
+                                            <option value="" disabled selected>Select</option>
+                                            <option value="1.2">Sedentary (little or no exercise)</option>
+                                            <option value="1.375">Lightly Active (light exercise 1-3 days/week)</option>
+                                            <option value="1.55">Moderately Active (moderate exercise 3-5 days/week)</option>
+                                            <option value="1.725">Very Active (hard exercise 6-7 days/week)</option>
+                                            <option value="1.9">Extra Active (very hard exercise / physical job)</option>
+                                        </select>
+                                        <label for="calActivity">Activity Level</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn btn-primary w-100 py-3 rounded-pill fw-bold">
+                                        <i class="fas fa-calculator me-2"></i>Calculate Calories
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- Calorie Result -->
+                        <div id="calorieResult" class="ha-result-container mt-4 d-none">
+                            <div class="ha-result-card">
+                                <div class="ha-result-value" id="calorieValue">--</div>
+                                <div class="ha-result-label">Calories / Day</div>
+                                <div class="ha-result-badge ha-badge-calorie" id="calorieBadge">Maintenance</div>
+                            </div>
+                            <div class="row g-3 mt-3">
+                                <div class="col-4">
+                                    <div class="ha-mini-stat">
+                                        <div class="ha-mini-stat-val text-success" id="calLose">--</div>
+                                        <div class="ha-mini-stat-label">Weight Loss</div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="ha-mini-stat">
+                                        <div class="ha-mini-stat-val text-primary" id="calMaintain">--</div>
+                                        <div class="ha-mini-stat-label">Maintain</div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="ha-mini-stat">
+                                        <div class="ha-mini-stat-val text-warning" id="calGain">--</div>
+                                        <div class="ha-mini-stat-label">Weight Gain</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ha-tip mt-4" id="calorieTip"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== WATER INTAKE CALCULATOR ===================== -->
+    <section id="water" class="py-5 bg-white ha-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="ha-calculator-card">
+                        <div class="ha-calc-header">
+                            <div class="ha-calc-header-icon ha-icon-water">
+                                <i class="fas fa-glass-water"></i>
+                            </div>
+                            <div>
+                                <h3 class="fw-bold mb-1">Water Intake Calculator</h3>
+                                <p class="text-muted small mb-0">Recommended daily water consumption</p>
+                            </div>
+                        </div>
+
+                        <form id="waterForm" class="mt-4">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control bg-light border-0" id="waterWeight"
+                                            placeholder="Weight" min="10" max="500" step="0.1" required>
+                                        <label for="waterWeight">Weight (kg)</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select class="form-select bg-light border-0" id="waterActivity" required>
+                                            <option value="" disabled selected>Select</option>
+                                            <option value="0">Sedentary (little or no exercise)</option>
+                                            <option value="0.35">Lightly Active (light exercise)</option>
+                                            <option value="0.5">Moderately Active (moderate exercise)</option>
+                                            <option value="0.7">Very Active (hard exercise)</option>
+                                            <option value="1.0">Extra Active (intense exercise / labor)</option>
+                                        </select>
+                                        <label for="waterActivity">Activity Level</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn btn-primary w-100 py-3 rounded-pill fw-bold">
+                                        <i class="fas fa-calculator me-2"></i>Calculate Water Intake
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- Water Result -->
+                        <div id="waterResult" class="ha-result-container mt-4 d-none">
+                            <div class="ha-result-card ha-result-water">
+                                <div class="ha-result-value" id="waterValue">--</div>
+                                <div class="ha-result-label">Liters / Day</div>
+                                <div class="d-flex justify-content-center gap-3 mt-3">
+                                    <div class="ha-water-glass-group" id="waterGlasses"></div>
+                                </div>
+                                <div class="small text-muted mt-2" id="waterCups">-- standard glasses (250ml each)</div>
+                            </div>
+                            <div class="ha-tip mt-4" id="waterTip"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== BLOOD DONATION ELIGIBILITY ===================== -->
+    <section id="blood-eligibility" class="py-5 bg-soft ha-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="ha-calculator-card">
+                        <div class="ha-calc-header">
+                            <div class="ha-calc-header-icon ha-icon-blood">
+                                <i class="fas fa-hand-holding-droplet"></i>
+                            </div>
+                            <div>
+                                <h3 class="fw-bold mb-1">Blood Donation Eligibility</h3>
+                                <p class="text-muted small mb-0">Check if you can donate blood today</p>
+                            </div>
+                        </div>
+
+                        <form id="bloodForm" class="mt-4">
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control bg-light border-0" id="bloodAge"
+                                            placeholder="Age" min="1" max="120" required>
+                                        <label for="bloodAge">Age (years)</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control bg-light border-0" id="bloodWeight"
+                                            placeholder="Weight" min="10" max="500" step="0.1" required>
+                                        <label for="bloodWeight">Weight (kg)</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-floating">
+                                        <input type="date" class="form-control bg-light border-0" id="bloodLastDonation"
+                                            placeholder="Last Donation">
+                                        <label for="bloodLastDonation">Last Donation Date</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn btn-primary w-100 py-3 rounded-pill fw-bold">
+                                        <i class="fas fa-check-circle me-2"></i>Check Eligibility
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- Blood Result -->
+                        <div id="bloodResult" class="ha-result-container mt-4 d-none">
+                            <div class="ha-result-card" id="bloodResultCard">
+                                <div class="ha-result-icon" id="bloodIcon"></div>
+                                <div class="ha-result-value" id="bloodStatus">--</div>
+                                <div class="ha-result-label" id="bloodReason">--</div>
+                            </div>
+                            <div class="ha-tip mt-4" id="bloodTip"></div>
+                            <div class="text-center mt-4 d-none" id="bloodEligibleAction">
+                                <a href="blood-donation.html" class="btn btn-danger rounded-pill px-5 py-3 fw-bold shadow">
+                                    <i class="fas fa-hand-holding-droplet me-2"></i>Register as a Blood Donor Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="appointment-card p-5 text-center">
+                        <div class="d-inline-flex align-items-center justify-content-center rounded-circle bg-soft text-primary mb-4 ha-icon-large">
+                            <i class="fas fa-user-doctor"></i>
+                        </div>
+                        <h3 class="fw-bold mb-3">Want Professional Advice?</h3>
+                        <p class="text-muted mx-auto max-w-600 mb-4">Health assessments are a starting point. For personalized medical advice and treatment plans, book an appointment with one of our expert doctors.</p>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+                            <a href="appointment.html" class="btn btn-primary rounded-pill px-5 py-3 fw-bold shadow">
+                                <i class="fas fa-calendar-check me-2"></i>Book Appointment
+                            </a>
+                            <a href="doctors.html" class="btn btn-outline-primary rounded-pill px-5 py-3 fw-bold">
+                                <i class="fas fa-search me-2"></i>Find Doctors
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER START -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold mb-4">Med Nova</h5>
+                    <p class="muted mb-4 fs-14">Advanced Digital Healthcare Platform for Kohat's First Smart Medical System. Reliable care at your fingertips.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="fw-bold mb-4">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="about.html">About Us</a></li>
+                        <li class="mb-2"><a href="services.html">Services</a></li>
+                        <li class="mb-2"><a href="doctors.html">Find Doctors</a></li>
+                        <li class="mb-2"><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold mb-4">Our Services</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="blood-donation.html">Blood Donation</a></li>
+                        <li class="mb-2"><a href="diet_plan.html">Smart Diet Plans</a></li>
+                        <li class="mb-2"><a href="emergency_sos.html">Emergency SOS</a></li>
+                        <li class="mb-2"><a href="health-assessment.html">Health Assessment</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h6 class="fw-bold mb-4">Visit Us</h6>
+                    <div class="rounded-4 overflow-hidden shadow-sm border map-iframe-container mb-3">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3326.68060!2d71.442308!3d33.50438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d8ef537d8e6371%3A0x6bba843f5509b53!2sKohat%20University%20of%20Science%20%26%20Short%20Technology!5e0!3m2!1sen!2spk!4v1712068000000!5m2!1sen!2spk"
+                            class="map-iframe" title="KUST Location Map"
+                            allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                    <p class="muted fs-13 mb-0"><i class="fas fa-map-marker-alt me-2 text-danger"></i> Kohat University of Science & Technology, KPK, Pakistan</p>
+                </div>
+            </div>
+
+            <hr>
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="muted small mb-md-0">© 2026 Med Nova. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="d-flex gap-4 justify-content-md-end">
+                        <a href="#" class="small muted text-decoration-none">Privacy Policy</a>
+                        <a href="#" class="small muted text-decoration-none">Terms of Service</a>
+                        <a href="https://wa.me/923001234567" class="small text-success fw-bold text-decoration-none"><i class="fab fa-whatsapp me-1"></i> Support</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER END -->
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js?v=1780419041"></script>
+    <script>
+    /* =========================================================
+       HEALTH ASSESSMENT — Calculator Logic
+       ========================================================= */
+
+    // Smooth scroll to section on page load with hash
+    document.addEventListener('DOMContentLoaded', function () {
+        if (window.location.hash) {
+            const target = document.querySelector(window.location.hash);
+            if (target) {
+                setTimeout(function() {
+                    window.scrollTo({ top: target.offsetTop - 100, behavior: 'smooth' });
+                }, 400);
+            }
+        }
+    });
+
+    // ── BMI Calculator ──
+    const bmiUnitSelect = document.getElementById('bmiHeightUnit');
+    const bmiMetricGroup = document.getElementById('bmiMetricGroup');
+    const bmiImperialGroup = document.getElementById('bmiImperialGroup');
+    const bmiHeightHint = document.getElementById('bmiHeightHint');
+    const bmiHeightCm = document.getElementById('bmiHeightCm');
+    const bmiHeightFeet = document.getElementById('bmiHeightFeet');
+    const bmiHeightInches = document.getElementById('bmiHeightInches');
+
+    function syncBmiHeightMode() {
+        const isFeet = bmiUnitSelect && bmiUnitSelect.value === 'feet';
+        if (bmiMetricGroup) bmiMetricGroup.parentElement.classList.toggle('d-none', isFeet);
+        if (bmiImperialGroup) bmiImperialGroup.classList.toggle('d-none', !isFeet);
+        if (bmiHeightHint) {
+            bmiHeightHint.textContent = isFeet
+                ? 'Enter height as feet and inches for automatic BMI conversion.'
+                : 'Enter your height in centimeters.';
+        }
+        if (bmiHeightCm) bmiHeightCm.required = !isFeet;
+        if (bmiHeightFeet) bmiHeightFeet.required = isFeet;
+        if (bmiHeightInches) bmiHeightInches.required = isFeet;
+    }
+
+    if (bmiUnitSelect) {
+        bmiUnitSelect.addEventListener('change', syncBmiHeightMode);
+        syncBmiHeightMode();
+    }
+
+    document.getElementById('bmiForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        let height = 0;
+        if (bmiUnitSelect && bmiUnitSelect.value === 'feet') {
+            const feet = parseFloat(bmiHeightFeet.value) || 0;
+            const inches = parseFloat(bmiHeightInches.value) || 0;
+            const totalInches = (feet * 12) + inches;
+            height = totalInches * 0.0254;
+        } else {
+            height = parseFloat(bmiHeightCm.value) / 100;
+        }
+        const weight = parseFloat(document.getElementById('bmiWeight').value);
+        if (!height || !weight) return;
+
+        const bmi = weight / (height * height);
+        const bmiRound = bmi.toFixed(1);
+
+        let category = '', badgeClass = '', guidance = '', preventive = '', lifestyle = '';
+        if (bmi < 18.5) {
+            category = 'Underweight';
+            badgeClass = 'ha-badge-under';
+            guidance = "Your BMI is below the recommended range. Consider improving your nutritional intake and consulting a healthcare professional if necessary.";
+            preventive = "Schedule a health checkup to screen for vitamin deficiencies or underlying issues.";
+            lifestyle = "Incorporate nutrient-dense, calorie-dense foods (nuts, avocados, seeds) and light strength training.";
+        } else if (bmi < 25) {
+            category = 'Normal Weight';
+            badgeClass = 'ha-badge-normal';
+            guidance = "Excellent! Your BMI falls within the healthy range. Continue maintaining a balanced diet and regular physical activity.";
+            preventive = "Maintain annual physical wellness checks to keep tracking key cardiovascular metrics.";
+            lifestyle = "Continue standard guidelines: 150 minutes of moderate activity weekly and a diverse, fiber-rich diet.";
+        } else if (bmi < 30) {
+            category = 'Overweight';
+            badgeClass = 'ha-badge-over';
+            guidance = "Your BMI indicates extra body weight. Consider incorporating more physical activity and healthier eating habits.";
+            preventive = "Monitor blood pressure and fasting blood glucose levels annually.";
+            lifestyle = "Adopt a moderate calorie-deficit plan, limit refined sugars, and increase water intake to aid fat loss.";
+        } else {
+            category = 'Obese';
+            badgeClass = 'ha-badge-obese';
+            guidance = "Your BMI falls in the obesity range. Professional medical guidance may help create a suitable health improvement plan.";
+            preventive = "Consult a primary care physician to assess metabolic health (lipid panels, HbA1c check).";
+            lifestyle = "Begin low-impact workouts (swimming, cycling, walking) and consult a dietitian for structured meal planning.";
+        }
+
+        const resultContainer = document.getElementById('bmiResult');
+        resultContainer.innerHTML = `
+            <div class="ha-premium-result-card text-center">
+                <div class="row align-items-center">
+                    <div class="col-md-6 mb-4 mb-md-0">
+                        <div class="ha-value-display">${bmiRound}</div>
+                        <div class="ha-label-display">Your BMI Score</div>
+                        <span class="ha-result-badge ${badgeClass}">${category}</span>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="ha-result-bar">
+                            <div class="ha-bar-track">
+                                <div class="ha-bar-segment w-25" style="background:#36d1dc; color:#fff; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:bold;">Under</div>
+                                <div class="ha-bar-segment w-25" style="background:#38ef7d; color:#fff; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:bold;">Normal</div>
+                                <div class="ha-bar-segment w-25" style="background:#f2c94c; color:#fff; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:bold;">Over</div>
+                                <div class="ha-bar-segment w-25" style="background:#eb3349; color:#fff; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:bold;">Obese</div>
+                            </div>
+                            <div class="ha-bar-pointer" id="bmiPointer" style="left: 0%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ha-recommendation-panel mt-4">
+                    <div class="ha-recommendation-title">
+                        <i class="fas fa-heart-pulse text-danger"></i> Health Recommendation
+                    </div>
+                    <div class="ha-recommendation-item">
+                        <i class="fas fa-circle-info text-primary"></i>
+                        <div><strong>Guidance:</strong> ${guidance}</div>
+                    </div>
+                    <div class="ha-recommendation-item">
+                        <i class="fas fa-shield-halved text-success"></i>
+                        <div><strong>Preventive Care:</strong> ${preventive}</div>
+                    </div>
+                    <div class="ha-recommendation-item">
+                        <i class="fas fa-lightbulb text-warning"></i>
+                        <div><strong>Lifestyle Tip:</strong> ${lifestyle}</div>
+                    </div>
+                </div>
+
+                <p class="text-center text-muted mt-3 mb-0 fs-12">
+                    <i class="fas fa-triangle-exclamation me-1"></i> <strong>Disclaimer:</strong> This assessment is for informational purposes only and is not a substitute for professional medical advice.
+                </p>
+            </div>
+        `;
+
+        resultContainer.classList.remove('d-none');
+        
+        setTimeout(() => {
+            const pct = Math.min(Math.max(((bmi - 10) / 30) * 100, 0), 100);
+            const pointer = document.getElementById('bmiPointer');
+            if (pointer) pointer.style.left = pct + '%';
+        }, 100);
+
+        resultContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    // ── Calorie Calculator (Mifflin-St Jeor) ──
+    document.getElementById('calorieForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const age = parseInt(document.getElementById('calAge').value);
+        const gender = document.getElementById('calGender').value;
+        const height = parseFloat(document.getElementById('calHeight').value);
+        const weight = parseFloat(document.getElementById('calWeight').value);
+        const activity = parseFloat(document.getElementById('calActivity').value);
+        if (!age || !gender || !height || !weight || !activity) return;
+
+        let bmr;
+        if (gender === 'male') {
+            bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+        } else {
+            bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+        }
+
+        const maintenance = Math.round(bmr * activity);
+        const lose = Math.round(maintenance - 500);
+        const gain = Math.round(maintenance + 500);
+
+        let advice = '', tip = '';
+        if (activity <= 1.375) {
+            advice = "Your current calorie requirement supports maintaining your present weight. Consider incorporating moderate daily physical activities (like brisk walking) to elevate metabolic efficiency.";
+        } else {
+            advice = "Due to your active daily profile, your body burns calories at a higher rate. Ensure your intake matches your expenditure with healthy macronutrient levels.";
+        }
+        tip = "Focus on nutrient-rich foods instead of only increasing calorie quantities. Select lean proteins, whole grains, and healthy fats.";
+
+        const resultContainer = document.getElementById('calorieResult');
+        resultContainer.innerHTML = `
+            <div class="ha-premium-result-card">
+                <div class="ha-value-display">${maintenance.toLocaleString()}</div>
+                <div class="ha-label-display">Recommended Maintenance Calories / Day</div>
+                
+                <div class="row g-3 mt-3">
+                    <div class="col-md-4">
+                        <div class="ha-mini-stat h-100" style="border-top: 4px solid #38ef7d; border-radius: 16px;">
+                            <div class="ha-mini-stat-val text-success">${lose.toLocaleString()}</div>
+                            <div class="ha-mini-stat-label">Weight Loss</div>
+                            <div class="text-muted small mt-1">-500 kcal/day</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="ha-mini-stat h-100" style="border-top: 4px solid #f2c94c; border-radius: 16px;">
+                            <div class="ha-mini-stat-val text-warning">${maintenance.toLocaleString()}</div>
+                            <div class="ha-mini-stat-label">Weight Maintenance</div>
+                            <div class="text-muted small mt-1">Base Needs</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="ha-mini-stat h-100" style="border-top: 4px solid #5b86e5; border-radius: 16px;">
+                            <div class="ha-mini-stat-val text-primary">${gain.toLocaleString()}</div>
+                            <div class="ha-mini-stat-label">Weight Gain</div>
+                            <div class="text-muted small mt-1">+500 kcal/day</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ha-recommendation-panel mt-4">
+                    <div class="ha-recommendation-title">
+                        <i class="fas fa-heart-pulse text-danger"></i> Health Recommendation
+                    </div>
+                    <div class="ha-recommendation-item">
+                        <i class="fas fa-circle-info text-primary"></i>
+                        <div><strong>Guidance:</strong> ${advice}</div>
+                    </div>
+                    <div class="ha-recommendation-item">
+                        <i class="fas fa-utensils text-success"></i>
+                        <div><strong>Healthy Lifestyle Tip:</strong> ${tip}</div>
+                    </div>
+                    <div class="ha-recommendation-item">
+                        <i class="fas fa-shield-halved text-warning"></i>
+                        <div><strong>Preventive Care:</strong> Avoid extreme calorie deficits (under 1200 kcal/day) or massive surpluses, which can negatively impact muscle preservation and hormonal balance.</div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        resultContainer.classList.remove('d-none');
+        resultContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    // ── Water Intake Calculator ──
+    document.getElementById('waterForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const weight = parseFloat(document.getElementById('waterWeight').value);
+        const activityExtra = parseFloat(document.getElementById('waterActivity').value);
+        if (!weight && weight !== 0) return;
+
+        // Base: 35ml per kg body weight + activity bonus
+        const baseLiters = (weight * 35) / 1000;
+        const totalLiters = baseLiters + parseFloat(activityExtra);
+        const totalRound = totalLiters.toFixed(1);
+        const glasses = Math.ceil((totalLiters * 1000) / 250);
+
+        let advice = '', weatherTip = 'In warmer environments or summer months, increase consumption to compensate for sweat loss.';
+
+        if (activityExtra >= 0.7) {
+            advice = "Because of your high activity level, your body requires additional fluids to remain properly hydrated and recover.";
+        } else {
+            advice = "Maintaining proper hydration supports concentration, digestion, skin elasticity, and overall body function.";
+        }
+
+        const resultContainer = document.getElementById('waterResult');
+        resultContainer.innerHTML = `
+            <div class="ha-premium-result-card text-center">
+                <div class="row align-items-center">
+                    <div class="col-md-6 mb-4 mb-md-0">
+                        <div class="ha-value-display">${totalRound} Liters</div>
+                        <div class="ha-label-display">Recommended Daily Water Intake</div>
+                        <div class="small text-muted mt-2" id="waterCups">${glasses} standard glasses (250ml each)</div>
+                        
+                        <div class="d-flex justify-content-center gap-2 flex-wrap mt-3" id="waterGlasses">
+                            <!-- Glasses loaded dynamically -->
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="ha-water-meter-container">
+                            <svg class="ha-water-meter-svg" width="140" height="140">
+                                <circle class="ha-water-meter-bg" cx="70" cy="70" r="60"></circle>
+                                <circle class="ha-water-meter-fill" id="waterMeterFill" cx="70" cy="70" r="60"></circle>
+                            </svg>
+                            <div class="ha-water-meter-text">
+                                <div class="ha-water-meter-percent" id="waterPercent">0%</div>
+                                <div class="ha-water-meter-subtext">Hydrated</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ha-recommendation-panel mt-4">
+                    <div class="ha-recommendation-title">
+                        <i class="fas fa-heart-pulse text-danger"></i> Hydration & Wellness Guidelines
+                    </div>
+                    <div class="ha-recommendation-item">
+                        <i class="fas fa-circle-info text-primary"></i>
+                        <div><strong>Hydration Advice:</strong> ${advice}</div>
+                    </div>
+                    <div class="ha-recommendation-item">
+                        <i class="fas fa-droplet text-info"></i>
+                        <div><strong>Hydration Reminder:</strong> Drink water consistently throughout the day rather than consuming large amounts at once.</div>
+                    </div>
+                    <div class="ha-recommendation-item">
+                        <i class="fas fa-sun text-warning"></i>
+                        <div><strong>Lifestyle Tip:</strong> ${weatherTip} Keep a reusable bottle handy to keep track of your progress.</div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        resultContainer.classList.remove('d-none');
+        
+        // Render glass icons
+        let glassHtml = '';
+        for (let i = 0; i < Math.min(glasses, 16); i++) {
+            glassHtml += '<i class="fas fa-glass-water ha-water-glass mx-1"></i>';
+        }
+        if (glasses > 16) {
+            glassHtml += `<span class="ms-1 fw-bold text-info">+${glasses - 16}</span>`;
+        }
+        document.getElementById('waterGlasses').innerHTML = glassHtml;
+
+        // Animate circular gauge
+        setTimeout(() => {
+            const fillElement = document.getElementById('waterMeterFill');
+            const percentElement = document.getElementById('waterPercent');
+            if (fillElement && percentElement) {
+                fillElement.style.strokeDashoffset = '0';
+                
+                let currentPercent = 0;
+                const interval = setInterval(() => {
+                    if (currentPercent >= 100) {
+                        clearInterval(interval);
+                    } else {
+                        currentPercent += 2;
+                        percentElement.textContent = currentPercent + '%';
+                    }
+                }, 15);
+            }
+        }, 150);
+
+        resultContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    // ── Blood Donation Eligibility ──
+    document.getElementById('bloodForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const age = parseInt(document.getElementById('bloodAge').value);
+        const weight = parseFloat(document.getElementById('bloodWeight').value);
+        const lastDonationStr = document.getElementById('bloodLastDonation').value;
+
+        if (!age || !weight) return;
+
+        let eligible = true;
+        let reasons = [];
+        let status = 'Eligible';
+        let statusClass = 'ha-result-eligible';
+        let iconClass = 'fa-circle-check text-success';
+        let feedbackMessage = '';
+        let guidance = '';
+        let preventive = '';
+        let lifestyle = '';
+
+        // Age check (17–65)
+        if (age < 17) {
+            eligible = false;
+            reasons.push('You must be at least 17 years old to donate blood.');
+            status = 'Not Eligible';
+            statusClass = 'ha-result-ineligible';
+            iconClass = 'fa-circle-xmark text-danger';
+        } else if (age > 65) {
+            eligible = false;
+            reasons.push('Donors over 65 may need medical clearance before donating.');
+            status = 'Temporarily Not Eligible';
+            statusClass = 'ha-badge-over'; 
+            iconClass = 'fa-triangle-exclamation text-warning';
+        }
+
+        // Weight check (>50 kg)
+        if (weight < 50) {
+            eligible = false;
+            reasons.push('Minimum weight for blood donation is 50 kg (110 lbs).');
+            status = 'Not Eligible';
+            statusClass = 'ha-result-ineligible';
+            iconClass = 'fa-circle-xmark text-danger';
+        }
+
+        // Last donation check (56 days / 8 weeks)
+        if (lastDonationStr) {
+            const lastDonation = new Date(lastDonationStr);
+            const today = new Date();
+            const diffDays = Math.floor((today - lastDonation) / (1000 * 60 * 60 * 24));
+            if (diffDays < 56) {
+                eligible = false;
+                const remaining = 56 - diffDays;
+                reasons.push('You must wait at least 56 days between donations. You have ' + remaining + ' day(s) remaining.');
+                status = 'Temporarily Not Eligible';
+                statusClass = 'ha-badge-over'; 
+                iconClass = 'fa-clock text-warning';
+            }
+        }
+
+        if (status === 'Eligible') {
+            feedbackMessage = 'You meet the basic blood donation requirements and may proceed with donor registration.';
+            guidance = "You meet all the standard criteria for blood donation. Thank you for your interest in saving lives!";
+            preventive = "Ensure you undergo a quick pre-donation health check at the camp (pulse, BP, hemoglobin count).";
+            lifestyle = "Get a good night's sleep (7-8 hours), eat a healthy iron-rich meal, and drink plenty of water before your appointment.";
+        } else if (status === 'Temporarily Not Eligible') {
+            feedbackMessage = 'You recently donated blood or have conditions requiring wait time. Please wait until the recovery period has passed.';
+            guidance = reasons.join(' ');
+            preventive = "Consult a health professional or doctor if you have other temporary medical treatments (e.g. antibiotics).";
+            lifestyle = "Focus on nutrient-dense foods, particularly iron-rich items (spinach, lentils, red meat) to regenerate blood volume.";
+        } else {
+            feedbackMessage = 'You currently do not meet one or more primary donation requirements. Please review the guidelines.';
+            guidance = reasons.join(' ');
+            preventive = "Schedule a consultation with your primary physician to discuss health conditions or weight management if needed.";
+            lifestyle = "You can still contribute by spreading blood drive awareness or volunteering at local camps.";
+        }
+
+        const resultContainer = document.getElementById('bloodResult');
+        resultContainer.innerHTML = `
+            <div class="ha-premium-result-card">
+                <div class="ha-result-card ${statusClass === 'ha-badge-over' ? '' : statusClass}" style="${statusClass === 'ha-badge-over' ? 'background: linear-gradient(135deg, #fffbeb, #fef3c7); border: 1px solid rgba(245,158,11,0.2);' : ''}">
+                    <div class="ha-result-icon"><i class="fas ${iconClass}"></i></div>
+                    <div class="ha-result-value" style="font-size: 2.2rem; margin-bottom: 12px; color: ${status === 'Eligible' ? '#0f5132' : (status === 'Not Eligible' ? '#842029' : '#664d03')}">${status}</div>
+                    <div class="ha-result-label text-muted" style="text-transform: none; font-size: 0.95rem; font-weight: normal; letter-spacing: 0;">${feedbackMessage}</div>
+                </div>
+
+                <div class="ha-recommendation-panel mt-4">
+                    <div class="ha-recommendation-title">
+                        <i class="fas fa-heart-pulse text-danger"></i> Blood Donation Advice
+                    </div>
+                    <div class="ha-recommendation-item">
+                        <i class="fas fa-circle-info text-primary"></i>
+                        <div><strong>Eligibility Reason:</strong> ${guidance}</div>
+                    </div>
+                    <div class="ha-recommendation-item">
+                        <i class="fas fa-shield-halved text-success"></i>
+                        <div><strong>Pre-Donation Check:</strong> ${preventive}</div>
+                    </div>
+                    <div class="ha-recommendation-item">
+                        <i class="fas fa-lightbulb text-warning"></i>
+                        <div><strong>Lifestyle Guideline:</strong> ${lifestyle}</div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4 ${eligible ? '' : 'd-none'}" id="bloodEligibleAction">
+                    <a href="blood-donation.html?eligible=true&age=${encodeURIComponent(age)}&weight=${encodeURIComponent(weight)}" class="btn btn-danger rounded-pill px-5 py-3 fw-bold shadow">
+                        <i class="fas fa-hand-holding-droplet me-2"></i>Register as a Blood Donor Now
+                    </a>
+                </div>
+                
+                <p class="text-center text-muted mt-3 mb-0 fs-12">
+                    <i class="fas fa-triangle-exclamation me-1"></i> Consult your healthcare provider if you are unsure about your eligibility status.
+                </p>
+            </div>
+        `;
+
+        resultContainer.classList.remove('d-none');
+        resultContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+    </script>
+
+    <!-- Hospital / Clinic Login Modal -->
+    <div class="modal fade" id="hospitalLoginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0 bg-gradient-primary">
+                    <div>
+                        <h5 class="modal-title text-white fw-bold mb-1"><i class="fas fa-hospital me-2"></i>Healthcare
+                            Portal Login</h5>
+                        <p class="text-white-50 mb-0 fs-13">Select your facility type to continue</p>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="d-grid gap-3">
+                        <a href="../backend/?route=auth/login"
+                            class="text-decoration-none d-flex align-items-center p-3 rounded-14 transition-2 border border-white/10 mt-2 bg-slate-dark"
+                            title="Super Admin Administrative Login">
+                            <div class="text-white-forced icon-box-50-custom bg-indigo-icon me-3">
+                                <i class="fas fa-shield-halved"></i>
+                            </div>
+                            <div>
+                                <div class="fw-bold text-white-forced">Super Admin Login</div>
+                                <div class="fs-13 text-white-50">Global platform oversight & control</div>
+                            </div>
+                            <i class="fas fa-chevron-right ms-auto text-white-50"></i>
+                        </a>
+                        <a href="../backend/?route=auth/login"
+                            class="text-decoration-none d-flex align-items-center p-3 rounded-14 transition-2 login-card-hospital"
+                            title="Hospital Administrative Login">
+                            <div class="bg-primary text-white rounded-circle icon-box-50 me-3">
+                                <i class="fas fa-hospital"></i>
+                            </div>
+                            <div>
+                                <div class="fw-bold">Hospital Admin</div>
+                                <div class="fs-13">Emergency dispatch & triage control</div>
+                            </div>
+                            <i class="fas fa-chevron-right ms-auto"></i>
+                        </a>
+                        <a href="../backend/?route=auth/login"
+                            class="text-decoration-none d-flex align-items-center p-3 rounded-14 transition-2 login-card-clinic"
+                            title="Clinic Administrative Login">
+                            <div class="bg-success text-white rounded-circle icon-box-50 me-3">
+                                <i class="fas fa-clinic-medical"></i>
+                            </div>
+                            <div>
+                                <div class="fw-bold">Clinic Portal</div>
+                                <div class="fs-13">Patient records & lab sync</div>
+                            </div>
+                            <i class="fas fa-chevron-right ms-auto"></i>
+                        </a>
+                    </div>
+                    <p class="text-center text-muted mt-3 mb-0 fs-12">Login credentials are provided
+                        by your system administrator.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+
+
+

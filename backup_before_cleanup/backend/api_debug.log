@@ -1,0 +1,4 @@
+[2026-04-01 19:32:38] DietPlan Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'fyp_mediqu.diet_plans' doesn't exist
+Payload: {"name":"Munim Abbas","phone":"+923344739339","age":"26","weight":"50","height":"66","hospitalId":"13","doctorId":"","goal":"weight_gain","conditions":""}
+[2026-04-01 19:32:51] DietPlan Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'fyp_mediqu.diet_plans' doesn't exist
+Payload: {"name":"Munim Abbas","phone":"+923344739339","age":"26","weight":"50","height":"66","hospitalId":"13","doctorId":"","goal":"weight_gain","conditions":""}

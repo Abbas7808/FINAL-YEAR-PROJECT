@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Test - Med-Nova</title>
+    <!-- JS SCRIPTS START -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+</head>
+<body>
+    <h1>API Connection Test</h1>
+    <div id="results"></div>
+
+    <!-- JS SCRIPTS START -->
+    <script>
+        const getBaseApiUrl = () => {
+            if (window.location.hostname === 'fyp.nexsoft.site' || window.location.hostname === 'www.fyp.nexsoft.site') {
+                return 'https://fyp.nexsoft.site/backend/index.php?route=api';
+            }
+            const path = window.location.pathname;
+            const frontendIndex = path.indexOf('/frontend/');
+            if (frontendIndex !== -1) {
+                const projectFolder = path.substring(0, frontendIndex);
+                return `${window.location.origin}${projectFolder}/backend/index.php?route=api`;
+            }
+            return '../backend/index.php?route=api';
+        };
+        const API_URL = getBaseApiUrl();
+
+        async function testAPI() {
+            const results = document.getElementById('results');
+
+            try {
+                // Test regions
+                const regionsResponse = await fetch(`${API_URL}/regions`);
+                const regions = await regionsResponse.json();
+                results.innerHTML += `<h2>Regions (${regions.length})</h2>`;
+                results.innerHTML += regions.map(r => `<div>${r.name}</div>`).join('');
+
+                // Test hospitals
+                const hospitalsResponse = await fetch(`${API_URL}/hospitals`);
+                const hospitals = await hospitalsResponse.json();
+                results.innerHTML += `<h2>Hospitals (${hospitals.length})</h2>`;
+                results.innerHTML += hospitals.map(h => `<div>${h.name} (${h.type})</div>`).join('');
+
+                // Test doctors
+                const doctorsResponse = await fetch(`${API_URL}/doctors`);
+                const doctors = await doctorsResponse.json();
+                results.innerHTML += `<h2>Doctors (${doctors.length})</h2>`;
+                results.innerHTML += doctors.map(d => `<div>${d.name} (${d.specialty})</div>`).join('');
+
+            } catch (error) {
+                results.innerHTML += `<div style="color: red;">Error: ${error.message}</div>`;
+            }
+        }
+
+        testAPI();
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,17 @@
+table {
+  width: 100%;
+  table-layout: auto;
+  word-break: break-word;
+}
+th, td {
+  word-wrap: break-word;
+  white-space: normal;
+}
+pre, code {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+body {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}

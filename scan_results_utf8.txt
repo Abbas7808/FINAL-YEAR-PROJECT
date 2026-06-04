@@ -1,0 +1,319 @@
+﻿Scanning 189 files...
+
+Γ¥î Found 79 potentially broken links/assets:
+- In /frontend\about.html:
+  Link: health-assessment.html#bmi
+  Reason: Local file not found (health-assessment.html#bmi)
+
+- In /frontend\about.html:
+  Link: health-assessment.html#calories
+  Reason: Local file not found (health-assessment.html#calories)
+
+- In /frontend\about.html:
+  Link: health-assessment.html#water
+  Reason: Local file not found (health-assessment.html#water)
+
+- In /frontend\about.html:
+  Link: health-assessment.html#blood-eligibility
+  Reason: Local file not found (health-assessment.html#blood-eligibility)
+
+- In /frontend\ai_scanner.html:
+  Link: health-assessment.html#bmi
+  Reason: Local file not found (health-assessment.html#bmi)
+
+- In /frontend\ai_scanner.html:
+  Link: health-assessment.html#calories
+  Reason: Local file not found (health-assessment.html#calories)
+
+- In /frontend\ai_scanner.html:
+  Link: health-assessment.html#water
+  Reason: Local file not found (health-assessment.html#water)
+
+- In /frontend\ai_scanner.html:
+  Link: health-assessment.html#blood-eligibility
+  Reason: Local file not found (health-assessment.html#blood-eligibility)
+
+- In /frontend\appointment.html:
+  Link: health-assessment.html#bmi
+  Reason: Local file not found (health-assessment.html#bmi)
+
+- In /frontend\appointment.html:
+  Link: health-assessment.html#calories
+  Reason: Local file not found (health-assessment.html#calories)
+
+- In /frontend\appointment.html:
+  Link: health-assessment.html#water
+  Reason: Local file not found (health-assessment.html#water)
+
+- In /frontend\appointment.html:
+  Link: health-assessment.html#blood-eligibility
+  Reason: Local file not found (health-assessment.html#blood-eligibility)
+
+- In /frontend\appointment_backup.html:
+  Link: health-assessment.html#bmi
+  Reason: Local file not found (health-assessment.html#bmi)
+
+- In /frontend\appointment_backup.html:
+  Link: health-assessment.html#calories
+  Reason: Local file not found (health-assessment.html#calories)
+
+- In /frontend\appointment_backup.html:
+  Link: health-assessment.html#water
+  Reason: Local file not found (health-assessment.html#water)
+
+- In /frontend\appointment_backup.html:
+  Link: health-assessment.html#blood-eligibility
+  Reason: Local file not found (health-assessment.html#blood-eligibility)
+
+- In /frontend\appointment_backup.html:
+  Link: health-assessment.html#bmi
+  Reason: Local file not found (health-assessment.html#bmi)
+
+- In /frontend\appointment_backup.html:
+  Link: health-assessment.html#calories
+  Reason: Local file not found (health-assessment.html#calories)
+
+- In /frontend\appointment_backup.html:
+  Link: health-assessment.html#water
+  Reason: Local file not found (health-assessment.html#water)
+
+- In /frontend\appointment_backup.html:
+  Link: health-assessment.html#blood-eligibility
+  Reason: Local file not found (health-assessment.html#blood-eligibility)
+
+- In /frontend\blog.html:
+  Link: health-assessment.html#bmi
+  Reason: Local file not found (health-assessment.html#bmi)
+
+- In /frontend\blog.html:
+  Link: health-assessment.html#calories
+  Reason: Local file not found (health-assessment.html#calories)
+
+- In /frontend\blog.html:
+  Link: health-assessment.html#water
+  Reason: Local file not found (health-assessment.html#water)
+
+- In /frontend\blog.html:
+  Link: health-assessment.html#blood-eligibility
+  Reason: Local file not found (health-assessment.html#blood-eligibility)
+
+- In /frontend\blood-donation.html:
+  Link: health-assessment.html#bmi
+  Reason: Local file not found (health-assessment.html#bmi)
+
+- In /frontend\blood-donation.html:
+  Link: health-assessment.html#calories
+  Reason: Local file not found (health-assessment.html#calories)
+
+- In /frontend\blood-donation.html:
+  Link: health-assessment.html#water
+  Reason: Local file not found (health-assessment.html#water)
+
+- In /frontend\blood-donation.html:
+  Link: health-assessment.html#blood-eligibility
+  Reason: Local file not found (health-assessment.html#blood-eligibility)
+
+- In /frontend\contact.html:
+  Link: health-assessment.html#bmi
+  Reason: Local file not found (health-assessment.html#bmi)
+
+- In /frontend\contact.html:
+  Link: health-assessment.html#calories
+  Reason: Local file not found (health-assessment.html#calories)
+
+- In /frontend\contact.html:
+  Link: health-assessment.html#water
+  Reason: Local file not found (health-assessment.html#water)
+
+- In /frontend\contact.html:
+  Link: health-assessment.html#blood-eligibility
+  Reason: Local file not found (health-assessment.html#blood-eligibility)
+
+- In /frontend\diet_plan.html:
+  Link: health-assessment.html#bmi
+  Reason: Local file not found (health-assessment.html#bmi)
+
+- In /frontend\diet_plan.html:
+  Link: health-assessment.html#calories
+  Reason: Local file not found (health-assessment.html#calories)
+
+- In /frontend\diet_plan.html:
+  Link: health-assessment.html#water
+  Reason: Local file not found (health-assessment.html#water)
+
+- In /frontend\diet_plan.html:
+  Link: health-assessment.html#blood-eligibility
+  Reason: Local file not found (health-assessment.html#blood-eligibility)
+
+- In /frontend\doctors.html:
+  Link: health-assessment.html#bmi
+  Reason: Local file not found (health-assessment.html#bmi)
+
+- In /frontend\doctors.html:
+  Link: health-assessment.html#calories
+  Reason: Local file not found (health-assessment.html#calories)
+
+- In /frontend\doctors.html:
+  Link: health-assessment.html#water
+  Reason: Local file not found (health-assessment.html#water)
+
+- In /frontend\doctors.html:
+  Link: health-assessment.html#blood-eligibility
+  Reason: Local file not found (health-assessment.html#blood-eligibility)
+
+- In /frontend\emergency_sos.html:
+  Link: health-assessment.html#bmi
+  Reason: Local file not found (health-assessment.html#bmi)
+
+- In /frontend\emergency_sos.html:
+  Link: health-assessment.html#calories
+  Reason: Local file not found (health-assessment.html#calories)
+
+- In /frontend\emergency_sos.html:
+  Link: health-assessment.html#water
+  Reason: Local file not found (health-assessment.html#water)
+
+- In /frontend\emergency_sos.html:
+  Link: health-assessment.html#blood-eligibility
+  Reason: Local file not found (health-assessment.html#blood-eligibility)
+
+- In /frontend\emergency_sos.html:
+  Link: sos_emergency_hero_1775193981012.png
+  Reason: Local file not found (sos_emergency_hero_1775193981012.png)
+
+- In /frontend\emergency_triage.html:
+  Link: health-assessment.html#bmi
+  Reason: Local file not found (health-assessment.html#bmi)
+
+- In /frontend\emergency_triage.html:
+  Link: health-assessment.html#calories
+  Reason: Local file not found (health-assessment.html#calories)
+
+- In /frontend\emergency_triage.html:
+  Link: health-assessment.html#water
+  Reason: Local file not found (health-assessment.html#water)
+
+- In /frontend\emergency_triage.html:
+  Link: health-assessment.html#blood-eligibility
+  Reason: Local file not found (health-assessment.html#blood-eligibility)
+
+- In /frontend\emergency_triage.html:
+  Link: fast_triage_hero_1775194007042.png
+  Reason: Local file not found (fast_triage_hero_1775194007042.png)
+
+- In /frontend\health-assessment.html:
+  Link: health-assessment.html#bmi
+  Reason: Local file not found (health-assessment.html#bmi)
+
+- In /frontend\health-assessment.html:
+  Link: health-assessment.html#calories
+  Reason: Local file not found (health-assessment.html#calories)
+
+- In /frontend\health-assessment.html:
+  Link: health-assessment.html#water
+  Reason: Local file not found (health-assessment.html#water)
+
+- In /frontend\health-assessment.html:
+  Link: health-assessment.html#blood-eligibility
+  Reason: Local file not found (health-assessment.html#blood-eligibility)
+
+- In /frontend\hospital_profile.html:
+  Link: health-assessment.html#bmi
+  Reason: Local file not found (health-assessment.html#bmi)
+
+- In /frontend\hospital_profile.html:
+  Link: health-assessment.html#calories
+  Reason: Local file not found (health-assessment.html#calories)
+
+- In /frontend\hospital_profile.html:
+  Link: health-assessment.html#water
+  Reason: Local file not found (health-assessment.html#water)
+
+- In /frontend\hospital_profile.html:
+  Link: health-assessment.html#blood-eligibility
+  Reason: Local file not found (health-assessment.html#blood-eligibility)
+
+- In /frontend\hospital_profile.html:
+  Link: ${fallbackImg}
+  Reason: Local file not found (${fallbackImg})
+
+- In /frontend\hospital_profile.html:
+  Link: ${docImg}
+  Reason: Local file not found (${docImg})
+
+- In /frontend\hospital_profile.html:
+  Link: ${docFallback}
+  Reason: Local file not found (${docFallback})
+
+- In /frontend\index.html:
+  Link: health-assessment.html#bmi
+  Reason: Local file not found (health-assessment.html#bmi)
+
+- In /frontend\index.html:
+  Link: health-assessment.html#calories
+  Reason: Local file not found (health-assessment.html#calories)
+
+- In /frontend\index.html:
+  Link: health-assessment.html#water
+  Reason: Local file not found (health-assessment.html#water)
+
+- In /frontend\index.html:
+  Link: health-assessment.html#blood-eligibility
+  Reason: Local file not found (health-assessment.html#blood-eligibility)
+
+- In /frontend\psychology.html:
+  Link: health-assessment.html#bmi
+  Reason: Local file not found (health-assessment.html#bmi)
+
+- In /frontend\psychology.html:
+  Link: health-assessment.html#calories
+  Reason: Local file not found (health-assessment.html#calories)
+
+- In /frontend\psychology.html:
+  Link: health-assessment.html#water
+  Reason: Local file not found (health-assessment.html#water)
+
+- In /frontend\psychology.html:
+  Link: health-assessment.html#blood-eligibility
+  Reason: Local file not found (health-assessment.html#blood-eligibility)
+
+- In /frontend\services.html:
+  Link: health-assessment.html#bmi
+  Reason: Local file not found (health-assessment.html#bmi)
+
+- In /frontend\services.html:
+  Link: health-assessment.html#calories
+  Reason: Local file not found (health-assessment.html#calories)
+
+- In /frontend\services.html:
+  Link: health-assessment.html#water
+  Reason: Local file not found (health-assessment.html#water)
+
+- In /frontend\services.html:
+  Link: health-assessment.html#blood-eligibility
+  Reason: Local file not found (health-assessment.html#blood-eligibility)
+
+- In /backend\controllers\AdminController.php:
+  Link: $login_url
+  Reason: Local file not found ($login_url)
+
+- In /backend\views\auth\login.php:
+  Link: assets/js/theme.js?v=1775114100
+  Reason: Local file not found (assets/js/theme.js)
+
+- In /backend\views\auth\login.php:
+  Link: ../logo.jpeg
+  Reason: Local file not found (../logo.jpeg)
+
+- In /backend\views\layouts\footer.php:
+  Link: assets/js/main.js?v=1775114100
+  Reason: Local file not found (assets/js/main.js)
+
+- In /backend\views\layouts\header.php:
+  Link: assets/css/style.css?v=1775114100
+  Reason: Local file not found (assets/css/style.css)
+
+- In /backend\views\layouts\header.php:
+  Link: assets/js/theme.js?v=1775114100
+  Reason: Local file not found (assets/js/theme.js)
+

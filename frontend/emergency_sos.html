@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Med Nova - SOS Command Center</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css?v=1780419041">
+    <!-- JS SCRIPTS START -->
+    <script src="https://cdn.tailwindcss.com"></script>
+<style>
+  .navbar-collapse.collapse { display: flex !important; }
+  .navbar .nav-link { color: #04214f !important; opacity: 1 !important; visibility: visible !important; }
+  .brand-logo { height: 50px !important; width: auto !important; min-width: 50px !important; }
+</style></head>
+
+<body class="sos-portal">
+    <!-- NAVBAR START -->
+    <nav class="navbar navbar-expand-xl navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/logo.jpeg" onerror="this.src='https://placehold.co/50x50/04214f/ffffff?text=MN'"
+                    alt="Med Nova" class="brand-logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" title="Toggle navigation"
+                data-bs-target="#navSiteMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navSiteMenu">
+                <ul class="navbar-nav mx-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><span class="nav-dot"></span>About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html"><span class="nav-dot"></span>Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="doctors.html"><span class="nav-dot"></span>Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><span class="nav-dot"></span>Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="blood-donation.html" class="nav-link"><span class="nav-dot"></span>Donate Blood</a>
+                    </li>
+
+                                        <!-- SMART FEATURES -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="smartFeaturesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Smart Features
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="smartFeaturesDropdown">
+                            <li><a class="dropdown-item" href="diet_plan.html"><i class="fas fa-utensils text-success me-2"></i>Smart Diet Plan</a></li>
+                            
+                        </ul>
+                    </li>
+
+                    <!-- URGENT RESPONSE -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="urgentResponseDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Urgent Response
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="urgentResponseDropdown">
+                            <li><a class="dropdown-item" href="emergency_sos.html"><i class="fas fa-satellite-dish text-danger me-2"></i>SOS Alerts</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="emergency_triage.html"><i class="fas fa-stethoscope text-primary me-2"></i>Fast Triage</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- HEALTH ASSESSMENT -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="healthAssessmentDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Health Assessment
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg ha-dropdown-menu" aria-labelledby="healthAssessmentDropdown">
+                            <li><a class="dropdown-item" href="health-assessment.html#bmi"><i class="fas fa-weight-scale text-primary me-2"></i>BMI Calculator</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#calories"><i class="fas fa-fire-flame-curved text-warning me-2"></i>Calorie Calculator</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#water"><i class="fas fa-glass-water text-info me-2"></i>Water Intake</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#blood-eligibility"><i class="fas fa-hand-holding-droplet text-danger me-2"></i>Donation Eligibility</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-1 mt-3 mt-xl-0">
+                    <a class="btn btn-primary btn-sm rounded-pill px-2" href="appointment.html">
+                        Get Appointment
+                    </a>
+                    <a class="btn btn-outline-primary btn-sm rounded-pill px-2" href="#hospitalLoginModal" data-bs-toggle="modal">
+                        Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- NAVBAR END -->
+    <!-- EMERGENCY SOS COMMAND CENTER -->
+    <section class="min-h-[85vh] pt-52 pb-24 bg-slate-950 relative overflow-hidden flex items-center">
+        <!-- Decoration Grids -->
+        <div class="absolute inset-0 z-0 opacity-10 sos-grid-overlay"></div>
+        
+        <!-- Background Imagery Overlay -->
+        <div class="absolute inset-0 z-0 opacity-20">
+            <img src="assets/sos_emergency_hero.png" 
+                 alt="SOS Background" 
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-10 bg-slate-950/40 blur-[100px] rounded-full"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent"></div>
+        </div>
+
+        <div class="container mx-auto px-4 z-10">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-red-500/10 text-red-500 rounded-full text-xs font-black tracking-widest uppercase border border-red-500/20 mb-8 animate-pulse">
+                        <i class="fas fa-satellite-dish"></i> SATELLITE LINK ACTIVE
+                    </div>
+                    <h1 class="text-5xl md:text-8xl font-black text-white mb-6 tracking-tighter leading-none sos-header-glow">
+                        Emergency <br/><span class="text-red-600">SOS</span> Command
+                    </h1>
+                </div>
+
+                <div class="bg-slate-900/60 backdrop-blur-3xl rounded-[2.5rem] border border-white/5 p-8 md:p-16 shadow-2xl relative overflow-hidden">
+                    <div class="absolute -top-24 -right-24 w-64 h-64 bg-red-600/20 blur-[100px] rounded-full"></div>
+                    
+                    <div class="relative z-10 text-center">
+                        <div class="relative inline-block mb-8">
+                            <div class="absolute inset-0 bg-red-600 blur-[30px] opacity-40 animate-pulse rounded-full"></div>
+                            <div class="w-24 h-24 bg-red-600 text-white rounded-full flex items-center justify-center relative border-4 border-white/10 shadow-2xl">
+                                <i class="fas fa-truck-medical text-4xl"></i>
+                            </div>
+                        </div>
+
+                        <h1 class="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight leading-tight">
+                            Emergency <span class="text-red-500">SOS</span> Command
+                        </h1>
+                        
+                        <p class="text-lg md:text-xl text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+                            One-tap medical extraction. Your live GPS telemetry and vital medical history will be broadcasted to the <span class="text-white font-semibold">3 nearest critical care units</span> instantly.
+                        </p>
+
+                        <div class="relative group inline-block">
+                            <div class="absolute -inset-1 bg-gradient-to-r from-red-600 to-rose-600 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                            <button onclick="simulateSOS()" 
+                                    id="sosBtn"
+                                    class="relative px-12 py-6 bg-red-600 text-white rounded-full text-2xl font-black tracking-widest shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-4">
+                                <span id="btnText">INITIATE SOS</span>
+                                <i class="fas fa-bolt-lightning"></i>
+                            </button>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 text-left">
+                            <div class="p-6 bg-white/5 rounded-2xl border border-white/10">
+                                <div class="text-red-500 mb-3 fs-30"><i class="fas fa-location-crosshairs"></i></div>
+                                <h4 class="text-white font-bold text-lg mb-1">GPS Lock</h4>
+                                <p class="text-slate-500 text-sm">34.36°N, 71.48°E (Kohat)</p>
+                            </div>
+                            <div class="p-6 bg-white/5 rounded-2xl border border-white/10">
+                                <div class="text-blue-400 mb-3 fs-30"><i class="fas fa-id-card-clip"></i></div>
+                                <h4 class="text-white font-bold text-lg mb-1">Medical Sync</h4>
+                                <p class="text-slate-500 text-sm">Universal Profile Attached</p>
+                            </div>
+                            <div class="p-6 bg-white/5 rounded-2xl border border-white/10">
+                                <div class="text-emerald-400 mb-3 fs-30"><i class="fas fa-hospital-user"></i></div>
+                                <h4 class="text-white font-bold text-lg mb-1">Unit Response</h4>
+                                <p class="text-slate-500 text-sm">Avg. ETA: 4-6 Minutes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUCCESS MODAL (CUSTOM) -->
+    <div id="sosSuccessModal" class="fixed inset-0 z-[2000] flex items-center justify-center bg-slate-950/80 backdrop-blur-md opacity-0 invisible transition-all duration-500">
+        <div class="bg-slate-900 border border-white/10 rounded-[2.5rem] p-10 max-w-lg w-full mx-4 text-center transform scale-90 transition-all duration-500">
+            <div class="relative w-24 h-24 mx-auto mb-8">
+                <div class="absolute inset-0 bg-emerald-500/20 rounded-full animate-ping"></div>
+                <div class="relative w-full h-full bg-emerald-500 text-white rounded-full flex items-center justify-center text-4xl shadow-[0_0_40px_rgba(16,185,129,0.4)]">
+                    <i class="fas fa-check"></i>
+                </div>
+            </div>
+            
+            <h3 class="text-3xl font-black text-white mb-4 tracking-tight">SIGNAL LOCKED</h3>
+            <p class="text-slate-400 mb-8 leading-relaxed">
+                Emergency units from <span class="text-white font-bold">Health Ways Emergency</span> and <span class="text-white font-bold">DHQ Hospital</span> are en route to your current GPS coordinates.
+            </p>
+            
+            <div class="bg-white/5 rounded-2xl p-4 flex items-center justify-between mb-8 border border-white/5">
+                <div class="text-left">
+                    <div class="text-xs text-slate-500 uppercase font-bold tracking-widest mb-1">Dispatch Code</div>
+                    <div class="text-emerald-400 font-mono font-bold">RD-X942-01</div>
+                </div>
+                <div class="text-right">
+                    <div class="text-xs text-slate-500 uppercase font-bold tracking-widest mb-1">Status</div>
+                    <div class="text-white font-bold">Units En Route</div>
+                </div>
+            </div>
+
+            <button onclick="closeSOSModal()" class="w-full py-4 bg-white text-slate-900 font-black rounded-2xl hover:bg-slate-100 transition-all active:scale-95 shadow-xl">
+                MONITOR DISPATCH
+            </button>
+        </div>
+    </div>
+
+    <!-- HEALTHCARE PORTAL ACCESS (LAST SECTION) -->
+    <section class="py-16 bg-slate-100 border-t border-white/5">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center mb-10">
+                <h2 class="text-2xl font-bold text-dark mb-2">Healthcare Provider Portal</h2>
+                <p class="text-muted">Administrative access for connected hospitals and partner clinics.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <!-- Super Admin Login -->
+                <a href="../backend/?route=auth/login" class="bg-white hover:shadow-lg border border-indigo-500/30 rounded-2xl p-6 flex items-center gap-4 transition-all group">
+                    <div class="w-14 h-14 bg-indigo-600 rounded-xl flex items-center justify-center text-white text-2xl group-hover:scale-110 transition-transform">
+                        <i class="fas fa-shield-halved"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-dark font-bold mb-1">Super Admin</h4>
+                        <p class="text-indigo-400/60 text-sm">Global oversight & control</p>
+                    </div>
+                    <i class="fas fa-chevron-right ms-auto text-indigo-500/20 group-hover:text-indigo-400 transition-colors"></i>
+                </a>
+
+                <!-- Hospital Login -->
+                <a href="../backend/?route=auth/login" class="bg-white hover:shadow-lg border border-white/5 rounded-2xl p-6 flex items-center gap-4 transition-all group">
+                    <div class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white text-2xl group-hover:scale-110 transition-transform">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-dark font-bold mb-1">Hospital Admin</h4>
+                        <p class="text-slate-500 text-sm">Emergency dispatch control</p>
+                    </div>
+                    <i class="fas fa-chevron-right ms-auto text-white/20 group-hover:text-blue-600 transition-colors"></i>
+                </a>
+
+                <!-- Clinic Login -->
+                <a href="../backend/?route=auth/login" class="bg-white hover:shadow-lg border border-white/5 rounded-2xl p-6 flex items-center gap-4 transition-all group">
+                    <div class="w-14 h-14 bg-green-600 rounded-xl flex items-center justify-center text-white text-2xl group-hover:scale-110 transition-transform">
+                        <i class="fas fa-clinic-medical"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-dark font-bold mb-1">Clinic Portal</h4>
+                        <p class="text-slate-500 text-sm">Patient records & lab sync</p>
+                    </div>
+                    <i class="fas fa-chevron-right ms-auto text-white/20 group-hover:text-green-600 transition-colors"></i>
+                </a>
+            </div>
+            <p class="text-center text-slate-500 mt-8 text-xs italic">Restricted Access. Credentials authorized by Provincial Health IT Department.</p>
+        </div>
+    </section>
+
+    <!-- FOOTER START -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold mb-4">Med Nova</h5>
+                    <p class="muted mb-4 fs-14">Advanced Digital Healthcare Platform for Kohat's First Smart Medical System. Reliable care at your fingertips.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-btn" title="Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-btn" title="Twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-btn" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-btn" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="fw-bold mb-4">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="about.html">About Us</a></li>
+                        <li class="mb-2"><a href="services.html">Services</a></li>
+                        <li class="mb-2"><a href="doctors.html">Find Doctors</a></li>
+                        <li class="mb-2"><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold mb-4">Our Services</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="blood-donation.html">Blood Donation</a></li>
+                        <li class="mb-2"><a href="diet_plan.html">Smart Diet Plans</a></li>
+                        <li class="mb-2"><a href="emergency_sos.html">Emergency SOS</a></li>
+                        <li class="mb-2"><a href="health-assessment.html">Health Assessment</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h6 class="fw-bold mb-4">Visit Us</h6>
+                    <div class="rounded-4 overflow-hidden shadow-sm border map-iframe-container mb-3">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3326.68060!2d71.442308!3d33.50438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d8ef537d8e6371%3A0x6bba843f5509b53!2sKohat%20University%20of%20Science%20%26%20Short%20Technology!5e0!3m2!1sen!2spk!4v1712068000000!5m2!1sen!2spk"
+                            class="map-iframe" title="KUST Location Map"
+                            allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                    <p class="muted fs-13 mb-0"><i class="fas fa-map-marker-alt me-2 text-danger"></i> Kohat University of Science & Technology, KPK, Pakistan</p>
+                </div>
+            </div>
+
+            <hr>
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="muted small mb-md-0">© 2026 Med Nova. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="d-flex gap-4 justify-content-md-end">
+                        <a href="#" class="small muted text-decoration-none">Privacy Policy</a>
+                        <a href="#" class="small muted text-decoration-none">Terms of Service</a>
+                        <a href="https://wa.me/923001234567" class="small text-success fw-bold text-decoration-none"><i class="fab fa-whatsapp me-1"></i> Support</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER END -->
+
+    <!-- Hospital / Clinic Login Modal -->
+    <div class="modal fade" id="hospitalLoginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0 bg-gradient-primary">
+                    <div>
+                        <h5 class="modal-title text-white fw-bold mb-1"><i class="fas fa-hospital me-2"></i>Healthcare
+                            Portal Login</h5>
+                        <p class="text-white-50 mb-0 fs-13">Select your facility type to continue</p>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="d-grid gap-3">
+                        <a href="../backend/?route=auth/login"
+                            class="text-decoration-none d-flex align-items-center p-3 rounded-14 transition-2 border border-white/10 mt-2 bg-slate-dark"
+                            title="Super Admin Administrative Login">
+                            <div class="text-white-forced icon-box-50-custom bg-indigo-icon me-3">
+                                <i class="fas fa-shield-halved"></i>
+                            </div>
+                            <div>
+                                <div class="fw-bold text-white-forced">Super Admin Login</div>
+                                <div class="fs-13 text-white-50">Global platform oversight & control</div>
+                            </div>
+                            <i class="fas fa-chevron-right ms-auto text-white-50"></i>
+                        </a>
+                        <a href="../backend/?route=auth/login"
+                            class="text-decoration-none d-flex align-items-center p-3 rounded-14 transition-2 login-card-hospital"
+                            title="Hospital Administrative Login">
+                            <div class="bg-primary text-white rounded-circle icon-box-50 me-3">
+                                <i class="fas fa-hospital"></i>
+                            </div>
+                            <div>
+                                <div class="fw-bold">Hospital Admin</div>
+                                <div class="fs-13">Emergency dispatch & triage control</div>
+                            </div>
+                            <i class="fas fa-chevron-right ms-auto"></i>
+                        </a>
+                        <a href="../backend/?route=auth/login"
+                            class="text-decoration-none d-flex align-items-center p-3 rounded-14 transition-2 login-card-clinic"
+                            title="Clinic Administrative Login">
+                            <div class="bg-success text-white rounded-circle icon-box-50 me-3">
+                                <i class="fas fa-clinic-medical"></i>
+                            </div>
+                            <div>
+                                <div class="fw-bold">Clinic Portal</div>
+                                <div class="fs-13">Patient records & lab sync</div>
+                            </div>
+                            <i class="fas fa-chevron-right ms-auto"></i>
+                        </a>
+                    </div>
+                    <p class="text-center text-muted mt-3 mb-0 fs-12">Login credentials are provided
+                        by your system administrator.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js?v=1780419041"></script>
+    <script>
+        function simulateSOS() {
+            const btn = document.getElementById('sosBtn');
+            const text = document.getElementById('btnText');
+            btn.classList.add('bg-emerald-600');
+            btn.classList.remove('bg-red-600');
+            text.innerText = 'BROADCASTING...';
+            
+            setTimeout(() => {
+                const modal = document.getElementById('sosSuccessModal');
+                const modalBox = modal.querySelector('div');
+                modal.classList.remove('opacity-0', 'invisible');
+                modalBox.classList.remove('scale-90');
+                modalBox.classList.add('scale-100');
+                text.innerText = 'UNITS EN ROUTE';
+            }, 2000);
+        }
+
+        function closeSOSModal() {
+            const modal = document.getElementById('sosSuccessModal');
+            const modalBox = modal.querySelector('div');
+            modal.classList.add('opacity-0', 'invisible');
+            modalBox.classList.remove('scale-100');
+            modalBox.classList.add('scale-90');
+        }
+    </script>
+    <style>
+        .sos-header-glow { text-shadow: 0 0 30px rgba(239, 68, 68, 0.4); }
+    </style>
+</body>
+</html>

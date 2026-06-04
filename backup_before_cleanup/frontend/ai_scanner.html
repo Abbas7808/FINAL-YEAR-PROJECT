@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Health Scan | Med Nova Beta</title>
+    
+    <!-- Professional Assets -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=1780419041">
+
+    <style>
+        :root {
+            --brand-main: #0ea5e9;
+            --brand-alt: #0891b2;
+            --glass-bg: rgba(255, 255, 255, 0.9);
+            --card-shadow: 0 40px 100px -20px rgba(0,0,0,0.08);
+            --neon-blue: #0ea5e9;
+            --neon-green: #10b981;
+            --neon-amber: #f59e0b;
+            --neon-red: #ef4444;
+        }
+
+        body {
+            background: #f8fafc;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #1e293b;
+        }
+        h1, h2, h3, .brand-font { font-family: 'Montserrat', sans-serif; }
+
+        /* ── IMPACT HERO ── */
+        .impact-hero {
+            position: relative; height: 550px; display: flex; align-items: center; justify-content: center;
+            background: url('rural_patient_ai_health_scan_1775200476347.png') center/cover no-repeat;
+            border-radius: 0 0 60px 60px; overflow: hidden; margin-bottom: -150px;
+            padding-top: 150px;
+        }
+        .impact-hero::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4), #f8fafc 100%);
+        }
+        .impact-hero-content { position: relative; z-index: 10; text-align: center; color: white; max-width: 800px; padding: 0 20px; }
+        .beta-badge {
+            display: inline-block; background: rgba(14, 165, 233, 0.2); border: 1px solid rgba(255,255,255,0.4);
+            padding: 5px 15px; border-radius: 100px; font-weight: 800; font-size: 0.75rem; letter-spacing: 0.1em;
+            text-transform: uppercase; margin-bottom: 20px; backdrop-filter: blur(10px);
+        }
+
+        /* ── SCANNER CARD ── */
+        .scanner-layout { position: relative; z-index: 20; padding-bottom: 100px; }
+        .glass-scanner {
+            background: var(--glass-bg); backdrop-filter: blur(20px); border-radius: 40px;
+            padding: 50px; box-shadow: var(--card-shadow); border: 1px solid white;
+        }
+
+        /* Centered Pulse Scanner */
+        .scan-action-zone { text-align: center; cursor: pointer; transition: 0.3s; padding: 40px 0; }
+        .scan-action-zone:hover { transform: scale(1.02); }
+        .scan-icon-wrapper {
+            width: 140px; height: 140px; background: white; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; margin: 0 auto 30px;
+            box-shadow: 0 20px 40px rgba(14, 165, 233, 0.1); position: relative;
+        }
+        .scan-icon-wrapper i { font-size: 3rem; color: var(--brand-main); }
+        .scan-pulse {
+            position: absolute; inset: -15px; border-radius: 50%; border: 2px solid var(--brand-main);
+            animation: scan-pulse-kf 2s infinite; opacity: 0;
+        }
+        @keyframes scan-pulse-kf { 0% { transform: scale(0.9); opacity: 0.6; } 100% { transform: scale(1.3); opacity: 0; } }
+
+        /* ── RESULT DASHBOARD (THE USER LIKED THIS) ── */
+        .result-dashboard { display: none; margin-top: 40px; }
+        
+        /* Health Score Circle */
+        .score-circle-container {
+            width: 180px; height: 180px; position: relative; margin: 0 auto 30px;
+        }
+        .score-svg { transform: rotate(-90deg); width: 180px; height: 180px; }
+        .score-circle-bg { fill: none; stroke: #f1f5f9; stroke-width: 12; }
+        .score-circle-prog {
+            fill: none; stroke-width: 12; stroke-linecap: round; stroke-dasharray: 502;
+            stroke-dashoffset: 502; transition: 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .score-text {
+            position: absolute; inset: 0; display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+        }
+        .score-num { font-size: 3.5rem; font-weight: 800; line-height: 1; }
+        .score-label { font-size: 0.7rem; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.1em; }
+
+        /* Aspect Grid */
+        .aspect-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin: 30px 0; }
+        .aspect-box {
+            background: #f8fafc; border: 1px solid #f1f5f9; border-radius: 20px; padding: 20px;
+            text-align: center; transition: 0.3s;
+        }
+        .aspect-box:hover { background: white; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .aspect-icon { font-size: 1.2rem; margin-bottom: 10px; display: block; }
+        .aspect-title { font-size: 0.65rem; font-weight: 800; color: #94a3b8; text-transform: uppercase; margin-bottom: 5px; }
+        .aspect-status { font-size: 0.85rem; font-weight: 800; }
+
+        /* AI Insight Message */
+        .insight-aura {
+            background: #eff6ff; border-radius: 24px; padding: 30px; border: 1px solid rgba(14,165,233,0.1);
+            font-size: 1.05rem; line-height: 1.6; color: #1e3a8a; position: relative; margin-top: 40px;
+        }
+        .insight-aura::before {
+            content: 'AI DIAGNOSTIC INSIGHT'; position: absolute; top: -12px; left: 30px;
+            background: var(--brand-main); color: white; font-size: 0.6rem; font-weight: 800; padding: 4px 12px; border-radius: 100px;
+        }
+
+        /* ── LOADING OVERLAY ── */
+        .scan-loading { position: fixed; inset: 0; background: rgba(255,255,255,0.95); z-index: 1000; display: none; align-items: center; justify-content: center; text-align: center; }
+        .loading-ring { width: 80px; height: 80px; border: 5px solid #f1f5f9; border-top-color: var(--brand-main); border-radius: 50%; animation: spin-kf 1s linear infinite; margin: 0 auto 20px; }
+        @keyframes spin-kf { 100% { transform: rotate(360deg); } }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .impact-hero { height: 400px; border-radius: 0 0 40px 40px; margin-bottom: -100px; }
+            .glass-scanner { padding: 30px 20px; border-radius: 30px; }
+            .score-num { font-size: 2.8rem; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR START -->
+    <nav class="navbar navbar-expand-xl navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/logo.jpeg" onerror="this.src='https://placehold.co/50x50/04214f/ffffff?text=MN'"
+                    alt="Med Nova" class="brand-logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" title="Toggle navigation"
+                data-bs-target="#navSiteMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navSiteMenu">
+                <ul class="navbar-nav mx-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><span class="nav-dot"></span>About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html"><span class="nav-dot"></span>Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="doctors.html"><span class="nav-dot"></span>Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><span class="nav-dot"></span>Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="blood-donation.html" class="nav-link"><span class="nav-dot"></span>Donate Blood</a>
+                    </li>
+
+                                        <!-- SMART FEATURES -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="smartFeaturesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Smart Features
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="smartFeaturesDropdown">
+                            <li><a class="dropdown-item" href="diet_plan.html"><i class="fas fa-utensils text-success me-2"></i>Smart Diet Plan</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="ai_scanner.html"><i class="fas fa-microscope text-primary me-2"></i>AI Scan</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- URGENT RESPONSE -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="urgentResponseDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Urgent Response
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="urgentResponseDropdown">
+                            <li><a class="dropdown-item" href="emergency_sos.html"><i class="fas fa-satellite-dish text-danger me-2"></i>SOS Alerts</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="emergency_triage.html"><i class="fas fa-stethoscope text-primary me-2"></i>Fast Triage</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- HEALTH ASSESSMENT -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="healthAssessmentDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Health Assessment
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg ha-dropdown-menu" aria-labelledby="healthAssessmentDropdown">
+                            <li><a class="dropdown-item" href="health-assessment.html#bmi"><i class="fas fa-weight-scale text-primary me-2"></i>BMI Calculator</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#calories"><i class="fas fa-fire-flame-curved text-warning me-2"></i>Calorie Calculator</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#water"><i class="fas fa-glass-water text-info me-2"></i>Water Intake</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#blood-eligibility"><i class="fas fa-hand-holding-droplet text-danger me-2"></i>Donation Eligibility</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-1 mt-3 mt-xl-0">
+                    <a class="btn btn-primary btn-sm rounded-pill px-2" href="appointment.html">
+                        Get Appointment
+                    </a>
+                    <a class="btn btn-outline-primary btn-sm rounded-pill px-2" href="#hospitalLoginModal" data-bs-toggle="modal">
+                        Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- NAVBAR END -->
+
+    <!-- ── IMPACT HERO ── -->
+    <section class="impact-hero">
+        <div class="impact-hero-content">
+            <span class="beta-badge">Diagnostic Accessibility Protocol</span>
+            <h1 class="display-3 fw-800 mb-3">Healthcare Without<br><span style="color: var(--brand-main);">Boundaries</span></h1>
+            <p class="lead opacity-90 mx-auto" style="max-width: 600px;">Our AI engine scans medical reports instantly—bringing high-quality diagnostic verification to everyone, from urban centers to remote villages.</p>
+        </div>
+    </section>
+
+    <!-- ── MAIN CONTENT ── -->
+    <div class="container scanner-layout">
+        <div class="row justify-content-center">
+            <div class="col-lg-9 col-xl-8">
+                <div class="glass-scanner" id="mainCard">
+                    
+                    <!-- UPLOAD VIEW -->
+                    <div id="uploadView">
+                        <div class="scan-action-zone" onclick="document.getElementById('medicalFile').click()">
+                            <div class="scan-icon-wrapper">
+                                <div class="scan-pulse"></div>
+                                <i class="fas fa-file-medical"></i>
+                            </div>
+                            <h2 class="fw-800 mb-2">Upload Medical Report</h2>
+                            <p class="text-muted mb-4 px-4">Simply upload a photo or scan of your blood test, lipid profile, or clinical report. Our AI will handle the decryption and cross-verification.</p>
+                            <button class="btn btn-primary rounded-pill px-5 py-3 fw-bold shadow-lg">Browse Media Library</button>
+                            <input type="file" id="medicalFile" hidden onchange="startAnalysisProcess()">
+                        </div>
+                        <div class="text-center mt-4">
+                            <img src="https://placehold.co/200x50/f1f5f9/94a3b8?text=Supported Labs: Aga Khan, Chughtai..." class="opacity-50" alt="Supported Labs">
+                        </div>
+                    </div>
+
+                    <!-- LOADING OVERLAY -->
+                    <div class="text-center py-5" id="loadingView" style="display: none;">
+                        <div class="loading-ring"></div>
+                        <h3 class="fw-800">Deciphering Biomarkers</h3>
+                        <p class="text-muted" id="loadingStage">OCV: Identifying lipid labels...</p>
+                    </div>
+
+                    <!-- RESULTS VIEW (THE EYE-CATCHING PART) -->
+                    <div id="resultView" class="result-dashboard">
+                        <div class="text-center mb-5">
+                            <div class="score-circle-container">
+                                <svg class="score-svg">
+                                    <circle class="score-circle-bg" cx="90" cy="90" r="80"></circle>
+                                    <circle id="scoreProg" class="score-circle-prog" cx="90" cy="90" r="80"></circle>
+                                </svg>
+                                <div class="score-text">
+                                    <div class="score-num" id="scoreNum">--</div>
+                                    <div class="score-label">Health Score</div>
+                                </div>
+                            </div>
+                            <h3 class="fw-800 mb-1" id="scoreVerdict">System Analysis Incomplete</h3>
+                            <p class="text-muted small">Based on decyphered lab data correlation</p>
+                        </div>
+
+                        <div class="aspect-grid" id="aspectGrid">
+                            <!-- Aspects injected by JS -->
+                        </div>
+
+                        <div class="insight-aura" id="aiMessage">
+                            <!-- AI Advice here -->
+                        </div>
+
+                        <div class="d-grid gap-3 mt-5">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <a href="doctors.html" class="btn btn-primary w-100 py-3 rounded-pill fw-bold shadow-sm"><i class="fas fa-user-md me-2"></i>Consult Specialist</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="diet_plan.html" class="btn btn-outline-primary w-100 py-3 rounded-pill fw-bold"><i class="fas fa-utensils me-2"></i>View Smart Diet</a>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-light w-100 py-3 rounded-pill fw-bold text-muted" onclick="location.reload()"><i class="fas fa-undo me-2"></i>Start New Scan</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER START -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold mb-4">Med Nova</h5>
+                    <p class="muted mb-4 fs-14">Advanced Digital Healthcare Platform for Kohat's First Smart Medical System. Reliable care at your fingertips.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="fw-bold mb-4">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="about.html">About Us</a></li>
+                        <li class="mb-2"><a href="services.html">Services</a></li>
+                        <li class="mb-2"><a href="doctors.html">Find Doctors</a></li>
+                        <li class="mb-2"><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold mb-4">Our Services</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="blood-donation.html">Blood Donation</a></li>
+                        <li class="mb-2"><a href="diet_plan.html">Smart Diet Plans</a></li>
+                        <li class="mb-2"><a href="emergency_sos.html">Emergency SOS</a></li>
+                        <li class="mb-2"><a href="health-assessment.html">Health Assessment</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h6 class="fw-bold mb-4">Visit Us</h6>
+                    <div class="rounded-4 overflow-hidden shadow-sm border map-iframe-container mb-3">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3326.68060!2d71.442308!3d33.50438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d8ef537d8e6371%3A0x6bba843f5509b53!2sKohat%20University%20of%20Science%20%26%20Short%20Technology!5e0!3m2!1sen!2spk!4v1712068000000!5m2!1sen!2spk"
+                            class="map-iframe" title="KUST Location Map"
+                            allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                    <p class="muted fs-13 mb-0"><i class="fas fa-map-marker-alt me-2 text-danger"></i> Kohat University of Science & Technology, KPK, Pakistan</p>
+                </div>
+            </div>
+
+            <hr>
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="muted small mb-md-0">© 2026 Med Nova. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="d-flex gap-4 justify-content-md-end">
+                        <a href="#" class="small muted text-decoration-none">Privacy Policy</a>
+                        <a href="#" class="small muted text-decoration-none">Terms of Service</a>
+                        <a href="https://wa.me/923001234567" class="small text-success fw-bold text-decoration-none"><i class="fab fa-whatsapp me-1"></i> Support</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER END -->
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const CLOUD_DATA = [
+            {
+                score: 84, verdict: "Healthy: High Metabolic Sync", color: "#10b981",
+                summary: "Your biomarkers show excellent metabolic synchronization. Your Lipid profile is near-optimal, though your Vitamin D levels are slightly below recommended levels. A balanced sunlight routine and targeted legumes will bridge the gap.",
+                vitals: [
+                    { label: "Cardiac", status: "Optimal", icon: "fa-heart", color: "#10b981" },
+                    { label: "Metabolic", status: "Active", icon: "fa-fire", color: "#0ea5e9" },
+                    { label: "Immune", status: "Robust", icon: "fa-shield-halved", color: "#10b981" },
+                    { label: "Vascular", status: "Clean", icon: "fa-droplet", color: "#3b82f6" }
+                ]
+            }
+        ];
+
+        function startAnalysisProcess() {
+            const file = document.getElementById('medicalFile');
+            if (file.files && file.files[0]) {
+                $('#uploadView').fadeOut(300, () => {
+                    $('#loadingView').fadeIn();
+                    simulateProcessing();
+                });
+            }
+        }
+
+        function simulateProcessing() {
+            const stages = ["OCV: Decoding Text Data...", "AGENTIC: Correlationing HDL/LDL...", "NEURAL: Identifying Kidney Strain...", "FINALIZING: Health Score Mapping..."];
+            let idx = 0;
+            const timer = setInterval(() => {
+                $('#loadingStage').text(stages[idx]);
+                idx++;
+                if (idx >= stages.length) {
+                    clearInterval(timer);
+                    showResults();
+                }
+            }, 800);
+        }
+
+        function showResults() {
+            const data = CLOUD_DATA[0];
+            $('#loadingView').fadeOut(300, () => {
+                $('#resultView').fadeIn(500);
+                
+                // Animation Score
+                $('#scoreNum').text(data.score).css('color', data.color);
+                $('#scoreVerdict').text(data.verdict).css('color', data.color);
+                const offset = 502 - (502 * data.score / 100);
+                $('#scoreProg').css({'stroke-dashoffset': offset, 'stroke': data.color});
+                
+                // Aspects
+                const grid = $('#aspectGrid').empty();
+                data.vitals.forEach(v => {
+                    grid.append(`
+                        <div class="aspect-box">
+                            <i class="fas ${v.icon} aspect-icon" style="color: ${v.color}"></i>
+                            <div class="aspect-title">${v.label}</div>
+                            <div class="aspect-status" style="color: ${v.color}">${v.status}</div>
+                        </div>
+                    `);
+                });
+
+                // Insight
+                $('#aiMessage').text(data.summary);
+            });
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Med Nova</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=1780419041">
+</head>
+
+<body>
+
+    <!-- NAVBAR (Will be updated globally next) -->
+    <!-- NAVBAR START -->
+    <nav class="navbar navbar-expand-xl navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/logo.jpeg" onerror="this.src='https://placehold.co/50x50/04214f/ffffff?text=MN'"
+                    alt="Med Nova" class="brand-logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" title="Toggle navigation"
+                data-bs-target="#navSiteMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navSiteMenu">
+                <ul class="navbar-nav mx-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><span class="nav-dot"></span>About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html"><span class="nav-dot"></span>Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="doctors.html"><span class="nav-dot"></span>Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><span class="nav-dot"></span>Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="blood-donation.html" class="nav-link"><span class="nav-dot"></span>Donate Blood</a>
+                    </li>
+
+                                        <!-- SMART FEATURES -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="smartFeaturesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Smart Features
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="smartFeaturesDropdown">
+                            <li><a class="dropdown-item" href="diet_plan.html"><i class="fas fa-utensils text-success me-2"></i>Smart Diet Plan</a></li>
+                            
+                        </ul>
+                    </li>
+
+                    <!-- URGENT RESPONSE -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="urgentResponseDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Urgent Response
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="urgentResponseDropdown">
+                            <li><a class="dropdown-item" href="emergency_sos.html"><i class="fas fa-satellite-dish text-danger me-2"></i>SOS Alerts</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="emergency_triage.html"><i class="fas fa-stethoscope text-primary me-2"></i>Fast Triage</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- HEALTH ASSESSMENT -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="healthAssessmentDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Health Assessment
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg ha-dropdown-menu" aria-labelledby="healthAssessmentDropdown">
+                            <li><a class="dropdown-item" href="health-assessment.html#bmi"><i class="fas fa-weight-scale text-primary me-2"></i>BMI Calculator</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#calories"><i class="fas fa-fire-flame-curved text-warning me-2"></i>Calorie Calculator</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#water"><i class="fas fa-glass-water text-info me-2"></i>Water Intake</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#blood-eligibility"><i class="fas fa-hand-holding-droplet text-danger me-2"></i>Donation Eligibility</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-1 mt-3 mt-xl-0">
+                    <a class="btn btn-primary btn-sm rounded-pill px-2" href="appointment.html">
+                        Get Appointment
+                    </a>
+                    <a class="btn btn-outline-primary btn-sm rounded-pill px-2" href="#hospitalLoginModal" data-bs-toggle="modal">
+                        Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- NAVBAR END -->
+
+    <!-- HERO SECTION START -->
+    <header class="blog-hero-section py-5 bg-white text-center">
+        <div class="container position-relative z-2">
+            <h1 class="display-4 fw-bold mb-3">Med Nova Updates & Insights</h1>
+            <p class="lead mx-auto text-muted max-w-720">Product updates, workflow highlights, and
+                practical health tips—focused on Med Nova’s hospital/clinic SaaS, psychological centers, diet planning,
+                and blood donation services in Kohat.</p>
+        </div>
+    </header>
+    <!-- HERO SECTION END -->
+
+    <!-- MAIN CONTENT START -->
+    <main class="py-5 bg-soft">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Blog Item 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="blog-pro-card h-100">
+                        <div class="blog-card-img-wrapper">
+                            <img src="assets/blog-mri.png"
+                                onerror="this.src='https://placehold.co/600x400/eef6ff/2f7bff?text=MRI+Technology'"
+                                class="w-100 h-100 img-cover" alt="Advanced MRI Technology in Modern Healthcare" title="Advanced MRI Technology">
+                        </div>
+                        <div class="blog-body p-4 d-flex flex-column bg-white rounded-bottom border border-top-0 h-100">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="badge bg-primary-subtle text-primary border border-primary-subtle">Platform</span>
+                                <span class="text-muted small"><i class="far fa-calendar-alt me-1"></i> Jan 15,
+                                    2026</span>
+                            </div>
+                            <h5 class="fw-bold mb-3">Hospital & Clinic SaaS: Onboarding Made Simple</h5>
+                            <p class="text-muted small mb-4">Med Nova helps facilities digitize appointment scheduling,
+                                staff workflows, and patient handling—without complicated setup.</p>
+                            <a href="#" class="text-primary fw-bold text-decoration-none mt-auto">Read Full Article <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Item 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="blog-pro-card h-100">
+                        <div class="blog-card-img-wrapper">
+                            <img src="assets/smart_booking.png"
+                                onerror="this.src='https://placehold.co/600x400/eef6ff/2f7bff?text=Smart+Booking'"
+                                class="w-100 h-100 img-cover" alt="Smart Appointment Booking System" title="Smart Booking Workflow">
+                        </div>
+                        <div class="blog-body p-4 d-flex flex-column bg-white rounded-bottom border border-top-0 h-100">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span
+                                    class="badge bg-success-subtle text-success border border-success-subtle">Appointments</span>
+                                <span class="text-muted small"><i class="far fa-calendar-alt me-1"></i> Jan 18,
+                                    2026</span>
+                            </div>
+                            <h5 class="fw-bold mb-3">Smart Booking: From Search to Appointment</h5>
+                            <p class="text-muted small mb-4">Patients can search facilities, select doctors, and submit
+                                appointment requests with clear steps and confirmation.</p>
+                            <a href="#" class="text-primary fw-bold text-decoration-none mt-auto">Read Full Article <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Item 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="blog-pro-card h-100">
+                        <div class="blog-card-img-wrapper">
+                            <img src="assets/mental_health.png"
+                                onerror="this.src='https://placehold.co/600x400/eef6ff/2f7bff?text=Mental+Wellness'"
+                                class="w-100 h-100 img-cover" alt="Mental Health and Psychological Support" title="Psychological Centers Workflow">
+                        </div>
+                        <div class="blog-body p-4 d-flex flex-column bg-white rounded-bottom border border-top-0 h-100">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span
+                                    class="badge bg-danger-subtle text-danger border border-danger-subtle">Mental Health</span>
+                                <span class="text-muted small"><i class="far fa-calendar-alt me-1"></i> Jan 20,
+                                    2026</span>
+                            </div>
+                            <h5 class="fw-bold mb-3">Separate Psychological Centers Workflow</h5>
+                            <p class="text-muted small mb-4">A dedicated module for psychological centers with
+                                privacy-aware access, scheduling, and session documentation.</p>
+                            <a href="#" class="text-primary fw-bold text-decoration-none mt-auto">Read Full Article <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Item 4 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="blog-pro-card h-100">
+                        <div class="blog-card-img-wrapper">
+                            <img src="assets/blood_registry.png"
+                                onerror="this.src='https://placehold.co/600x400/eef6ff/2f7bff?text=Blood+Registry'"
+                                class="w-100 h-100 img-cover" alt="Blood Donation and Urgent Requests Registry" title="Blood Registry System">
+                        </div>
+                        <div class="blog-body p-4 d-flex flex-column bg-white rounded-bottom border border-top-0 h-100">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span
+                                    class="badge bg-warning-subtle text-warning border border-warning-subtle">Blood</span>
+                                <span class="text-muted small"><i class="far fa-calendar-alt me-1"></i> Jan 22,
+                                    2026</span>
+                            </div>
+                            <h5 class="fw-bold mb-3">Blood Donation & Requests Registry</h5>
+                            <p class="text-muted small mb-4">Register donors, manage blood stock, and broadcast urgent
+                                blood requests across hospitals and clinics.</p>
+                            <a href="#" class="text-primary fw-bold text-decoration-none mt-auto">Read Full Article <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Item 5 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="blog-pro-card h-100">
+                        <div class="blog-card-img-wrapper">
+                            <img src="assets/blog-diet.png"
+                                onerror="this.src='https://placehold.co/600x400/eef6ff/2f7bff?text=Diet+Planner'"
+                                class="w-100 h-100 img-cover" alt="Personalized Nutrition and Diet Planning" title="Diet Planner Services">
+                        </div>
+                        <div class="blog-body p-4 d-flex flex-column bg-white rounded-bottom border border-top-0 h-100">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="badge bg-info-subtle text-info border border-info-subtle">Nutrition</span>
+                                <span class="text-muted small"><i class="far fa-calendar-alt me-1"></i> Jan 10,
+                                    2026</span>
+                            </div>
+                            <h5 class="fw-bold mb-3">Diet Planner: Personalized Nutrition Requests</h5>
+                            <p class="text-muted small mb-4">Submit your health profile and goals to receive a tailored
+                                diet plan aligned with clinical guidance and follow-up.</p>
+                            <a href="#" class="text-primary fw-bold text-decoration-none mt-auto">Read Full Article <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- MAIN CONTENT END -->
+
+    <!-- FOOTER -->
+    <!-- FOOTER START -->
+    <footer class="site-footer py-5 bg-soft">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-md-3">
+                    <div class="footer-brand d-flex align-items-center gap-3">
+                        <div class="brand-mark bg-primary text-white p-2 rounded">MN</div>
+                        <strong>Med Nova</strong>
+                    </div>
+                    <p class="muted mt-3">Dedicated to providing top-notch healthcare services. Your health is our
+                        priority.</p>
+                    <div class="footer-social mt-3">
+                        <button class="me-3 btn btn-link p-0 text-white" title="Follow us on Facebook"><i
+                                class="fab fa-facebook-f text-white"></i></button>
+                        <button class="me-3 btn btn-link p-0 text-white" title="Follow us on Twitter"><i
+                                class="fab fa-twitter text-white"></i></button>
+                        <button class="btn btn-link p-0 text-white" title="Follow us on LinkedIn"><i
+                                class="fab fa-linkedin-in text-white"></i></button>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <h6 class="fw-bold">Features</h6>
+                    <ul class="list-unstyled mt-3">
+                        <li><a href="blood-donation.html" class="text-decoration-none text-muted">Blood Donation</a>
+                        </li>
+                        <li><a href="doctors.html" class="text-decoration-none text-muted">Find Doctors</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Emergency Care</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3">
+                    <h6 class="fw-bold">Our Newsletter</h6>
+                    <p class="muted small">Stay updated with our latest health news and tips.</p>
+                    <form class="newsletter-input mt-3 d-flex align-items-center rounded-pill p-1 bg-white border max-w-320">
+                        <input class="form-control border-0 shadow-none" type="tel" placeholder="Enter WhatsApp Number"
+                            required title="WhatsApp Number for Newsletter">
+                        <button class="btn btn-primary rounded-circle ms-2" type="submit" title="Subscribe to Newsletter"><i
+                                class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+
+                <div class="col-md-3">
+                    <h6 class="fw-bold">Contact</h6>
+                    <p class="muted mt-3">
+                        <strong>WhatsApp:</strong><br>
+                        <a href="https://wa.me/923001234567?text=Hello%20Med%20Nova%2C%20I%20have%20a%20question%20about%20Med%20Nova"
+                            class="text-decoration-none text-success fw-bold" target="_blank" rel="noopener">
+                            <i class="fab fa-whatsapp me-1"></i>+92 300 1234567
+                        </a>
+                    </p>
+                    <p class="muted">Kohat, KPK, Pakistan</p>
+                </div>
+            </div>
+
+            <hr class="my-4">
+
+            <div class="d-flex justify-content-between small muted align-items-center">
+                <div>© Med Nova 2026 | All Rights Reserved</div>
+                <div class="d-flex gap-4">
+                    <a href="#" class="text-decoration-none text-muted">Privacy Policy</a>
+                    <a href="contact.html" class="text-decoration-none text-muted">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER END -->
+
+    <!-- JS SCRIPTS START -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- JS SCRIPTS START -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JS SCRIPTS START -->
+    <script src="js/app.js?v=1780419041"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+

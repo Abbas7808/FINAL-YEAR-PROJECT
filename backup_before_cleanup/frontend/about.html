@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Med Nova</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=1780419041">
+</head>
+
+<body>
+
+    <!-- NAVBAR START -->
+    <nav class="navbar navbar-expand-xl navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/logo.jpeg" onerror="this.src='https://placehold.co/50x50/04214f/ffffff?text=MN'"
+                    alt="Med Nova" class="brand-logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" title="Toggle navigation"
+                data-bs-target="#navSiteMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navSiteMenu">
+                <ul class="navbar-nav mx-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><span class="nav-dot"></span>About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html"><span class="nav-dot"></span>Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="doctors.html"><span class="nav-dot"></span>Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><span class="nav-dot"></span>Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="blood-donation.html" class="nav-link"><span class="nav-dot"></span>Donate Blood</a>
+                    </li>
+
+                                        <!-- SMART FEATURES -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="smartFeaturesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Smart Features
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="smartFeaturesDropdown">
+                            <li><a class="dropdown-item" href="diet_plan.html"><i class="fas fa-utensils text-success me-2"></i>Smart Diet Plan</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="ai_scanner.html"><i class="fas fa-microscope text-primary me-2"></i>AI Scan</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- URGENT RESPONSE -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="urgentResponseDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Urgent Response
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="urgentResponseDropdown">
+                            <li><a class="dropdown-item" href="emergency_sos.html"><i class="fas fa-satellite-dish text-danger me-2"></i>SOS Alerts</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="emergency_triage.html"><i class="fas fa-stethoscope text-primary me-2"></i>Fast Triage</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- HEALTH ASSESSMENT -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="healthAssessmentDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Health Assessment
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg ha-dropdown-menu" aria-labelledby="healthAssessmentDropdown">
+                            <li><a class="dropdown-item" href="health-assessment.html#bmi"><i class="fas fa-weight-scale text-primary me-2"></i>BMI Calculator</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#calories"><i class="fas fa-fire-flame-curved text-warning me-2"></i>Calorie Calculator</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#water"><i class="fas fa-glass-water text-info me-2"></i>Water Intake</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#blood-eligibility"><i class="fas fa-hand-holding-droplet text-danger me-2"></i>Donation Eligibility</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-1 mt-3 mt-xl-0">
+                    <a class="btn btn-primary btn-sm rounded-pill px-2" href="appointment.html">
+                        Get Appointment
+                    </a>
+                    <a class="btn btn-outline-primary btn-sm rounded-pill px-2" href="#hospitalLoginModal" data-bs-toggle="modal">
+                        Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- NAVBAR END -->
+
+    <!-- HERO SECTION START -->
+    <header class="internal-hero">
+        <div class="container text-center text-white">
+            <h1 class="display-4 fw-bold mb-3 internal-hero-title">About Med Nova</h1>
+            <p class="lead mx-auto opacity-75 max-w-600">A SaaS-based hospital and clinic platform
+                built for Kohat—appointments, specialized centers, and patient-first services in one place.</p>
+        </div>
+    </header>
+    <!-- HERO SECTION END -->
+
+    <!-- Partner Ribbon -->
+    <section class="py-0 border-bottom">
+        <div class="infinity-scroll-container small">
+            <div class="infinity-scroll-track">
+                <div class="infinity-scroll-item"><span>•</span> Our Mission: Wellness</div>
+                <div class="infinity-scroll-item"><span>•</span> Compassionate Staff</div>
+                <div class="infinity-scroll-item"><span>•</span> Patient-First Approach</div>
+                <div class="infinity-scroll-item"><span>•</span> Excellence In Healthcare</div>
+                <div class="infinity-scroll-item"><span>•</span> Our Mission: Wellness</div>
+                <div class="infinity-scroll-item"><span>•</span> Compassionate Staff</div>
+                <div class="infinity-scroll-item"><span>•</span> Patient-First Approach</div>
+                <div class="infinity-scroll-item"><span>•</span> Excellence In Healthcare</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT START -->
+    <main class="py-5">
+        <div class="container">
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-6">
+                    <img src="assets/about-holistic-health.png"
+                        onerror="this.src='https://placehold.co/600x500/eef6ff/2f7bff?text=About+Image'"
+                        class="img-fluid rounded-4 shadow-sm" alt="Holistic Care">
+                </div>
+                <div class="col-lg-6">
+                    <div class="mb-2 text-uppercase text-primary fw-bold small">Who We Are</div>
+                    <h2 class="fw-bold display-6 mb-3">A Unified Healthcare SaaS for Kohat</h2>
+                    <p class="text-muted lead fs-6">
+                        Med Nova connects patients, hospitals, clinics, and specialized centers through one digital
+                        platform. From booking appointments to managing diet plans and blood requests, our goal is to
+                        make healthcare access faster, safer, and more organized for the community.
+                    </p>
+                    <ul class="list-unstyled mt-4">
+                        <li class="d-flex align-items-start mb-3">
+                            <div class="me-3 bg-light text-primary rounded-circle p-2"><i
+                                    class="fas fa-stethoscope"></i></div>
+                            <div>
+                                <strong class="text-dark">Multi‑Hospital & Clinic System</strong>
+                                <div class="text-muted small">Appointment scheduling, departments, doctors, and patient
+                                    flow—centralized.</div>
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-start mb-3">
+                            <div class="me-3 bg-light text-primary rounded-circle p-2"><i class="fas fa-heartbeat"></i>
+                            </div>
+                            <div>
+                                <strong class="text-dark">Specialized Modules</strong>
+                                <div class="text-muted small">Separate psychological centers workflow, diet plans, and
+                                    blood donation/requests.</div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="mt-4">
+                        <a href="services.html" class="btn btn-primary rounded-pill px-4 py-2 me-3 shadow-sm">Read
+                            More</a>
+                        <a href="appointment.html" class="btn btn-outline-primary rounded-pill px-4 py-2">Make
+                            Appointment</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="row mt-5 g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card border-0 shadow-sm p-4 text-center h-100 hover-lift">
+                        <div class="fs-1 text-primary mb-3"><i class="fas fa-bolt"></i></div>
+                        <h5 class="fw-bold">Fast Response</h5>
+                        <p class="text-muted small">24/7 emergency support ready to help.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card border-0 shadow-sm p-4 text-center h-100 hover-lift">
+                        <div class="fs-1 text-primary mb-3"><i class="fas fa-user-md"></i></div>
+                        <h5 class="fw-bold">Expert Advice</h5>
+                        <p class="text-muted small">Consultations with top specialists.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card border-0 shadow-sm p-4 text-center h-100 hover-lift">
+                        <div class="fs-1 text-primary mb-3"><i class="fas fa-flask"></i></div>
+                        <h5 class="fw-bold">Modern Labs</h5>
+                        <p class="text-muted small">Advanced diagnostics & testing.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card border-0 shadow-sm p-4 text-center h-100 hover-lift">
+                        <div class="fs-1 text-primary mb-3"><i class="fas fa-rocket"></i></div>
+                        <h5 class="fw-bold">Advanced Care</h5>
+                        <p class="text-muted small">Cutting-edge medical technology.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats/Success Section -->
+            <div class="row align-items-center mt-5 gy-5 section-spacer">
+                <div class="col-lg-6 order-lg-2">
+                    <img src="assets/about-success-case.png"
+                        onerror="this.src='https://placehold.co/600x500/eef6ff/2f7bff?text=Success+Image'"
+                        class="img-fluid rounded-4 shadow-sm" alt="Successful Patient Outcomes"
+                        title="Successful Patient Outcomes">
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <h3 class="fw-bold mb-3">Digitizing Healthcare Workflows</h3>
+                    <p class="text-muted mb-4">
+                        Med Nova helps healthcare teams reduce manual work and improve service quality with structured
+                        scheduling, role-based access, and organized patient interactions—designed to scale as more
+                        facilities join the system.
+                    </p>
+                    <ul class="list-unstyled text-muted d-flex flex-column gap-2">
+                        <li class="d-flex align-items-center"><i class="fas fa-check-circle text-primary me-2"></i>
+                            Patient‑Centered Booking</li>
+                        <li class="d-flex align-items-center"><i class="fas fa-check-circle text-primary me-2"></i>
+                            Secure Role‑Based Access</li>
+                        <li class="d-flex align-items-center"><i class="fas fa-check-circle text-primary me-2"></i> 24/7
+                            Specialized Center Support</li>
+                    </ul>
+                    <div class="mt-4 d-flex align-items-center gap-3">
+                        <div class="p-3 bg-white rounded-3 shadow-sm border text-center min-w-120">
+                            <h3 class="fw-bold text-primary mb-0">10+</h3>
+                            <div class="small text-muted">Facilities (Demo)</div>
+                        </div>
+                        <div class="p-3 bg-white rounded-3 shadow-sm border text-center min-w-120">
+                            <h3 class="fw-bold text-primary mb-0">24/7</h3>
+                            <div class="small text-muted">Online Access</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- MAIN CONTENT END -->
+
+    <!-- FOOTER START -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold mb-4">Med Nova</h5>
+                    <p class="muted mb-4 fs-14">Advanced Digital Healthcare Platform for Kohat's First Smart Medical
+                        System. Reliable care at your fingertips.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="fw-bold mb-4">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="about.html">About Us</a></li>
+                        <li class="mb-2"><a href="services.html">Services</a></li>
+                        <li class="mb-2"><a href="doctors.html">Find Doctors</a></li>
+                        <li class="mb-2"><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold mb-4">Our Services</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="blood-donation.html">Blood Donation</a></li>
+                        <li class="mb-2"><a href="diet_plan.html">Smart Diet Plans</a></li>
+                        <li class="mb-2"><a href="emergency_sos.html">Emergency SOS</a></li>
+                        <li class="mb-2"><a href="health-assessment.html">Health Assessment</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h6 class="fw-bold mb-4">Visit Us</h6>
+                    <div class="rounded-4 overflow-hidden shadow-sm border map-iframe-container mb-3">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3326.68060!2d71.442308!3d33.50438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d8ef537d8e6371%3A0x6bba843f5509b53!2sKohat%20University%20of%20Science%20%26%20Short%20Technology!5e0!3m2!1sen!2spk!4v1712068000000!5m2!1sen!2spk"
+                            class="map-iframe" title="KUST Location Map" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                    <p class="muted fs-13 mb-0"><i class="fas fa-map-marker-alt me-2 text-danger"></i> Kohat University
+                        of Science & Technology, KPK, Pakistan</p>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="muted small mb-md-0">© 2026 Med Nova. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="d-flex gap-4 justify-content-md-end">
+                        <a href="#" class="small muted text-decoration-none">Privacy Policy</a>
+                        <a href="#" class="small muted text-decoration-none">Terms of Service</a>
+                        <a href="https://wa.me/923001234567" class="small text-success fw-bold text-decoration-none"><i
+                                class="fab fa-whatsapp me-1"></i> Support</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JS SCRIPTS START -->
+    <script src="js/app.js?v=1780419041"></script>
+</body>
+
+</html>
+
+
+
+
+

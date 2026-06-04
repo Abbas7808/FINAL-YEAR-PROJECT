@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment - Med Nova</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=1780419041">
+</head>
+
+<body>
+
+    <!-- NAVBAR START -->
+    <nav class="navbar navbar-expand-xl navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/logo.jpeg" onerror="this.src='https://placehold.co/50x50/04214f/ffffff?text=MN'"
+                    alt="Med Nova" class="brand-logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" title="Toggle navigation"
+                data-bs-target="#navSiteMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navSiteMenu">
+                <ul class="navbar-nav mx-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><span class="nav-dot"></span>About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html"><span class="nav-dot"></span>Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="doctors.html"><span class="nav-dot"></span>Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><span class="nav-dot"></span>Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="blood-donation.html" class="nav-link"><span class="nav-dot"></span>Donate Blood</a>
+                    </li>
+
+                                        <!-- SMART FEATURES -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="smartFeaturesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Smart Features
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="smartFeaturesDropdown">
+                            <li><a class="dropdown-item" href="diet_plan.html"><i class="fas fa-utensils text-success me-2"></i>Smart Diet Plan</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="ai_scanner.html"><i class="fas fa-microscope text-primary me-2"></i>AI Scan</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- URGENT RESPONSE -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="urgentResponseDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Urgent Response
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="urgentResponseDropdown">
+                            <li><a class="dropdown-item" href="emergency_sos.html"><i class="fas fa-satellite-dish text-danger me-2"></i>SOS Alerts</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="emergency_triage.html"><i class="fas fa-stethoscope text-primary me-2"></i>Fast Triage</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- HEALTH ASSESSMENT -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="healthAssessmentDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Health Assessment
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg ha-dropdown-menu" aria-labelledby="healthAssessmentDropdown">
+                            <li><a class="dropdown-item" href="health-assessment.html#bmi"><i class="fas fa-weight-scale text-primary me-2"></i>BMI Calculator</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#calories"><i class="fas fa-fire-flame-curved text-warning me-2"></i>Calorie Calculator</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#water"><i class="fas fa-glass-water text-info me-2"></i>Water Intake</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#blood-eligibility"><i class="fas fa-hand-holding-droplet text-danger me-2"></i>Donation Eligibility</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-1 mt-3 mt-xl-0">
+                    <a class="btn btn-primary btn-sm rounded-pill px-2" href="appointment.html">
+                        Get Appointment
+                    </a>
+                    <a class="btn btn-outline-primary btn-sm rounded-pill px-2" href="#hospitalLoginModal" data-bs-toggle="modal">
+                        Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- NAVBAR END -->
+
+    <!-- HERO SECTION START -->
+    <header class="about-hero service-hero py-5">
+        <div class="container text-center text-white py-5">
+            <h1 class="display-6 fw-bold mb-2 about-hero-title">Get An Appointment</h1>
+            <!-- NAVBAR START -->
+    <nav class="navbar navbar-expand-xl navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/logo.jpeg" onerror="this.src='https://placehold.co/50x50/04214f/ffffff?text=MN'"
+                    alt="Med Nova" class="brand-logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" title="Toggle navigation"
+                data-bs-target="#navSiteMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navSiteMenu">
+                <ul class="navbar-nav mx-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><span class="nav-dot"></span>About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html"><span class="nav-dot"></span>Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="doctors.html"><span class="nav-dot"></span>Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><span class="nav-dot"></span>Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="blood-donation.html" class="nav-link"><span class="nav-dot"></span>Donate Blood</a>
+                    </li>
+
+                                        <!-- SMART FEATURES -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="smartFeaturesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Smart Features
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="smartFeaturesDropdown">
+                            <li><a class="dropdown-item" href="diet_plan.html"><i class="fas fa-utensils text-success me-2"></i>Smart Diet Plan</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="ai_scanner.html"><i class="fas fa-microscope text-primary me-2"></i>AI Scan</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- URGENT RESPONSE -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="urgentResponseDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Urgent Response
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="urgentResponseDropdown">
+                            <li><a class="dropdown-item" href="emergency_sos.html"><i class="fas fa-satellite-dish text-danger me-2"></i>SOS Alerts</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="emergency_triage.html"><i class="fas fa-stethoscope text-primary me-2"></i>Fast Triage</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- HEALTH ASSESSMENT -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="healthAssessmentDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Health Assessment
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg ha-dropdown-menu" aria-labelledby="healthAssessmentDropdown">
+                            <li><a class="dropdown-item" href="health-assessment.html#bmi"><i class="fas fa-weight-scale text-primary me-2"></i>BMI Calculator</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#calories"><i class="fas fa-fire-flame-curved text-warning me-2"></i>Calorie Calculator</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#water"><i class="fas fa-glass-water text-info me-2"></i>Water Intake</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#blood-eligibility"><i class="fas fa-hand-holding-droplet text-danger me-2"></i>Donation Eligibility</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-1 mt-3 mt-xl-0">
+                    <a class="btn btn-primary btn-sm rounded-pill px-2" href="appointment.html">
+                        Get Appointment
+                    </a>
+                    <a class="btn btn-outline-primary btn-sm rounded-pill px-2" href="#hospitalLoginModal" data-bs-toggle="modal">
+                        Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- NAVBAR END -->
+        </div>
+    </header>
+    <!-- HERO SECTION END -->
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="appointment-card p-5 shadow-lg rounded-4 bg-white" id="appointment-form-step-1">
+
+                    <!-- PROGRESS BAR -->
+                    <div class="d-flex justify-content-center mb-5 position-relative">
+                        <div class="position-absolute top-50 start-0 w-100 bg-light" style="height: 4px; z-index: 0;">
+                        </div>
+                        <div class="position-absolute top-50 start-0 bg-primary progress-bar-fill"
+                            style="height: 4px; width: 0%; z-index: 0; transition: width 0.3s ease;"></div>
+
+                        <div class="d-flex w-100 justify-content-between position-relative" style="z-index: 1;">
+                            <div class="d-flex flex-column align-items-center text-primary">
+                                <div id="step-indicator-1"
+                                    class="step-circle rounded-circle d-flex align-items-center justify-content-center fw-bold mb-2 bg-primary text-white"
+                                    style="width: 40px; height: 40px;">1</div>
+                                <small class="fw-bold">My Info</small>
+                            </div>
+                            <div class="d-flex flex-column align-items-center text-muted">
+                                <div id="step-indicator-2"
+                                    class="step-circle rounded-circle d-flex align-items-center justify-content-center fw-bold mb-2 bg-light text-muted"
+                                    style="width: 40px; height: 40px;">2</div>
+                                <small class="fw-bold">Selection</small>
+                            </div>
+                            <div class="d-flex flex-column align-items-center text-muted">
+                                <div id="step-indicator-3"
+                                    class="step-circle rounded-circle d-flex align-items-center justify-content-center fw-bold mb-2 bg-light text-muted"
+                                    style="width: 40px; height: 40px;">3</div>
+                                <small class="fw-bold">Done</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 1: PERSONAL INFO -->
+                    <div id="step-1">
+                        <form id="step-1-form">
+                            <h3 class="fw-bold text-center mb-4">Personal Information</h3>
+                            <div class="row g-3">
+                                <div class="col-md-12">
+                                    <label class="form-label text-muted">Full Name</label>
+                                    <input class="form-control form-control-lg" id="name" name="name"
+                                        placeholder="Ex. John Doe" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-muted">Phone Number</label>
+                                    <input class="form-control form-control-lg" id="phone" name="phone" type="tel"
+                                        placeholder="+1 234 567 890" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-muted">Preferred Time</label>
+                                    <select class="form-select form-select-lg" name="time" required>
+                                        <option value="">Select Time</option>
+                                        <option value="morning">Morning (9 AM - 12 PM)</option>
+                                        <option value="afternoon">Afternoon (12 PM - 5 PM)</option>
+                                        <option value="evening">Evening (5 PM - 9 PM)</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 mt-4 text-end">
+                                    <button type="submit" class="btn btn-primary btn-lg px-5 rounded-pill">Next Step
+                                        &rarr;</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- STEP 2: REGION & DOCTOR SELECTION -->
+                    <div id="step-2" class="d-none">
+                        <form id="step-2-form">
+                            <h3 class="fw-bold text-center mb-4">Choose Location & Doctor</h3>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label text-muted">Region</label>
+                                    <select class="form-select form-select-lg" name="region" required>
+                                        <option value="">Select Region</option>
+                                        <!-- Populated via JS -->
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-muted">Hospital</label>
+                                    <select class="form-select form-select-lg" name="hospital" required disabled>
+                                        <option value="">Select Region First</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-muted">Department</label>
+                                    <select class="form-select form-select-lg" name="department" required disabled>
+                                        <option value="">Select Hospital First</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-muted">Doctor</label>
+                                    <select class="form-select form-select-lg" name="doctor" required disabled>
+                                        <option value="">Select Department First</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label class="form-label text-muted">Preferred Date</label>
+                                    <input class="form-control form-control-lg" name="date" type="date" required>
+                                </div>
+
+                                <div class="col-12 mt-4 d-flex justify-content-between">
+                                    <button type="button" id="back-to-step-1"
+                                        class="btn btn-light btn-lg px-4 rounded-pill">&larr; Back</button>
+                                    <button type="submit" class="btn btn-primary btn-lg px-5 rounded-pill">Next Step
+                                        &rarr;</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- STEP 3: DIET/DEFICIENCY -->
+                    <div id="step-3" class="d-none">
+                        <form id="step-3-form">
+                            <h3 class="fw-bold text-center mb-4">Reason & Diet Details</h3>
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <div class="alert alert-info small">
+                                        Please provide details about your deficiencies or diet requirements. This helps
+                                        your
+                                        doctor prepare a better plan.
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="form-label text-muted">Deficiency / Symptoms / Diet Goals</label>
+                                    <textarea class="form-control" name="deficiency_details" rows="5"
+                                        placeholder="E.g. Iron deficiency, need weight loss plan, experiencing hair fall..."
+                                        required></textarea>
+                                </div>
+
+                                <div class="col-12 mt-4 d-flex justify-content-between">
+                                    <button type="button" id="back-to-step-2"
+                                        class="btn btn-light btn-lg px-4 rounded-pill">&larr; Back</button>
+                                    <button type="submit" class="btn btn-primary btn-lg px-5 rounded-pill">Confirm
+                                        Appointment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- STEP 4: SUCCESS -->
+                    <div id="step-4" class="d-none text-center py-4">
+                        <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4"
+                            style="width: 80px; height: 80px; font-size: 40px;">✓</div>
+                        <h2 class="fw-bold text-success mb-3">Appointment Booked!</h2>
+                        <p class="text-muted mb-4">
+                            Thank you, <strong id="confirm-name">User</strong>. Your appointment with <strong
+                                id="confirm-doctor">Doctor</strong> on <strong id="confirm-date">Date</strong> has been
+                            requested.<br>
+                            Your diet plan details have been submitted.
+                        </p>
+                        <a href="index.html" class="btn btn-outline-primary btn-lg rounded-pill px-5">Back to Home</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <!-- FOOTER START -->
+    <footer class="site-footer py-5 bg-soft">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-md-3">
+                    <div class="footer-brand d-flex align-items-center gap-3">
+                        <div class="brand-mark bg-primary text-white p-2 rounded">MN</div>
+                        <strong>Med Nova</strong>
+                    </div>
+                    <p class="muted mt-3">Dedicated to providing top-notch healthcare services. Your health is our
+                        priority.</p>
+                    <div class="footer-social mt-3">
+                        <button class="me-3 btn btn-link p-0 text-white"><i
+                                class="fab fa-facebook-f text-white"></i></button>
+                        <button class="me-3 btn btn-link p-0 text-white"><i
+                                class="fab fa-twitter text-white"></i></button>
+                        <button class="btn btn-link p-0 text-white"><i
+                                class="fab fa-linkedin-in text-white"></i></button>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <h6 class="fw-bold">Features</h6>
+                    <ul class="list-unstyled mt-3">
+                        <li><a href="blood-donation.html" class="text-decoration-none text-muted">Blood Donation</a>
+                        </li>
+                        <li><a href="doctors.html" class="text-decoration-none text-muted">Find Doctors</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Emergency Care</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3">
+                    <h6 class="fw-bold">Our Newsletter</h6>
+                    <p class="muted small">Stay updated with our latest health news and tips.</p>
+                    <form class="newsletter-input mt-3 d-flex align-items-center rounded-pill p-1 bg-white border"
+                        style="max-width: 320px;">
+                        <input class="form-control border-0 shadow-none" type="tel" placeholder="Enter WhatsApp Number"
+                            required>
+                        <button class="btn btn-primary rounded-circle ms-2" type="submit"><i
+                                class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+
+                <div class="col-md-3">
+                    <h6 class="fw-bold">Contact</h6>
+                    <p class="muted mt-3">
+                        <strong>WhatsApp:</strong><br>
+                        <a href="https://wa.me/923001234567?text=Hello%20Med%20Nova%2C%20I%20need%20help%20booking%20an%20appointment" 
+                           class="text-decoration-none text-success fw-bold" target="_blank">
+                            <i class="fab fa-whatsapp me-1"></i>+92 300 1234567
+                        </a>
+                    </p>
+                    <p class="muted">Kohat, KPK, Pakistan</p>
+                </div>
+            </div>
+
+            <hr class="my-4">
+
+            <div class="d-flex justify-content-between small muted align-items-center">
+                <div>© Med Nova 2026 | All Rights Reserved</div>
+                <div class="d-flex gap-4">
+                    <a href="#" class="text-decoration-none text-muted">Privacy Policy</a>
+                    <a href="contact.html" class="text-decoration-none text-muted">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER END -->
+
+    <!-- JS SCRIPTS START -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- JS SCRIPTS START -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JS SCRIPTS START -->
+    <script src="js/app.js?v=1780419041"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+

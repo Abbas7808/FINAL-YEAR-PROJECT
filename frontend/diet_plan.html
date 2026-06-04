@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet Planner - Med Nova</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=1780419041">
+</head>
+
+<body>
+
+    <!-- NAVBAR START -->
+    <nav class="navbar navbar-expand-xl navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/logo.jpeg" onerror="this.src='https://placehold.co/50x50/04214f/ffffff?text=MN'"
+                    alt="Med Nova" class="brand-logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" title="Toggle navigation"
+                data-bs-target="#navSiteMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navSiteMenu">
+                <ul class="navbar-nav mx-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><span class="nav-dot"></span>About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html"><span class="nav-dot"></span>Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="doctors.html"><span class="nav-dot"></span>Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><span class="nav-dot"></span>Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="blood-donation.html" class="nav-link"><span class="nav-dot"></span>Donate Blood</a>
+                    </li>
+
+                                        <!-- SMART FEATURES -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="smartFeaturesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Smart Features
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="smartFeaturesDropdown">
+                            <li><a class="dropdown-item" href="diet_plan.html"><i class="fas fa-utensils text-success me-2"></i>Smart Diet Plan</a></li>
+                            
+                        </ul>
+                    </li>
+
+                    <!-- URGENT RESPONSE -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="urgentResponseDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Urgent Response
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="urgentResponseDropdown">
+                            <li><a class="dropdown-item" href="emergency_sos.html"><i class="fas fa-satellite-dish text-danger me-2"></i>SOS Alerts</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="emergency_triage.html"><i class="fas fa-stethoscope text-primary me-2"></i>Fast Triage</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- HEALTH ASSESSMENT -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="healthAssessmentDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Health Assessment
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg ha-dropdown-menu" aria-labelledby="healthAssessmentDropdown">
+                            <li><a class="dropdown-item" href="health-assessment.html#bmi"><i class="fas fa-weight-scale text-primary me-2"></i>BMI Calculator</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#calories"><i class="fas fa-fire-flame-curved text-warning me-2"></i>Calorie Calculator</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#water"><i class="fas fa-glass-water text-info me-2"></i>Water Intake</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#blood-eligibility"><i class="fas fa-hand-holding-droplet text-danger me-2"></i>Donation Eligibility</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-1 mt-3 mt-xl-0">
+                    <a class="btn btn-primary btn-sm rounded-pill px-2" href="appointment.html">
+                        Get Appointment
+                    </a>
+                    <a class="btn btn-outline-primary btn-sm rounded-pill px-2" href="#hospitalLoginModal" data-bs-toggle="modal">
+                        Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- NAVBAR END -->
+
+
+    <!-- HERO SECTION START -->
+    <header class="hero-redesign overflow-hidden position-relative">
+        <div class="container position-relative z-1">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-kicker-pill d-inline-flex align-items-center gap-2 mb-3 bg-success-soft text-success border border-success border-opacity-10">
+                        <span class="hero-kicker-dot bg-success"></span>
+                        <span class="small fw-800 text-uppercase tracking-wider">Smart Nutrition Portal</span>
+                    </div>
+                    <h1 class="display-4 fw-800 mb-3">
+                        Personalized <span class="text-success">Dietary Plans</span> <br> 
+                        Tailored for You.
+                    </h1>
+                    <p class="lead mb-4 opacity-90">
+                        Experience Kohat's first AI-driven nutrition engine. Get a scientifically backed diet plan that aligns with your metabolism, medical history, and fitness goals.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#diet-form-container" class="btn btn-success btn-lg rounded-pill px-4 shadow-sm hover-lift">
+                            <i class="fas fa-magic me-2"></i>Start Free Assessment
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-5 mt-xl-0">
+                    <div class="position-relative">
+                        <img src="assets/healthy_diet_hero.png" alt="Healthy Diet" class="img-fluid rounded-4 shadow-2xl border-white border-8 hover-lift-2 transition-3">
+                        <div class="position-absolute bottom-0 start-0 m-4 bg-white p-3 rounded-4 shadow-lg d-none d-md-block animate-float">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="bg-success-soft p-2 rounded-circle text-success">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div>
+                                    <div class="fw-bold text-dark small">Nutrition Approved</div>
+                                    <div class="text-muted smaller">By MN Specialists</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- HERO SECTION END -->
+
+    <!-- NUTRITION FACTS SECTION START -->
+    <section class="py-5 bg-white border-bottom border-top">
+        <div class="container">
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-8">
+                    <h2 class="fw-800 text-dark">The Pillars of a Healthy Life</h2>
+                    <p class="text-muted">A balanced diet isn't about restriction—it's about fueling your body with the right energy to live your best life in Kohat.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card border-0 bg-soft-success p-4 rounded-4 h-100 transition-3 hover-lift border-start border-4 border-success">
+                        <div class="h3 text-success mb-3"><i class="fas fa-heartbeat"></i></div>
+                        <h5 class="fw-bold">Metabolic Balance</h5>
+                        <p class="small text-muted mb-0">Help regulate your blood sugar and energy levels throughout the day with nutrient-dense complex carbohydrates.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 bg-soft-primary p-4 rounded-4 h-100 transition-3 hover-lift border-start border-4 border-primary">
+                        <div class="h3 text-primary mb-3"><i class="fas fa-shield-virus"></i></div>
+                        <h5 class="fw-bold">Stronger Immunity</h5>
+                        <p class="small text-muted mb-0">Vitamin-rich antioxidants found in fresh greens and fruits are your body's first line of defense against illness.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 bg-soft-warning p-4 rounded-4 h-100 transition-3 hover-lift border-start border-4 border-warning">
+                        <div class="h3 text-warning mb-3"><i class="fas fa-brain"></i></div>
+                        <h5 class="fw-bold">Cognitive Clarity</h5>
+                        <p class="small text-muted mb-0">Omega-3 fatty acids and 'brain foods' improve focus, memory, and overall mental wellness for a sharper mind.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- NUTRITION FACTS SECTION END -->
+
+    <!-- MAIN CONTENT START -->
+    <main class="py-6 bg-soft-light" id="diet-form-container">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-xl-8">
+                    <div class="card border-0 shadow-2xl rounded-5 overflow-hidden">
+                        <div class="row g-0">
+                            <div class="col-md-4 bg-success p-5 text-white d-flex flex-column justify-content-center text-center text-md-start">
+                                <div class="mb-4">
+                                    <i class="fas fa-file-medical-alt display-4 opacity-50"></i>
+                                </div>
+                                <h3 class="fw-bold mb-3">AI Assessment</h3>
+                                <p class="small opacity-75">Fill out your health profile carefully. Our clinical nutritionists use this data to calculate your specific caloric and macro-nutrient needs.</p>
+                                <ul class="list-unstyled small mt-4 space-y-3">
+                                    <li><i class="fas fa-circle-check me-2 text-white-50"></i> 100% Data Privacy</li>
+                                    <li><i class="fas fa-circle-check me-2 text-white-50"></i> Doctor Verified</li>
+                                    <li><i class="fas fa-circle-check me-2 text-white-50"></i> Free Consultation</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-8 p-5 bg-white">
+                                <!-- Diet Form -->
+                                <form id="diet-plan-form">
+                                    <div class="d-flex align-items-center gap-3 mb-4">
+                                        <div class="bg-success text-white p-2 rounded-circle smaller-shadow">01</div>
+                                        <h4 class="fw-bold mb-0">Vital Information</h4>
+                                    </div>
+
+                                    <div class="row g-3 mb-4">
+                                        <div class="col-md-12">
+                                            <div class="form-floating">
+                                                <input class="form-control bg-soft border-0 shadow-none" id="name" name="name" required placeholder="Full Name">
+                                                <label for="name">Full Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-floating">
+                                                <input class="form-control bg-soft border-0 shadow-none" id="phone" name="phone" type="tel" required placeholder="WhatsApp Number">
+                                                <label for="phone">WhatsApp Number</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-floating">
+                                                <input class="form-control bg-soft border-0 shadow-none" id="age" name="age" type="number" required placeholder="Age">
+                                                <label for="age">Age</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-floating">
+                                                <input class="form-control bg-soft border-0 shadow-none" id="weight" name="weight" type="number" required placeholder="Weight (kg)">
+                                                <label for="weight">Weight (kg)</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-floating">
+                                                <input class="form-control bg-soft border-0 shadow-none" id="height" name="height" type="number" required placeholder="Height (cm)">
+                                                <label for="height">Height (cm)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex align-items-center gap-3 mb-4">
+                                        <div class="bg-success text-white p-2 rounded-circle smaller-shadow">02</div>
+                                        <h4 class="fw-bold mb-0">Clinic Association</h4>
+                                    </div>
+
+                                    <div class="row g-3 mb-4">
+                                        <div class="col-md-6">
+                                            <label class="form-label text-muted small fw-bold">Select Region</label>
+                                            <select class="form-select bg-soft border-0 shadow-none" name="region" required title="Select Region">
+                                                <option value="">Select Region</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label text-muted small fw-bold">Select Hospital/Clinic</label>
+                                            <select class="form-select bg-soft border-0 shadow-none" name="hospital" required disabled title="Select Hospital">
+                                                <option value="">Select Hospital</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label class="form-label text-muted small fw-bold">Preferred Nutritionist</label>
+                                            <select class="form-select bg-soft border-0 shadow-none" name="doctor" required disabled title="Select Doctor">
+                                                <option value="">Select Doctor</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex align-items-center gap-3 mb-4">
+                                        <div class="bg-success text-white p-2 rounded-circle smaller-shadow">03</div>
+                                        <h4 class="fw-bold mb-0">Health Objective</h4>
+                                    </div>
+
+                                    <div class="row g-3 mb-4">
+                                        <div class="col-12">
+                                            <select class="form-select form-select-lg bg-soft border-0 shadow-none fw-bold text-success" name="goal" required title="Select Health Goal">
+                                                <option value="">What is your main goal?</option>
+                                                <option value="weight_loss">Weight Loss (Fat Burning)</option>
+                                                <option value="weight_gain">Weight Gain (Clean Bulk)</option>
+                                                <option value="maintain">Maintenance (Balanced Living)</option>
+                                                <option value="muscle_build">Muscle Building (Hypertrophy)</option>
+                                                <option value="general_health">General Immunity & Wellness</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-floating">
+                                                <textarea class="form-control bg-soft border-0 shadow-none textarea-md" id="conditions" name="conditions" placeholder="Medical conditions"></textarea>
+                                                <label for="conditions">List any Allergies or Chronic Conditions</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 mt-4">
+                                        <button type="submit" class="btn btn-success btn-lg w-100 rounded-pill py-3 fw-bold shadow-sm transition-2 hover-lift">
+                                            <i class="fas fa-paper-plane me-2"></i>Generate My Personalized Plan
+                                        </button>
+                                    </div>
+                                </form>
+
+                                <!-- Success Message -->
+                                <div id="diet-success" class="d-none text-center py-5">
+                                    <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4 success-icon-badge">✓</div>
+                                    <h2 class="fw-800 text-dark mb-3">Assessment Received</h2>
+                                    <p class="text-muted mb-4 px-lg-5">
+                                        Great work! Your profile is being analyzed by our AI and verified by a human nutritionist. <br>
+                                        You will receive your **Smart Diet PDF** via WhatsApp in roughly 30 minutes.
+                                    </p>
+                                    <button onclick="location.reload()" class="btn btn-outline-success btn-lg rounded-pill px-5">Back to Planner</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- MAIN CONTENT END -->
+
+    <!-- FOOTER START -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold mb-4">Med Nova</h5>
+                    <p class="muted mb-4 fs-14">Advanced Digital Healthcare Platform for Kohat's First Smart Medical System. Reliable care at your fingertips.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="fw-bold mb-4">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="about.html">About Us</a></li>
+                        <li class="mb-2"><a href="services.html">Services</a></li>
+                        <li class="mb-2"><a href="doctors.html">Find Doctors</a></li>
+                        <li class="mb-2"><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold mb-4">Our Services</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="blood-donation.html">Blood Donation</a></li>
+                        <li class="mb-2"><a href="diet_plan.html">Smart Diet Plans</a></li>
+                        <li class="mb-2"><a href="emergency_sos.html">Emergency SOS</a></li>
+                        <li class="mb-2"><a href="health-assessment.html">Health Assessment</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h6 class="fw-bold mb-4">Visit Us</h6>
+                    <div class="rounded-4 overflow-hidden shadow-sm border map-iframe-container mb-3">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3326.68060!2d71.442308!3d33.50438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d8ef537d8e6371%3A0x6bba843f5509b53!2sKohat%20University%20of%20Science%20%26%20Short%20Technology!5e0!3m2!1sen!2spk!4v1712068000000!5m2!1sen!2spk"
+                            class="map-iframe" title="KUST Location Map"
+                            allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                    <p class="muted fs-13 mb-0"><i class="fas fa-map-marker-alt me-2 text-danger"></i> Kohat University of Science & Technology, KPK, Pakistan</p>
+                </div>
+            </div>
+
+            <hr>
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="muted small mb-md-0">© 2026 Med Nova. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="d-flex gap-4 justify-content-md-end">
+                        <a href="#" class="small muted text-decoration-none">Privacy Policy</a>
+                        <a href="#" class="small muted text-decoration-none">Terms of Service</a>
+                        <a href="https://wa.me/923001234567" class="small text-success fw-bold text-decoration-none"><i class="fab fa-whatsapp me-1"></i> Support</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER END -->
+
+    <!-- JS SCRIPTS START -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js?v=1780419041"></script>
+</body>
+
+</html>
+
+
+
+
+
+

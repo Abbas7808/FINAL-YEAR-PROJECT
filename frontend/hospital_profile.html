@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Profile - MedNova</title>
+    <!-- JS SCRIPTS START -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- JS SCRIPTS START -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body class="bg-gray-50">
+
+    <!-- Navigation -->
+    <!-- NAVBAR START -->
+    <nav class="navbar navbar-expand-xl navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/logo.jpeg" onerror="this.src='https://placehold.co/50x50/04214f/ffffff?text=MN'"
+                    alt="Med Nova" class="brand-logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" title="Toggle navigation"
+                data-bs-target="#navSiteMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navSiteMenu">
+                <ul class="navbar-nav mx-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><span class="nav-dot"></span>About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html"><span class="nav-dot"></span>Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="doctors.html"><span class="nav-dot"></span>Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><span class="nav-dot"></span>Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="blood-donation.html" class="nav-link"><span class="nav-dot"></span>Donate Blood</a>
+                    </li>
+
+                                        <!-- SMART FEATURES -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="smartFeaturesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Smart Features
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="smartFeaturesDropdown">
+                            <li><a class="dropdown-item" href="diet_plan.html"><i class="fas fa-utensils text-success me-2"></i>Smart Diet Plan</a></li>
+                            
+                        </ul>
+                    </li>
+
+                    <!-- URGENT RESPONSE -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="urgentResponseDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Urgent Response
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="urgentResponseDropdown">
+                            <li><a class="dropdown-item" href="emergency_sos.html"><i class="fas fa-satellite-dish text-danger me-2"></i>SOS Alerts</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="emergency_triage.html"><i class="fas fa-stethoscope text-primary me-2"></i>Fast Triage</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- HEALTH ASSESSMENT -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="healthAssessmentDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Health Assessment
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg ha-dropdown-menu" aria-labelledby="healthAssessmentDropdown">
+                            <li><a class="dropdown-item" href="health-assessment.html#bmi"><i class="fas fa-weight-scale text-primary me-2"></i>BMI Calculator</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#calories"><i class="fas fa-fire-flame-curved text-warning me-2"></i>Calorie Calculator</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#water"><i class="fas fa-glass-water text-info me-2"></i>Water Intake</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#blood-eligibility"><i class="fas fa-hand-holding-droplet text-danger me-2"></i>Donation Eligibility</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-1 mt-3 mt-xl-0">
+                    <a class="btn btn-primary btn-sm rounded-pill px-2" href="appointment.html">
+                        Get Appointment
+                    </a>
+                    <a class="btn btn-outline-primary btn-sm rounded-pill px-2" href="#hospitalLoginModal" data-bs-toggle="modal">
+                        Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- NAVBAR END -->
+
+    <!-- Profile Header -->
+    <!-- HERO SECTION START -->
+    <header class="bg-white border-b">
+        <div class="max-w-7xl mx-auto px-4 py-12 flex flex-col md:flex-row items-start md:items-center gap-8">
+            <!-- Image Placeholder -->
+            <div
+                class="w-24 h-24 md:w-32 md:h-32 bg-gray-200 rounded-xl overflow-hidden shadow-lg flex-shrink-0 relative">
+                <img id="hospital-image" src="assets/images/hospital_placeholder.png" alt="Hospital Logo"
+                    class="w-full h-full object-cover">
+            </div>
+
+            <div class="flex-grow">
+                <div class="flex items-center gap-3 mb-2">
+                    <span id="hospital-type"
+                        class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Hospital</span>
+                    <h1 id="hospital-name" class="text-3xl font-bold text-gray-900">Loading...</h1>
+                </div>
+                <p id="hospital-address" class="text-gray-600 text-lg mb-4"><i class="fas fa-map-marker-alt mr-2"></i>
+                    ...</p>
+                <div class="flex gap-4">
+                    <a href="#" id="book-btn"
+                        class="bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 shadow-sm transition flex items-center gap-2">
+                        <i class="fas fa-calendar-check"></i> Book Appointment
+                    </a>
+                    <a href="#" id="call-btn"
+                        class="bg-white border border-gray-300 text-gray-700 px-6 py-2.5 rounded-lg hover:bg-gray-50 transition flex items-center gap-2">
+                        <i class="fas fa-phone"></i> <span id="hospital-contact">Call Now</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- HERO SECTION END -->
+
+    <!-- Main Content -->
+    <!-- MAIN CONTENT START -->
+    <main class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <!-- About Section -->
+        <div class="md:col-span-2 space-y-8">
+            <section class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2"><i
+                        class="fas fa-info-circle text-blue-600"></i> About Us</h2>
+                <div id="hospital-desc" class="prose max-w-none text-gray-600">
+                    <p>Details not available.</p>
+                </div>
+            </section>
+
+            <!-- Departments -->
+            <section class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                <h2 class="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2"><i
+                        class="fas fa-clinic-medical text-blue-600"></i> Departments & Specialties</h2>
+                <div id="departments-list" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- Dynamic -->
+                </div>
+            </section>
+
+            <!-- Doctors -->
+            <section class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                <h2 class="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2"><i
+                        class="fas fa-user-md text-blue-600"></i> Our Doctors</h2>
+                <div id="doctors-list" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <!-- Dynamic -->
+                </div>
+            </section>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="space-y-6">
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 sticky top-24">
+                <h3 class="font-bold text-gray-900 mb-4">Opening Hours</h3>
+                <div class="space-y-2 text-sm text-gray-600">
+                    <div class="flex justify-between"><span>Mon - Fri</span> <span>09:00 AM - 09:00 PM</span></div>
+                    <div class="flex justify-between"><span>Saturday</span> <span>09:00 AM - 05:00 PM</span></div>
+                    <div class="flex justify-between text-red-500"><span>Sunday</span> <span>Emergency Only</span></div>
+                </div>
+                <hr class="my-4">
+                <h3 class="font-bold text-gray-900 mb-2">Emergency Contact</h3>
+                <p class="text-2xl font-bold text-red-600"><i class="fas fa-ambulance mr-2"></i> 1122</p>
+            </div>
+        </div>
+
+    </main>
+    <!-- MAIN CONTENT END -->
+
+    <!-- FOOTER START -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>&copy; 2026 MedNova Healthcare System. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- FOOTER END -->
+
+    <!-- JS SCRIPTS START -->
+    <script>
+        const getBaseApiUrl = () => {
+            if (window.location.hostname === 'fyp.nexsoft.site' || window.location.hostname === 'www.fyp.nexsoft.site') {
+                return 'https://fyp.nexsoft.site/backend/index.php?route=api';
+            }
+            const path = window.location.pathname;
+            const frontendIndex = path.indexOf('/frontend/');
+            if (frontendIndex !== -1) {
+                const projectFolder = path.substring(0, frontendIndex);
+                return `${window.location.origin}${projectFolder}/backend/index.php?route=api`;
+            }
+            return '../backend/index.php?route=api';
+        };
+        const API_URL = getBaseApiUrl();
+
+        const hospitalImgs = [
+            'assets/hospital-1.png',
+            'assets/hospital-2.png',
+            'assets/hospital-3.png',
+            'assets/images/hospital_placeholder.png'
+        ];
+        const clinicImgs = [
+            'assets/images/hospital_placeholder.png',
+            'assets/hospital-3.png',
+            'assets/hospital-1.png'
+        ];
+        const doctorImgs = [
+            'assets/doctor-fatima.jpg',
+            'assets/doctor-male-1.jpg',
+            'assets/doctor-male-2.jpg',
+            'assets/doctor-female-1.jpg',
+            'assets/default-doctor.jpg'
+        ];
+
+        function pickImg(pool, seed) {
+            return pool[Math.abs(seed) % pool.length];
+        }
+
+        $(document).ready(function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const slug = urlParams.get('slug');
+
+            if (!slug) {
+                $('main').html('<div class="text-center p-10 text-xl text-red-500">Hospital Not Found (No Slug Provided)</div>');
+                return;
+            }
+
+            // Fetch Hospital Details
+            $.ajax({
+                url: `${API_URL}/hospitals&slug=${slug}`,
+                method: 'GET',
+                success: function (data) {
+                    if (data.error) {
+                        $('main').html('<div class="text-center p-10 text-xl text-red-500">Hospital Not Found</div>');
+                        return;
+                    }
+
+                    // Populate Data
+                    $('#hospital-name').text(data.name);
+                    
+                    const isClinic = (data.type || '').toLowerCase().includes('clinic');
+                    $('#hospital-type').text(isClinic ? 'Clinic' : 'Hospital');
+                    
+                    $('#hospital-address').html(`<i class="fas fa-map-marker-alt mr-2"></i> ${data.address}`);
+                    $('#hospital-contact').text(data.contact_info);
+                    $('#hospital-desc').html(data.description ? `<p>${data.description}</p>` : '<p class="text-gray-400">No description available.</p>');
+
+                    const pool = isClinic ? clinicImgs : hospitalImgs;
+                    const finalImg = data.image ? ('../backend/' + data.image) : pickImg(pool, data.id || 1);
+                    const fallbackImg = pool[0];
+
+                    $('#hospital-image').attr('src', finalImg).attr('onerror', `this.src='${fallbackImg}'`);
+
+                    // Links
+                    $('#call-btn').attr('href', `tel:${data.contact_info}`);
+                    $('#book-btn').attr('href', `appointment.html?hospital_id=${data.id}`);
+
+                    // Fetch Departments
+                    fetchDepartments(data.id);
+                    // Fetch Doctors
+                    fetchDoctors(data.id);
+                },
+                error: function () {
+                    $('main').html('<div class="text-center p-10 text-xl text-red-500">Error loading profile.</div>');
+                }
+            });
+        });
+
+        function fetchDepartments(hospitalId) {
+            $.ajax({
+                url: `${API_URL}/departments&hospital_id=${hospitalId}`,
+                method: 'GET',
+                success: function (data) {
+                    if (data.length > 0) {
+                        let html = '';
+                        data.forEach(dept => {
+                            html += `
+                                <div class="bg-gray-50 p-3 rounded-lg border border-gray-100 hover:bg-white hover:shadow-md transition">
+                                    <h4 class="font-bold text-gray-800">${dept.name}</h4>
+                                    <p class="text-xs text-gray-500 mt-1">${dept.description || 'General Department'}</p>
+                                </div>
+                            `;
+                        });
+                        $('#departments-list').html(html);
+                    } else {
+                        $('#departments-list').html('<p class="text-gray-400">No departments information available.</p>');
+                    }
+                }
+            });
+        }
+
+        function fetchDoctors(hospitalId) {
+            $.ajax({
+                url: `${API_URL}/doctors&hospital_id=${hospitalId}`,
+                method: 'GET',
+                success: function (data) {
+                    if (data.length > 0) {
+                        let html = '';
+                        data.forEach((doc, idx) => {
+                            const docImg = doc.image || pickImg(doctorImgs, doc.id || idx);
+                            const docFallback = 'assets/default-doctor.jpg';
+                            html += `
+                                <div class="flex items-start gap-4 p-4 rounded-lg bg-gray-50 border border-gray-100">
+                                    <div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border-2 border-blue-100">
+                                        <img src="${docImg}" alt="${doc.name}" onerror="this.src='${docFallback}'" class="w-full h-full object-cover object-top">
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900">${doc.name}</h4>
+                                        <p class="text-sm text-blue-600 font-medium mb-1">${doc.specialty}</p>
+                                        <p class="text-xs text-gray-500 line-clamp-2">${doc.intro || doc.bio || 'Experienced Specialist'}</p>
+                                        <div class="mt-2 flex items-center gap-1 text-yellow-400 text-xs">
+                                            <i class="fas fa-star"></i> <span>${doc.rating || '5.0'}</span>
+                                        </div>
+                                    </div>
+                                    <div class="ml-auto">
+                                        <a href="appointment.html?doctor=${encodeURIComponent(doc.name)}&hospital_id=${hospitalId}" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded text-sm transition">Book</a>
+                                    </div>
+                                </div>
+                            `;
+                        });
+                        $('#doctors-list').html(html);
+                    } else {
+                        $('#doctors-list').html('<p class="text-gray-400">No doctors listed yet.</p>');
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

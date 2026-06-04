@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation | Med Nova - Smart Digital Healthcare</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=1780419041">
+</head>
+
+<body>
+
+    <!-- NAVBAR START -->
+    <nav class="navbar navbar-expand-xl navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/logo.jpeg" onerror="this.src='https://placehold.co/50x50/04214f/ffffff?text=MN'"
+                    alt="Med Nova" class="brand-logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" title="Toggle navigation"
+                data-bs-target="#navSiteMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navSiteMenu">
+                <ul class="navbar-nav mx-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><span class="nav-dot"></span>About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html"><span class="nav-dot"></span>Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="doctors.html"><span class="nav-dot"></span>Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><span class="nav-dot"></span>Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="blood-donation.html" class="nav-link"><span class="nav-dot"></span>Donate Blood</a>
+                    </li>
+
+                                        <!-- SMART FEATURES -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="smartFeaturesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Smart Features
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="smartFeaturesDropdown">
+                            <li><a class="dropdown-item" href="diet_plan.html"><i class="fas fa-utensils text-success me-2"></i>Smart Diet Plan</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="ai_scanner.html"><i class="fas fa-microscope text-primary me-2"></i>AI Scan</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- URGENT RESPONSE -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="urgentResponseDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Urgent Response
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="urgentResponseDropdown">
+                            <li><a class="dropdown-item" href="emergency_sos.html"><i class="fas fa-satellite-dish text-danger me-2"></i>SOS Alerts</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="emergency_triage.html"><i class="fas fa-stethoscope text-primary me-2"></i>Fast Triage</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- HEALTH ASSESSMENT -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="healthAssessmentDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Health Assessment
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg ha-dropdown-menu" aria-labelledby="healthAssessmentDropdown">
+                            <li><a class="dropdown-item" href="health-assessment.html#bmi"><i class="fas fa-weight-scale text-primary me-2"></i>BMI Calculator</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#calories"><i class="fas fa-fire-flame-curved text-warning me-2"></i>Calorie Calculator</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#water"><i class="fas fa-glass-water text-info me-2"></i>Water Intake</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#blood-eligibility"><i class="fas fa-hand-holding-droplet text-danger me-2"></i>Donation Eligibility</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-1 mt-3 mt-xl-0">
+                    <a class="btn btn-primary btn-sm rounded-pill px-2" href="appointment.html">
+                        Get Appointment
+                    </a>
+                    <a class="btn btn-outline-primary btn-sm rounded-pill px-2" href="#hospitalLoginModal" data-bs-toggle="modal">
+                        Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- NAVBAR END -->
+
+    <!-- NEW PROFESSIONAL HERO -->
+    <!-- HERO SECTION START -->
+    <header class="bd-hero-modern position-relative overflow-hidden">
+        <div class="container position-relative z-2">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="badge bg-danger bg-opacity-20 text-white px-3 py-2 rounded-pill mb-4 fw-bold border border-white border-opacity-20">
+                        <i class="fas fa-heartbeat me-2 text-danger"></i>THE GIFT OF LIFE
+                    </div>
+                    <h1 class="display-3 fw-bold mb-4 text-white">Every Drop <span class="text-danger">Counts</span>, Every Life Matters</h1>
+                    <p class="lead mb-5 opacity-90">Med Nova connects you directly with a community of donors and medical facilities in Kohat to provide a safe, rapid, and transparent blood donation ecosystem.</p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="#become-donor" class="btn btn-danger btn-lg px-4 rounded-pill fw-bold shadow-lg">Become a Donor</a>
+                        <a href="#request-blood" class="btn btn-outline-dark btn-lg px-4 rounded-pill fw-bold">Request Blood</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="rounded-4 overflow-hidden shadow-lg border border-5 border-white">
+                        <img src="assets/blood_donation_hero.png" alt="Give Blood Save Life" class="img-fluid w-100" onerror="this.src='https://placehold.co/600x400/8b0000/ffffff?text=Donate+Blood'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- HERO SECTION END -->
+
+    <!-- IMPORTANCE SECTION -->
+    <section class="py-5 bg-soft">
+        <div class="container py-4 text-center">
+            <h2 class="fw-bold mb-5">Why Give Blood?</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="p-4 bg-white rounded-4 shadow-sm h-100 transition-2 hover-lift">
+                        <div class="bg-danger bg-opacity-10 text-danger rounded-circle w-60 h-60 d-flex align-items-center justify-content-center mx-auto mb-4">
+                            <i class="fas fa-users fa-2x"></i>
+                        </div>
+                        <h4 class="fw-bold">Strengthen Community</h4>
+                        <p class="text-muted mb-0">Help your neighbors, friends, and family by being part of a resilient healthcare support system in Kohat.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 bg-white rounded-4 shadow-sm h-100 transition-2 hover-lift">
+                        <div class="bg-danger bg-opacity-10 text-danger rounded-circle w-60 h-60 d-flex align-items-center justify-content-center mx-auto mb-4">
+                            <i class="fas fa-notes-medical fa-2x"></i>
+                        </div>
+                        <h4 class="fw-bold">Fast-Track Triage</h4>
+                        <p class="text-muted mb-0">Med Nova ensures that critical blood requests are broadcasted instantly to matching donors nearby.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 bg-white rounded-4 shadow-sm h-100 transition-2 hover-lift">
+                        <div class="bg-danger bg-opacity-10 text-danger rounded-circle w-60 h-60 d-flex align-items-center justify-content-center mx-auto mb-4">
+                            <i class="fas fa-star fa-2x"></i>
+                        </div>
+                        <h4 class="fw-bold">Become a Hero</h4>
+                        <p class="text-muted mb-0">One single donation can save up to 3 lives. Be the hero someone is waiting for today.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN INTERACTIVE SECTION -->
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="bd-card-premium shadow-lg rounded-4 overflow-hidden bg-white border border-light">
+                    <!-- Tabs Modern -->
+                    <div class="d-flex border-bottom bg-light">
+                        <button class="flex-fill p-4 border-0 bg-transparent fw-bold text-uppercase letter-spacing-1 transition-2 bd-tab-modern active bg-white text-danger border-top border-danger border-3" id="btn-donor">
+                            <i class="fas fa-user-plus me-2"></i>Become a Donor
+                        </button>
+                        <button class="flex-fill p-4 border-0 bg-transparent fw-bold text-uppercase letter-spacing-1 transition-2 bd-tab-modern" id="btn-patient">
+                            <i class="fas fa-search-plus me-2"></i>Find Donor (Request)
+                        </button>
+                    </div>
+
+                    <div class="p-lg-5 p-4">
+                        <!-- Donor Form -->
+                        <div id="become-donor">
+                            <div class="mb-5 text-center text-lg-start">
+                                <h3 class="fw-bold display-6 mb-2">Want to <span class="text-danger">Become a Donor?</span></h3>
+                                <p class="text-muted mb-3">Register your details below. We'll only contact you in case of a verified matching request.</p>
+                                <div id="eligibility-alert" class="d-none"></div>
+                            </div>
+                            <form id="donor-form">
+                                <div class="row g-4">
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Full Name</label>
+                                        <input type="text" name="name" class="form-control form-control-lg bg-soft border-0" required placeholder="Enter your full name">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Age (18-60)</label>
+                                        <input type="number" name="age" class="form-control form-control-lg bg-soft border-0" min="18" max="60" required placeholder="Enter your age">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Blood Group</label>
+                                        <select name="blood_group" class="form-select form-select-lg bg-soft border-0" required title="Select Your Blood Group">
+                                            <option value="">Select Group</option>
+                                            <option value="A+">A+</option><option value="A-">A-</option>
+                                            <option value="B+">B+</option><option value="B-">B-</option>
+                                            <option value="O+">O+</option><option value="O-">O-</option>
+                                            <option value="AB+">AB+</option><option value="AB-">AB-</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Contact Phone (WhatsApp)</label>
+                                        <input type="tel" name="phone" id="donor-phone" class="form-control form-control-lg bg-soft border-0" required placeholder="+92 3XX XXXXXXX">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold text-dark">Selection Region</label>
+                                        <select name="region" class="form-select form-select-lg border-primary border-opacity-25" required title="Select Region">
+                                            <option value="">Choose your region...</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold text-dark">Preferred Hospital (Optional)</label>
+                                        <select name="hospital" class="form-select form-select-lg border-primary border-opacity-25" disabled title="Select Hospital">
+                                            <option value="">Select Hospital</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label fw-bold">Specific Location / Street Address</label>
+                                        <input type="text" name="location" class="form-control form-control-lg bg-soft border-0" required placeholder="e.g. Phase 1, KDA Kohat">
+                                    </div>
+                                    <div class="col-12 mt-4">
+                                        <button type="submit" class="btn btn-danger btn-lg w-100 py-3 rounded-pill fw-bold shadow-sm transition-2 hover-lift">
+                                            <i class="fas fa-id-card me-2"></i>I Want to Donate Now
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Patient Form -->
+                        <div id="request-blood" class="d-none">
+                            <div class="mb-5 text-center text-lg-start">
+                                <h3 class="fw-bold display-6 mb-2">Request For <span class="text-warning">Donors</span></h3>
+                                <p class="text-muted">Fill out this urgent broadcast request. We will notify all matching donors in your region instantly.</p>
+                            </div>
+                            <form id="patient-form">
+                                <div class="row g-4">
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Patient Name</label>
+                                        <input type="text" name="patient_name" class="form-control form-control-lg bg-soft border-0" required placeholder="Patient full name">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Required Blood Group</label>
+                                        <select name="blood_group" class="form-select form-select-lg bg-soft border-0" required title="Select Required Blood Group">
+                                            <option value="">Select Group</option>
+                                            <option value="A+">A+</option><option value="A-">A-</option>
+                                            <option value="B+">B+</option><option value="B-">B-</option>
+                                            <option value="O+">O+</option><option value="O-">O-</option>
+                                            <option value="AB+">AB+</option><option value="AB-">AB-</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold text-warning">Urgency Level</label>
+                                        <select name="urgency" class="form-select form-select-lg border-warning border-opacity-50" title="Select Urgency Level">
+                                            <option value="Normal">Normal</option>
+                                            <option value="Urgent">Urgent (Within 4-6 Hours)</option>
+                                            <option value="Critical">Critical (ASAP)</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Emergency Contact Phone</label>
+                                        <input type="tel" name="phone" id="patient-phone" class="form-control form-control-lg bg-soft border-0" required placeholder="+92 3XX XXXXXXX">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Region</label>
+                                        <select name="region" class="form-select form-select-lg bg-soft border-0" required title="Select Region">
+                                            <option value="">Select Region</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Current Hospital</label>
+                                        <select name="hospital" class="form-select form-select-lg bg-soft border-0" disabled required title="Select Hospital">
+                                            <option value="">Select Hospital</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12 mt-4">
+                                        <button type="submit" class="btn btn-warning btn-lg w-100 py-3 rounded-pill fw-bold text-white shadow-sm transition-2 hover-lift">
+                                            <i class="fas fa-bullhorn me-2"></i>Broadcast Urgent Request
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER START -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold mb-4">Med Nova</h5>
+                    <p class="muted mb-4 fs-14">Advanced Digital Healthcare Platform for Kohat's First Smart Medical System. Reliable care at your fingertips.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="fw-bold mb-4">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="about.html">About Us</a></li>
+                        <li class="mb-2"><a href="services.html">Services</a></li>
+                        <li class="mb-2"><a href="doctors.html">Find Doctors</a></li>
+                        <li class="mb-2"><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold mb-4">Our Services</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="blood-donation.html">Blood Donation</a></li>
+                        <li class="mb-2"><a href="diet_plan.html">Smart Diet Plans</a></li>
+                        <li class="mb-2"><a href="emergency_sos.html">Emergency SOS</a></li>
+                        <li class="mb-2"><a href="health-assessment.html">Health Assessment</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h6 class="fw-bold mb-4">Visit Us</h6>
+                    <div class="rounded-4 overflow-hidden shadow-sm border map-iframe-container mb-3">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3326.68060!2d71.442308!3d33.50438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d8ef537d8e6371%3A0x6bba843f5509b53!2sKohat%20University%20of%20Science%20%26%20Short%20Technology!5e0!3m2!1sen!2spk!4v1712068000000!5m2!1sen!2spk"
+                            class="map-iframe" title="KUST Location Map"
+                            allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                    <p class="muted fs-13 mb-0"><i class="fas fa-map-marker-alt me-2 text-danger"></i> Kohat University of Science & Technology, KPK, Pakistan</p>
+                </div>
+            </div>
+
+            <hr>
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="muted small mb-md-0">© 2026 Med Nova. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="d-flex gap-4 justify-content-md-end">
+                        <a href="#" class="small muted text-decoration-none">Privacy Policy</a>
+                        <a href="#" class="small muted text-decoration-none">Terms of Service</a>
+                        <a href="https://wa.me/923001234567" class="small text-success fw-bold text-decoration-none"><i class="fab fa-whatsapp me-1"></i> Support</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER END -->
+
+    <!-- Hospital / Clinic Login Modal -->
+    <div class="modal fade" id="hospitalLoginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0 bg-gradient-primary">
+                    <div>
+                        <h5 class="modal-title text-white fw-bold mb-1"><i class="fas fa-hospital me-2"></i>Healthcare
+                            Portal Login</h5>
+                        <p class="text-white-50 mb-0 fs-13">Select your facility type to continue</p>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="d-grid gap-3">
+                        <a href="../backend/?route=auth/login"
+                            class="text-decoration-none d-flex align-items-center p-3 rounded-14 transition-2 border border-white/10 mt-2 bg-slate-dark"
+                            title="Super Admin Administrative Login">
+                            <div class="text-white-forced icon-box-50-custom bg-indigo-icon me-3">
+                                <i class="fas fa-shield-halved"></i>
+                            </div>
+                            <div>
+                                <div class="fw-bold text-white-forced">Super Admin Login</div>
+                                <div class="fs-13 text-white-50">Global platform oversight & control</div>
+                            </div>
+                            <i class="fas fa-chevron-right ms-auto text-white-50"></i>
+                        </a>
+                        <a href="../backend/?route=auth/login"
+                            class="text-decoration-none d-flex align-items-center p-3 rounded-14 transition-2 login-card-hospital"
+                            title="Hospital Administrative Login">
+                            <div class="bg-primary text-white rounded-circle icon-box-50 me-3">
+                                <i class="fas fa-hospital"></i>
+                            </div>
+                            <div>
+                                <div class="fw-bold">Hospital Admin</div>
+                                <div class="fs-13">Emergency dispatch & triage control</div>
+                            </div>
+                            <i class="fas fa-chevron-right ms-auto"></i>
+                        </a>
+                        <a href="../backend/?route=auth/login"
+                            class="text-decoration-none d-flex align-items-center p-3 rounded-14 transition-2 login-card-clinic"
+                            title="Clinic Administrative Login">
+                            <div class="bg-success text-white rounded-circle icon-box-50 me-3">
+                                <i class="fas fa-clinic-medical"></i>
+                            </div>
+                            <div>
+                                <div class="fw-bold">Clinic Portal</div>
+                                <div class="fs-13">Patient records & lab sync</div>
+                            </div>
+                            <i class="fas fa-chevron-right ms-auto"></i>
+                        </a>
+                    </div>
+                    <p class="text-center text-muted mt-3 mb-0 fs-12">Login credentials are provided
+                        by your system administrator.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS SCRIPTS START -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js?v=1780419041"></script>
+    <script>
+        // Enhanced Tab Logic
+        $('#btn-donor').click(function () {
+            $('.bd-tab-modern').removeClass('active bg-white text-danger border-top border-danger border-3');
+            $(this).addClass('active bg-white text-danger border-top border-danger border-3');
+            $('#become-donor').fadeIn();
+            $('#request-blood').hide();
+        });
+        $('#btn-patient').click(function () {
+            $('.bd-tab-modern').removeClass('active bg-white text-danger border-top border-danger border-3');
+            $(this).addClass('active bg-white text-danger border-top border-danger border-3');
+            $('#request-blood').fadeIn();
+            $('#become-donor').hide();
+        });
+
+        // Pre-fill and verify eligibility from health assessment
+        $(document).ready(function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('eligible') === 'true') {
+                const age = urlParams.get('age');
+                
+                // Show success alert
+                $('#eligibility-alert').html(`
+                    <div class="alert alert-success d-flex align-items-center mb-4 border-0 shadow-sm" style="background: rgba(40, 167, 69, 0.1); color: #155724; border-radius: 12px;">
+                        <i class="fas fa-check-circle me-3 fs-4 text-success"></i>
+                        <div>
+                            <strong class="d-block mb-1">Health Assessment Verified!</strong>
+                            You recently completed the eligibility check and met the requirements.
+                        </div>
+                    </div>
+                `).removeClass('d-none');
+                
+                // Prefill fields
+                if (age) {
+                    $('input[name="age"]').val(age);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

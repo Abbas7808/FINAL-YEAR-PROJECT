@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Med Nova - Smart Digital Healthcare</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Custom CSS -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="stylesheet" href="css/style.css?v=1780419041">
+</head>
+
+<body class="landing-page">
+
+    <!-- NAVBAR -->
+    <!-- NAVBAR START -->
+    <nav class="navbar navbar-expand-xl navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/logo.jpeg" onerror="this.src='https://placehold.co/50x50/04214f/ffffff?text=MN'"
+                    alt="Med Nova" class="brand-logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" title="Toggle navigation"
+                data-bs-target="#navSiteMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navSiteMenu">
+                <ul class="navbar-nav mx-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><span class="nav-dot"></span>About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html"><span class="nav-dot"></span>Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="doctors.html"><span class="nav-dot"></span>Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><span class="nav-dot"></span>Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="blood-donation.html" class="nav-link"><span class="nav-dot"></span>Donate Blood</a>
+                    </li>
+
+                    <!-- SMART FEATURES -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="smartFeaturesDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Unique Features
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="smartFeaturesDropdown">
+                            <li><a class="dropdown-item" href="diet_plan.html"><i
+                                        class="fas fa-utensils text-success me-2"></i>Smart Diet Plan</a></li>
+
+                        </ul>
+                    </li>
+
+                    <!-- URGENT RESPONSE -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="urgentResponseDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Urgent Response
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="urgentResponseDropdown">
+                            <li><a class="dropdown-item" href="emergency_sos.html"><i
+                                        class="fas fa-satellite-dish text-danger me-2"></i>SOS Alerts</a></li>
+                            <li>
+                                <hr class="dropdown-divider opacity-50">
+                            </li>
+                            <li><a class="dropdown-item" href="emergency_triage.html"><i
+                                        class="fas fa-stethoscope text-primary me-2"></i>Fast Triage</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- HEALTH ASSESSMENT -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="healthAssessmentDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Health Assessment
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg ha-dropdown-menu"
+                            aria-labelledby="healthAssessmentDropdown">
+                            <li><a class="dropdown-item" href="health-assessment.html#bmi"><i
+                                        class="fas fa-weight-scale text-primary me-2"></i>BMI Calculator</a></li>
+                            <li>
+                                <hr class="dropdown-divider opacity-50">
+                            </li>
+                            <li><a class="dropdown-item" href="health-assessment.html#calories"><i
+                                        class="fas fa-fire-flame-curved text-warning me-2"></i>Calorie Calculator</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider opacity-50">
+                            </li>
+                            <li><a class="dropdown-item" href="health-assessment.html#water"><i
+                                        class="fas fa-glass-water text-info me-2"></i>Water Intake</a></li>
+                            <li>
+                                <hr class="dropdown-divider opacity-50">
+                            </li>
+                            <li><a class="dropdown-item" href="health-assessment.html#blood-eligibility"><i
+                                        class="fas fa-hand-holding-droplet text-danger me-2"></i>Donation
+                                    Eligibility</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-1 mt-3 mt-xl-0">
+                    <a class="btn btn-primary btn-sm rounded-pill px-2" href="appointment.html">
+                        Get Appointment
+                    </a>
+                    <a class="btn btn-outline-primary btn-sm rounded-pill px-2" href="../backend/?route=auth/login">
+                        Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- NAVBAR END -->
+
+
+    <!-- HERO SECTION START -->
+    <header class="hero-redesign overflow-hidden">
+        <div class="hero-orb hero-orb-one"></div>
+        <div class="hero-orb hero-orb-two"></div>
+        <div class="container position-relative">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0 text-center text-lg-start">
+                    <div class="hero-kicker-pill d-inline-flex align-items-center gap-2 mb-3">
+                        <span class="hero-kicker-dot"></span>
+                        <span>Kohat's First Digital Care Platform</span>
+                    </div>
+                    <h1 class="hero-redesign-title display-4 fw-bold"> Digital <span
+                            class="text-primary">Healthcare</span>
+                        For Everyone!</h1>
+                    <p class="hero-redesign-sub mb-4">Med Nova: Introducing the first-ever advanced digital healthcare
+                        platform in Kohat, connecting you to the best hospitals and doctors instantly.</p>
+
+                    <div
+                        class="d-flex align-items-center justify-content-center justify-content-lg-start gap-3 flex-wrap">
+                        <a href="appointment.html"
+                            class="btn btn-primary rounded-pill px-4 py-3 shadow-lg d-inline-flex align-items-center gap-2">
+                            <span class="fw-bold">Book Appointment</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="doctors.html"
+                            class="btn btn-light rounded-pill px-4 py-3 shadow d-inline-flex align-items-center gap-2 border bg-white">
+                            <span class="fw-bold text-primary">Find Doctors</span>
+                            <i class="fas fa-search text-primary"></i>
+                        </a>
+                    </div>
+                    <div class="hero-trust-row mt-4">
+                        <div class="hero-trust-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>24/7 Support</span>
+                        </div>
+                        <div class="hero-trust-item">
+                            <i class="fas fa-user-group"></i>
+                            <span>10k+ Patients</span>
+                        </div>
+                        <div class="hero-trust-item">
+                            <i class="fas fa-stethoscope"></i>
+                            <span>Expert Doctors</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center position-relative mt-5 mt-xl-0">
+                    <div class="hero-visual-shell">
+                        <div class="hero-blob-bg"></div>
+                        <div class="hero-image-frame">
+                            <img alt="image" src="assets/hero-kohat-digital.png"
+                                onerror="this.src='https://placehold.co/600x600/eef6ff/2f7bff?text=MedNova+Image'"
+                                class="img-fluid hero-main-image position-relative z-1">
+                        </div>
+
+                        <div class="hero-float-card hero-float-card-primary d-none d-md-block">
+                            <div class="hero-float-label">Patient Satisfaction</div>
+                            <span class="huge-text">10k+</span>
+                            <p class="text-muted small mb-0">People connected to trusted care.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- HERO SECTION END -->
+
+    <!-- STATS -->
+    <section class="stats-section-container">
+        <div class="container">
+            <div class="stats-blue-grid">
+                <div class="stat-card-blue">
+                    <span class="stat-num">200+</span>
+                    <span class="stat-label">Happy Patients</span>
+                </div>
+                <div class="stat-card-blue">
+                    <span class="stat-num">20+</span>
+                    <span class="stat-label">Service Areas</span>
+                </div>
+                <div class="stat-card-blue">
+                    <span class="stat-num">10k+</span>
+                    <span class="stat-label">Expert Doctors</span>
+                </div>
+                <div class="stat-card-blue">
+                    <span class="stat-num">900+</span>
+                    <span class="stat-label">Recovery Cases</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFINITY SCROLL (PARTNER RIBBON) -->
+    <section class="py-0 border-bottom">
+        <div class="infinity-scroll-container">
+            <div class="infinity-scroll-track">
+                <!-- Duplicate items for seamless scrolling -->
+                <div class="infinity-scroll-item"><span>•</span> Leading Medical Care</div>
+                <div class="infinity-scroll-item"><span>•</span> Trusted By Thousands</div>
+                <div class="infinity-scroll-item"><span>•</span> Secure Patient Data</div>
+                <div class="infinity-scroll-item"><span>•</span> Certified Specialists</div>
+                <div class="infinity-scroll-item"><span>•</span> Advanced Technology</div>
+                <div class="infinity-scroll-item"><span>•</span> Leading Medical Care</div>
+                <div class="infinity-scroll-item"><span>•</span> Trusted By Thousands</div>
+                <div class="infinity-scroll-item"><span>•</span> Secure Patient Data</div>
+                <div class="infinity-scroll-item"><span>•</span> Certified Specialists</div>
+                <div class="infinity-scroll-item"><span>•</span> Advanced Technology</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPECIALIZATIONS -->
+    <section id="services" class="section-padding bg-soft">
+        <div class="container-fluid-custom">
+            <div class="text-center mb-5">
+                <h6 class="text-uppercase fw-bold text-primary">Our Services</h6>
+                <h2 class="fw-bold fs-2 mb-3">Specialization We Provide</h2>
+                <p class="text-muted mx-auto max-w-600">
+                    Medical services across a range of specialities with a focus on compassionate, personalised care.
+                </p>
+            </div>
+
+            <!-- Services: About Detail -->
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-10">
+                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+                        <div class="row g-0 align-items-center">
+                            <div class="col-md-5">
+                                <div class="p-4 p-md-5 h-100 bg-gradient-primary">
+                                    <div class="text-white">
+                                        <div class="small text-uppercase fw-bold opacity-75 mb-2">About Our Services
+                                        </div>
+                                        <h3 class="fw-bold mb-3">Care that feels personal, powered by technology.</h3>
+                                        <p class="mb-0 opacity-75">
+                                            From appointments to specialised programs, Med Nova connects patients with
+                                            trusted facilities and the right professionals—faster and more reliably.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="p-4 p-md-5 bg-white">
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <div class="d-flex gap-3">
+                                                <div class="rounded-circle bg-soft text-primary p-3 icon-box-50">
+                                                    <i class="fas fa-calendar-check"></i>
+                                                </div>
+                                                <div>
+                                                    <div class="fw-bold">Online Booking</div>
+                                                    <div class="text-muted small">Find doctors and book appointments in
+                                                        minutes.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="d-flex gap-3">
+                                                <div class="rounded-circle bg-soft text-primary p-3 icon-box-50">
+                                                    <i class="fas fa-shield-heart"></i>
+                                                </div>
+                                                <div>
+                                                    <div class="fw-bold">Trusted Care</div>
+                                                    <div class="text-muted small">Verified facilities with a
+                                                        patient-first approach.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="d-flex gap-3">
+                                                <div class="rounded-circle bg-soft text-primary p-3 icon-box-50">
+                                                    <i class="fas fa-bowl-food"></i>
+                                                </div>
+                                                <div>
+                                                    <div class="fw-bold">Diet & Wellness</div>
+                                                    <div class="text-muted small">Personalised diet planning aligned to
+                                                        your health goals.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="d-flex gap-3">
+                                                <div class="rounded-circle bg-soft text-primary p-3 icon-box-50">
+                                                    <i class="fas fa-droplet"></i>
+                                                </div>
+                                                <div>
+                                                    <div class="fw-bold">Blood Donation</div>
+                                                    <div class="text-muted small">Register donors and submit urgent
+                                                        blood requests.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-wrap gap-2 mt-4">
+                                        <a href="services.html"
+                                            class="btn btn-primary rounded-pill px-4 fw-bold d-inline-flex align-items-center gap-2">
+                                            Explore Services <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                        <a href="about.html"
+                                            class="btn btn-outline-primary rounded-pill px-4 fw-bold d-inline-flex align-items-center gap-2">
+                                            About Med Nova <i class="fas fa-circle-info"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-3">
+                    <a href="services.html" class="text-decoration-none">
+                        <div class="service-pro-card h-100">
+                            <div class="service-icon-box">🏥</div>
+                            <div class="mb-2 text-uppercase small fw-bold text-muted">Enterprise SaaS</div>
+                            <h5 class="fw-bold mb-3">Hospital SaaS</h5>
+                            <p class="text-muted small mb-0">ERP solution for large medical facilities and networks.</p>
+                            <span class="service-learn-more mt-2">Learn More &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <a href="services.html" class="text-decoration-none">
+                        <div class="service-pro-card h-100">
+                            <div class="service-icon-box">🩺</div>
+                            <div class="mb-2 text-uppercase small fw-bold text-muted">Practice SaaS</div>
+                            <h5 class="fw-bold mb-3 text-blue-900">Clinic SaaS</h5>
+                            <p class="text-muted small mb-0">Efficient digital management for small-scale private
+                                clinics.</p>
+                            <span class="service-learn-more mt-2">Learn More &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <a href="services.html" class="text-decoration-none">
+                        <div class="service-pro-card">
+                            <div class="service-icon-box">💻</div>
+                            <div class="mb-2 text-uppercase small fw-bold text-muted">Virtual Health</div>
+                            <h5 class="fw-bold mb-3 text-blue-900">Online Consult</h5>
+                            <p class="text-muted small mb-0">Secure video and chat sessions with top medical
+                                specialists.</p>
+                            <span class="service-learn-more">Learn More &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <a href="services.html" class="text-decoration-none">
+                        <div class="service-pro-card">
+                            <div class="service-icon-box">🧠</div>
+                            <div class="mb-2 text-uppercase small fw-bold text-muted">Mental Wellness</div>
+                            <h5 class="fw-bold mb-3 text-blue-900">Psychology SaaS</h5>
+                            <p class="text-muted small mb-0">Specialized management for mental health and therapy
+                                sessions.</p>
+                            <span class="service-learn-more">Learn More &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <a href="services.html" class="text-decoration-none">
+                        <div class="service-pro-card">
+                            <div class="service-icon-box">🩸</div>
+                            <div class="mb-2 text-uppercase small fw-bold text-muted">Life Saving</div>
+                            <h5 class="fw-bold mb-3 text-blue-900">Digital Registry</h5>
+                            <p class="text-muted small mb-0">Integrated blood donation and donor mapping system.</p>
+                            <span class="service-learn-more">Learn More &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <a href="diet_plan.html" class="text-decoration-none" title="Diet and Wellness Plan">
+                        <div class="service-pro-card h-100">
+                            <div class="service-icon-box">🥗</div>
+                            <div class="mb-2 text-uppercase small fw-bold text-muted">Nutrition SaaS</div>
+                            <h5 class="fw-bold mb-3 text-blue-900">Diet & Wellness</h5>
+                            <p class="text-muted small mb-0">
+                                AI-assisted diet planning connected with your doctors and health goals.
+                            </p>
+                            <span class="service-learn-more mt-3">Learn More &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <a href="health-assessment.html" class="text-decoration-none">
+                        <div class="service-pro-card h-100">
+                            <div class="service-icon-box">🩺</div>
+                            <div class="mb-2 text-uppercase small fw-bold text-muted">Preventive Care</div>
+                            <h5 class="fw-bold mb-3 text-blue-900">Health Assessment</h5>
+                            <p class="text-muted small mb-0">
+                                Professional-grade calculators to help you understand your body and health.
+                            </p>
+                            <span class="service-learn-more mt-2">Start Assessment &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT MODERN SECTION -->
+    <section class="py-5 bg-white">
+        <div class="container-fluid-custom">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="about-img-composition">
+                        <img src="assets/doctor-fatima.jpg"
+                            onerror="this.src='https://placehold.co/600x500/eef6ff/2f7bff?text=About+Image'"
+                            class="img-fluid about-main-img" alt="About Us">
+                        <div class="about-overlay-card">
+                            <h3 class="fw-bold text-primary mb-0">SaaS</h3>
+                            <p class="small mb-0 fw-bold">Multi‑Center Platform</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h5 class="text-primary fw-bold text-uppercase mb-3">About Us</h5>
+                    <h2 class="display-6 fw-bold mb-4 text-blue-900">Med Nova: Digital Healthcare
+                        for Kohat</h2>
+                    <p class="text-muted lead mb-4">
+                        Med Nova is a SaaS-based hospital and clinic platform that helps patients book appointments,
+                        helps staff manage schedules, and supports specialized modules like psychological centers, diet
+                        plans, and blood donation requests—all in one system.
+                    </p>
+
+                    <div class="about-feature-grid">
+                        <div class="about-feature-item">
+                            <div class="about-feature-icon"><i class="fas fa-check"></i></div>
+                            <span class="fw-bold">Multi‑Hospital & Clinic SaaS</span>
+                        </div>
+                        <div class="about-feature-item">
+                            <div class="about-feature-icon"><i class="fas fa-check"></i></div>
+                            <span class="fw-bold">Secure Role‑Based Access</span>
+                        </div>
+                        <div class="about-feature-item">
+                            <div class="about-feature-icon"><i class="fas fa-check"></i></div>
+                            <span class="fw-bold">Psychological Centers Module</span>
+                        </div>
+                        <div class="about-feature-item">
+                            <div class="about-feature-icon"><i class="fas fa-check"></i></div>
+                            <span class="fw-bold">Diet Plans & Blood Requests</span>
+                        </div>
+                    </div>
+
+                    <a href="about.html" class="btn btn-primary rounded-pill px-4 py-3 mt-5 shadow">
+                        Learn More About Med Nova
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="py-5 bg-soft">
+        <div class="container-fluid-custom">
+            <div class="text-center mb-5">
+                <h6 class="text-primary fw-bold text-uppercase">Questions & Answers</h6>
+                <h3 class="fw-bold fs-2">Frequently Asked Questions</h3>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="faq-list">
+                        <div class="faq-card">
+                            <div class="faq-header">
+                                <span>How do I schedule an appointment?</span>
+                                <span class="faq-icon-wrapper"><i class="fas fa-chevron-down text-primary"></i></span>
+                            </div>
+                            <div class="faq-body">
+                                You can schedule an appointment easily through our website using the 'Get Appointment'
+                                button or by calling our support line. We offer both in-person and virtual
+                                consultations.
+                            </div>
+                        </div>
+                        <div class="faq-card">
+                            <div class="faq-header">
+                                <span>What insurance plans do you accept?</span>
+                                <span class="faq-icon-wrapper"><i class="fas fa-chevron-down text-primary"></i></span>
+                            </div>
+                            <div class="faq-body">
+                                We accept a wide range of major insurance providers. Please contact our billing
+                                department or check our patient portal for a detailed list of accepted plans.
+                            </div>
+                        </div>
+                        <div class="faq-card">
+                            <div class="faq-header">
+                                <span>Do you offer telemedicine services?</span>
+                                <span class="faq-icon-wrapper"><i class="fas fa-chevron-down text-primary"></i></span>
+                            </div>
+                            <div class="faq-body">
+                                Yes! We provide secure, high-quality video consultations for many types of visits,
+                                allowing you to get care from the comfort of your home.
+                            </div>
+                        </div>
+                        <div class="faq-card">
+                            <div class="faq-header">
+                                <span>How can I access my medical records?</span>
+                                <span class="faq-icon-wrapper"><i class="fas fa-chevron-down text-primary"></i></span>
+                            </div>
+                            <div class="faq-body">
+                                You can access your medical records 24/7 through our secure patient portal. If you need
+                                assistance, our support team is happy to help.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- APPOINTMENT SECTION -->
+    <section class="py-5">
+        <div class="container-fluid-custom">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="appointment-card p-5">
+                        <div class="row align-items-center">
+                            <div class="col-lg-5 mb-4 mb-lg-0">
+                                <h2 class="fw-bold mb-3">Book an Appointment</h2>
+                                <p class="text-muted mb-4">Book an appointment with hospitals and clinics across Kohat.
+                                    Choose your doctor, select a time slot, and get guidance fast.</p>
+                                <div class="d-flex align-items-center gap-3 mb-3">
+                                    <div class="rounded-circle bg-soft text-primary p-3"><i class="fas fa-phone"></i>
+                                    </div>
+                                    <div>
+                                        <div class="small fw-bold text-muted">Support / Helpline</div>
+                                        <div class="fw-bold">+92 300 1234567</div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="rounded-circle bg-soft text-primary p-3"><i
+                                            class="fas fa-map-marker-alt"></i></div>
+                                    <div>
+                                        <div class="small fw-bold text-muted">Location</div>
+                                        <div class="fw-bold">Kohat, KPK, Pakistan</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <form id="appointment-form">
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" name="name" class="form-control bg-light border-0"
+                                                    id="floatingName" placeholder="Name" required>
+                                                <label for="floatingName">Your Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="tel" name="phone" class="form-control bg-light border-0"
+                                                    id="floatingPhone" placeholder="Phone" required>
+                                                <label for="floatingPhone">Phone Number</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="date" name="date" class="form-control bg-light border-0"
+                                                    id="floatingDate" required>
+                                                <label for="floatingDate">Date</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-floating">
+                                                <select name="healthType" class="form-select bg-light border-0"
+                                                    id="floatingSelect">
+                                                    <option selected disabled>Choose Department</option>
+                                                    <option value="Cardiology">Cardiology</option>
+                                                    <option value="Neurology">Neurology</option>
+                                                    <option value="Orthopedics">Orthopedics</option>
+                                                    <option value="Dental">Dental</option>
+                                                    <option value="General Medicine">General Medicine</option>
+                                                </select>
+                                                <label for="floatingSelect">Department</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-floating">
+                                                <select name="doctorId" class="form-select bg-light border-0"
+                                                    id="doctorSelect" required>
+                                                    <option selected disabled>Choose Doctor</option>
+                                                </select>
+                                                <label for="doctorSelect">Doctor</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mt-4 text-center">
+                                            <button type="submit"
+                                                class="btn btn-primary w-100 py-3 rounded-pill fw-bold">Appointment
+                                                Now</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOCTORS PREVIEW -->
+    <section class="py-5 bg-white">
+        <div class="container-fluid-custom">
+            <div class="text-center mb-5">
+                <h6 class="text-primary fw-bold text-uppercase">Our Team</h6>
+                <h2 class="fw-bold fs-2">Meet Our Specialists</h2>
+            </div>
+            <div class="row g-4" id="home-doctors-grid">
+                <!-- Populated by JS -->
+                <div class="col-12 text-center py-5">
+                    <div class="spinner-border text-primary" role="status"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG -->
+    <section class="py-5 bg-soft">
+        <div class="container-fluid-custom">
+            <div class="text-center mb-5">
+                <h6 class="text-primary fw-bold text-uppercase">Latest News</h6>
+                <h2 class="fw-bold fs-2">Our Latest Blog & News</h2>
+            </div>
+            <div class="row mt-4 g-4" id="blogs-container">
+                <!-- Populated by JS -->
+                <div class="col-12 text-center py-5">
+                    <div class="spinner-border text-primary" role="status"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <!-- FOOTER START -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold mb-4">Med Nova</h5>
+                    <p class="muted mb-4 fs-14">Advanced digital healthcare for Kohat.
+                        Reliable
+                        care at your fingertips.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="fw-bold mb-4">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="about.html">About Us</a></li>
+                        <li class="mb-2"><a href="services.html">Services</a></li>
+                        <li class="mb-2"><a href="doctors.html">Find Doctors</a></li>
+                        <li class="mb-2"><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold mb-4">Our Services</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="blood-donation.html">Blood Donation</a></li>
+                        <li class="mb-2"><a href="diet_plan.html">Smart Diet Plans</a></li>
+                        <li class="mb-2"><a href="emergency_sos.html">Emergency SOS</a></li>
+                        <li class="mb-2"><a href="health-assessment.html">Health Assessment</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h6 class="fw-bold mb-4">Visit Kohat</h6>
+                    <div class="rounded-4 overflow-hidden shadow-sm border map-iframe-container mb-3">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3326.68060!2d71.442308!3d33.50438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d8ef537d8e6371%3A0x6bba843f5509b53!2sKohat%20University%20of%20Science%20%26%20Short%20Technology!5e0!3m2!1sen!2spk!4v1712068000000!5m2!1sen!2spk"
+                            class="map-iframe" title="Kohat Location Map" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                    <p class="muted fs-13 mb-0"><i class="fas fa-map-marker-alt me-2 text-danger"></i> Kohat, KPK,
+                        Pakistan</p>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="muted small mb-md-0">© 2026 Med Nova. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="d-flex gap-4 justify-content-md-end">
+                        <a href="#" class="small muted text-decoration-none">Privacy Policy</a>
+                        <a href="#" class="small muted text-decoration-none">Terms of Service</a>
+                        <a href="https://wa.me/923001234567" class="small text-success fw-bold text-decoration-none"><i
+                                class="fab fa-whatsapp me-1"></i> Support</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER END -->
+    <!-- FOOTER END -->
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js?v=1780419041"></script>
+    <script>
+        // Simple FAQ toggle for jQuery
+        $(document).ready(function () {
+            $('.faq-header').click(function () {
+                $(this).toggleClass('active');
+                $(this).next('.faq-body').slideToggle(300);
+            });
+        });
+    </script>
+    <!-- Hospital / Clinic Login Modal -->
+    <div class="modal fade" id="hospitalLoginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0 bg-gradient-primary">
+                    <div>
+                        <h5 class="modal-title text-white fw-bold mb-1"><i class="fas fa-hospital me-2"></i>Healthcare
+                            Portal Login</h5>
+                        <p class="text-white-50 mb-0 fs-13">Select your facility type to continue</p>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="d-grid gap-3">
+                        <!-- Super Admin Login (Med Nova Control) -->
+                        <a href="../backend/?route=auth/login"
+                            class="text-decoration-none d-flex align-items-center p-3 rounded-14 transition-2 border border-white/10 mt-2 bg-slate-dark"
+                            title="Super Admin Administrative Login">
+                            <div class="text-white-forced icon-box-50-custom bg-indigo-icon me-3">
+                                <i class="fas fa-shield-halved"></i>
+                            </div>
+                            <div>
+                                <div class="fw-bold text-white-forced">Super Admin Login</div>
+                                <div class="fs-13 text-white-50">Global platform oversight & control</div>
+                            </div>
+                            <i class="fas fa-chevron-right ms-auto text-white-50"></i>
+                        </a>
+
+                        <!-- Hospital Login -->
+                        <a href="../backend/?route=auth/login"
+                            class="text-decoration-none d-flex align-items-center p-3 rounded-14 transition-2 login-card-hospital"
+                            title="Hospital Administrative Login">
+                            <div class="bg-primary text-white rounded-circle icon-box-50 me-3">
+                                <i class="fas fa-hospital"></i>
+                            </div>
+                            <div>
+                                <div class="fw-bold">Hospital Admin</div>
+                                <div class="fs-13">Emergency dispatch & triage control</div>
+                            </div>
+                            <i class="fas fa-chevron-right ms-auto"></i>
+                        </a>
+
+                        <!-- Clinic Login -->
+                        <a href="../backend/?route=auth/login"
+                            class="text-decoration-none d-flex align-items-center p-3 rounded-14 transition-2 login-card-clinic"
+                            title="Clinic Administrative Login">
+                            <div class="bg-success text-white rounded-circle icon-box-50 me-3">
+                                <i class="fas fa-clinic-medical"></i>
+                            </div>
+                            <div>
+                                <div class="fw-bold">Clinic Portal</div>
+                                <div class="fs-13">Patient records & lab sync</div>
+                            </div>
+                            <i class="fas fa-chevron-right ms-auto"></i>
+                        </a>
+                    </div>
+                    <p class="text-center text-muted mt-3 mb-0 fs-12">Login credentials are provided
+                        by your system administrator.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

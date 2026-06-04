@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Med Nova | Smart Healthcare Solutions</title>
+    <meta name="description" content="Explore Med Nova's comprehensive healthcare services: Hospital SaaS, Clinic Management, AI Diagnostics, Blood Donation Registry, and more.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=1780419041">
+    <style>
+        /* ═══════════════════════════════════════════ */
+        /*  SERVICES PAGE — EXCLUSIVE DESIGN SYSTEM   */
+        /* ═══════════════════════════════════════════ */
+
+        .svc-hero {
+            position: relative;
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: #020617;
+        }
+        .svc-hero-bg {
+            position: absolute; inset: 0; z-index: 0;
+            background: url('assets/services_hero.png') center/cover no-repeat;
+            opacity: 0.35;
+        }
+        .svc-hero-gradient {
+            position: absolute; inset: 0; z-index: 1;
+            background: linear-gradient(135deg, rgba(2,6,23,0.95) 0%, rgba(15,23,42,0.7) 40%, rgba(79,70,229,0.2) 100%);
+        }
+        .svc-hero-content { position: relative; z-index: 2; padding-top: 170px; }
+        .svc-hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(99, 102, 241, 0.15); border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 100px; padding: 6px 18px 6px 8px;
+            font-size: 0.75rem; font-weight: 700; color: #a5b4fc;
+            letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 24px;
+        }
+        .svc-hero-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: #818cf8; animation: dotPulse 2s infinite; }
+        .svc-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 900;
+            background: linear-gradient(135deg, #ffffff 0%, #c7d2fe 50%, #818cf8 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1; margin-bottom: 20px; letter-spacing: -0.03em;
+        }
+        .svc-hero-desc {
+            font-size: 1.1rem; color: #94a3b8; max-width: 550px; line-height: 1.7; margin-bottom: 36px;
+        }
+        .svc-hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+        .svc-btn-primary {
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
+            color: white; border: none; padding: 14px 32px; border-radius: 14px;
+            font-weight: 700; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 10px;
+            text-decoration: none; transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+        }
+        .svc-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(99, 102, 241, 0.5); color: white; }
+        .svc-btn-ghost {
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15);
+            color: #e2e8f0; padding: 14px 32px; border-radius: 14px;
+            font-weight: 600; font-size: 0.9rem; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s ease;
+        }
+        .svc-btn-ghost:hover { background: rgba(255,255,255,0.1); color: white; border-color: rgba(255,255,255,0.3); }
+
+        /* Stats Bar */
+        .svc-stats {
+            background: rgba(255,255,255,0.03); border-top: 1px solid rgba(255,255,255,0.06);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px); margin-top: 60px; padding: 30px 0;
+            position: relative; z-index: 2;
+        }
+        .svc-stat-item { text-align: center; }
+        .svc-stat-number { font-size: 2.5rem; font-weight: 900; color: white; letter-spacing: -0.02em; }
+        .svc-stat-number span { 
+            background: linear-gradient(135deg, #f59e0b, #ef4444); 
+            -webkit-background-clip: text; 
+            background-clip: text;
+            -webkit-text-fill-color: transparent; 
+        }
+        .svc-stat-label { font-size: 0.75rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; margin-top: 4px; }
+
+        /* Section Headers */
+        .svc-section { padding: 100px 0; }
+        .svc-section-label {
+            font-size: 0.7rem; font-weight: 800; letter-spacing: 0.15em;
+            text-transform: uppercase; color: #6366f1; margin-bottom: 12px;
+            display: inline-flex; align-items: center; gap: 8px;
+        }
+        .svc-section-label::before {
+            content: ''; width: 24px; height: 2px;
+            background: linear-gradient(90deg, #6366f1, transparent); border-radius: 2px;
+        }
+        .svc-section-title {
+            font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 900;
+            color: #0f172a; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px;
+        }
+        .svc-section-desc { font-size: 1rem; color: #64748b; max-width: 560px; line-height: 1.7; }
+
+        /* ── BENTO GRID ── */
+        .svc-bento {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto auto;
+            gap: 20px;
+        }
+        .svc-card {
+            background: white;
+            border: 1px solid #f1f5f9;
+            border-radius: 24px;
+            padding: 36px 30px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            display: flex; flex-direction: column;
+        }
+        .svc-card::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            background: var(--card-accent, #6366f1);
+            border-radius: 24px 24px 0 0;
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .svc-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px -15px rgba(0,0,0,0.1), 0 0 0 1px rgba(99,102,241,0.1);
+            border-color: transparent;
+        }
+        .svc-card:hover::before { opacity: 1; }
+
+        .svc-card-icon {
+            width: 60px; height: 60px; border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; margin-bottom: 24px;
+            transition: transform 0.4s ease;
+        }
+        .svc-card:hover .svc-card-icon { transform: scale(1.1) rotate(-5deg); }
+
+        .svc-card-tag {
+            font-size: 0.6rem; font-weight: 800; text-transform: uppercase;
+            letter-spacing: 0.1em; margin-bottom: 10px; color: #94a3b8;
+        }
+        .svc-card h3 {
+            font-size: 1.15rem; font-weight: 800; color: #0f172a;
+            margin-bottom: 12px; letter-spacing: -0.01em;
+        }
+        .svc-card p {
+            font-size: 0.85rem; color: #64748b; line-height: 1.7; flex: 1;
+            margin-bottom: 20px;
+        }
+        .svc-card-features {
+            list-style: none; padding: 0; margin: 0 0 20px;
+        }
+        .svc-card-features li {
+            font-size: 0.78rem; color: #475569; padding: 5px 0;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .svc-card-features li i {
+            color: #10b981; font-size: 0.65rem;
+        }
+        .svc-card-link {
+            font-size: 0.8rem; font-weight: 700; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 20px; border-radius: 12px; margin-top: auto;
+            transition: all 0.3s ease;
+        }
+        .svc-card-link i { transition: transform 0.3s ease; font-size: 0.7rem; }
+        .svc-card-link:hover i { transform: translateX(4px); }
+
+        /* Card Color Themes */
+        .svc-card.theme-blue { --card-accent: #2563eb; }
+        .svc-card.theme-blue .svc-card-icon { background: rgba(37, 99, 235, 0.1); color: #2563eb; }
+        .svc-card.theme-blue .svc-card-link { background: rgba(37, 99, 235, 0.06); color: #2563eb; }
+        .svc-card.theme-blue .svc-card-link:hover { background: #2563eb; color: white; }
+
+        .svc-card.theme-emerald { --card-accent: #059669; }
+        .svc-card.theme-emerald .svc-card-icon { background: rgba(5, 150, 105, 0.1); color: #059669; }
+        .svc-card.theme-emerald .svc-card-link { background: rgba(5, 150, 105, 0.06); color: #059669; }
+        .svc-card.theme-emerald .svc-card-link:hover { background: #059669; color: white; }
+
+        .svc-card.theme-violet { --card-accent: #7c3aed; }
+        .svc-card.theme-violet .svc-card-icon { background: rgba(124, 58, 237, 0.1); color: #7c3aed; }
+        .svc-card.theme-violet .svc-card-link { background: rgba(124, 58, 237, 0.06); color: #7c3aed; }
+        .svc-card.theme-violet .svc-card-link:hover { background: #7c3aed; color: white; }
+
+        .svc-card.theme-rose { --card-accent: #e11d48; }
+        .svc-card.theme-rose .svc-card-icon { background: rgba(225, 29, 72, 0.1); color: #e11d48; }
+        .svc-card.theme-rose .svc-card-link { background: rgba(225, 29, 72, 0.06); color: #e11d48; }
+        .svc-card.theme-rose .svc-card-link:hover { background: #e11d48; color: white; }
+
+        .svc-card.theme-amber { --card-accent: #d97706; }
+        .svc-card.theme-amber .svc-card-icon { background: rgba(217, 119, 6, 0.1); color: #d97706; }
+        .svc-card.theme-amber .svc-card-link { background: rgba(217, 119, 6, 0.06); color: #d97706; }
+        .svc-card.theme-amber .svc-card-link:hover { background: #d97706; color: white; }
+
+        .svc-card.theme-cyan { --card-accent: #0891b2; }
+        .svc-card.theme-cyan .svc-card-icon { background: rgba(8, 145, 178, 0.1); color: #0891b2; }
+        .svc-card.theme-cyan .svc-card-link { background: rgba(8, 145, 178, 0.06); color: #0891b2; }
+        .svc-card.theme-cyan .svc-card-link:hover { background: #0891b2; color: white; }
+
+        /* Featured card spans 2 cols */
+        .svc-card-featured {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border: 1px solid rgba(255,255,255,0.06);
+            color: white;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+        }
+        .svc-card-featured h3 { color: white; font-size: 1.6rem; }
+        .svc-card-featured p { color: #94a3b8; }
+        .svc-card-featured .svc-card-tag { color: #818cf8; }
+        .svc-card-featured .svc-card-features li { color: #cbd5e1; }
+        .svc-card-featured .svc-card-link {
+            background: rgba(99, 102, 241, 0.2); color: #a5b4fc;
+        }
+        .svc-card-featured .svc-card-link:hover { background: #6366f1; color: white; }
+        .svc-card-featured::before { display: none; }
+        .svc-card-featured:hover {
+            box-shadow: 0 30px 60px -15px rgba(0,0,0,0.4), 0 0 0 1px rgba(99,102,241,0.2);
+        }
+        .svc-card-featured-visual {
+            width: 100%; aspect-ratio: 4/3; border-radius: 16px; overflow: hidden;
+            background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(168,85,247,0.1));
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
+        }
+        .svc-card-featured-visual i {
+            font-size: 5rem; color: rgba(129, 140, 248, 0.3);
+            transition: all 0.5s ease;
+        }
+        .svc-card-featured:hover .svc-card-featured-visual i {
+            transform: scale(1.15); color: rgba(129, 140, 248, 0.5);
+        }
+
+        /* ── PROCESS TIMELINE ── */
+        .svc-process { background: #f8fafc; }
+        .svc-timeline {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+            position: relative; margin-top: 60px;
+        }
+        .svc-timeline::before {
+            content: '';
+            position: absolute; top: 40px; left: 10%; right: 10%; height: 2px;
+            background: linear-gradient(90deg, #e2e8f0, #6366f1, #e11d48, #e2e8f0);
+            z-index: 0;
+        }
+        .svc-step {
+            text-align: center; position: relative; z-index: 1;
+        }
+        .svc-step-dot {
+            width: 80px; height: 80px; border-radius: 20px; margin: 0 auto 24px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem; font-weight: 900; color: white;
+            transition: all 0.4s ease; position: relative;
+        }
+        .svc-step:nth-child(1) .svc-step-dot { background: linear-gradient(135deg, #6366f1, #4f46e5); box-shadow: 0 8px 25px rgba(99,102,241,0.3); }
+        .svc-step:nth-child(2) .svc-step-dot { background: linear-gradient(135deg, #0891b2, #0e7490); box-shadow: 0 8px 25px rgba(8,145,178,0.3); }
+        .svc-step:nth-child(3) .svc-step-dot { background: linear-gradient(135deg, #f59e0b, #d97706); box-shadow: 0 8px 25px rgba(245,158,11,0.3); }
+        .svc-step:nth-child(4) .svc-step-dot { background: linear-gradient(135deg, #10b981, #059669); box-shadow: 0 8px 25px rgba(16,185,129,0.3); }
+        .svc-step:hover .svc-step-dot { transform: scale(1.1) rotate(-5deg); }
+        .svc-step h4 { font-size: 1rem; font-weight: 800; color: #0f172a; margin-bottom: 8px; }
+        .svc-step p { font-size: 0.8rem; color: #64748b; max-width: 200px; margin: 0 auto; line-height: 1.6; }
+
+        /* ── CTA SECTION ── */
+        .svc-cta {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
+            padding: 100px 0; position: relative; overflow: hidden;
+        }
+        .svc-cta::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(99,102,241,0.15), transparent 60%),
+                        radial-gradient(circle at 80% 30%, rgba(239,68,68,0.1), transparent 50%);
+        }
+        .svc-cta-content { position: relative; z-index: 1; text-align: center; }
+        .svc-cta h2 {
+            font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900; color: white;
+            letter-spacing: -0.03em; margin-bottom: 16px;
+        }
+        .svc-cta p { color: #94a3b8; font-size: 1.05rem; max-width: 500px; margin: 0 auto 36px; }
+        .svc-cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+        /* ── TRUST BAR ── */
+        .svc-trust {
+            background: white; border-top: 1px solid #f1f5f9; border-bottom: 1px solid #f1f5f9;
+            padding: 40px 0;
+        }
+        .svc-trust-item {
+            display: flex; align-items: center; gap: 12px;
+            padding: 12px 20px; border-radius: 14px;
+            transition: background 0.3s ease;
+        }
+        .svc-trust-item:hover { background: #f8fafc; }
+        .svc-trust-icon {
+            width: 44px; height: 44px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.1rem;
+        }
+        .svc-trust-icon-green { background: rgba(16,185,129,0.1); color: #059669; }
+        .svc-trust-icon-blue { background: rgba(37,99,235,0.1); color: #2563eb; }
+        .svc-trust-icon-amber { background: rgba(245,158,11,0.1); color: #d97706; }
+        .svc-trust-icon-violet { background: rgba(124,58,237,0.1); color: #7c3aed; }
+        
+        .svc-admin-login-link { background: #1e293b; color: white; }
+        .svc-admin-icon-box { background: #4f46e5; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; font-size: 20px; border-radius: 50%; }
+        .svc-admin-title { color: white; }
+        .svc-admin-chevron { color: rgba(255,255,255,0.5); }
+        .svc-trust-text h6 { font-size: 0.82rem; font-weight: 700; color: #0f172a; margin: 0; }
+        .svc-trust-text p { font-size: 0.7rem; color: #94a3b8; margin: 0; }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .svc-bento { grid-template-columns: 1fr; }
+            .svc-card-featured { grid-column: span 1; grid-template-columns: 1fr; }
+            .svc-timeline { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+            .svc-timeline::before { display: none; }
+            .svc-hero { min-height: 60vh }
+        }
+    </style>
+</head>
+<body class="svc-page-body">
+
+    <!-- NAVBAR START -->
+    <nav class="navbar navbar-expand-xl navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/logo.jpeg" onerror="this.src='https://placehold.co/50x50/04214f/ffffff?text=MN'"
+                    alt="Med Nova" class="brand-logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" title="Toggle navigation"
+                data-bs-target="#navSiteMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navSiteMenu">
+                <ul class="navbar-nav mx-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><span class="nav-dot"></span>About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html"><span class="nav-dot"></span>Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="doctors.html"><span class="nav-dot"></span>Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><span class="nav-dot"></span>Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="blood-donation.html" class="nav-link"><span class="nav-dot"></span>Donate Blood</a>
+                    </li>
+
+                                        <!-- SMART FEATURES -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="smartFeaturesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Smart Features
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="smartFeaturesDropdown">
+                            <li><a class="dropdown-item" href="diet_plan.html"><i class="fas fa-utensils text-success me-2"></i>Smart Diet Plan</a></li>
+                            
+                        </ul>
+                    </li>
+
+                    <!-- URGENT RESPONSE -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="urgentResponseDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Urgent Response
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="urgentResponseDropdown">
+                            <li><a class="dropdown-item" href="emergency_sos.html"><i class="fas fa-satellite-dish text-danger me-2"></i>SOS Alerts</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="emergency_triage.html"><i class="fas fa-stethoscope text-primary me-2"></i>Fast Triage</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- HEALTH ASSESSMENT -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="healthAssessmentDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="nav-dot"></span>Health Assessment
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-lg ha-dropdown-menu" aria-labelledby="healthAssessmentDropdown">
+                            <li><a class="dropdown-item" href="health-assessment.html#bmi"><i class="fas fa-weight-scale text-primary me-2"></i>BMI Calculator</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#calories"><i class="fas fa-fire-flame-curved text-warning me-2"></i>Calorie Calculator</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#water"><i class="fas fa-glass-water text-info me-2"></i>Water Intake</a></li>
+                            <li><hr class="dropdown-divider opacity-50"></li>
+                            <li><a class="dropdown-item" href="health-assessment.html#blood-eligibility"><i class="fas fa-hand-holding-droplet text-danger me-2"></i>Donation Eligibility</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-1 mt-3 mt-xl-0">
+                    <a class="btn btn-primary btn-sm rounded-pill px-2" href="appointment.html">
+                        Get Appointment
+                    </a>
+                    <a class="btn btn-outline-primary btn-sm rounded-pill px-2" href="#hospitalLoginModal" data-bs-toggle="modal">
+                        Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- NAVBAR END -->
+    <!-- NAVBAR END -->
+
+
+    <!-- ═══════════ CINEMATIC HERO ═══════════ -->
+    <section class="svc-hero">
+        <div class="svc-hero-bg"></div>
+        <div class="svc-hero-gradient"></div>
+        <div class="container svc-hero-content">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="svc-hero-badge">
+                        <span class="dot"></span> Healthcare Redefined
+                    </div>
+                    <h1>Smart Services.<br>Real Impact.</h1>
+                    <p class="svc-hero-desc">
+                        A complete digital ecosystem for hospitals, clinics, and patients. From AI-powered diagnostics to real-time emergency response — built for Kohat, designed for the future.
+                    </p>
+                    <div class="svc-hero-actions">
+                        <a href="appointment.html" class="svc-btn-primary">
+                            <i class="fas fa-calendar-check"></i> Book Appointment
+                        </a>
+                        <a href="contact.html" class="svc-btn-ghost">
+                            <i class="fas fa-play-circle"></i> Request Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Bar inside hero -->
+        <div class="svc-stats position-absolute bottom-0 w-100">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-6 col-md-3 svc-stat-item">
+                        <div class="svc-stat-number"><span>15</span>+</div>
+                        <div class="svc-stat-label">Hospitals Connected</div>
+                    </div>
+                    <div class="col-6 col-md-3 svc-stat-item">
+                        <div class="svc-stat-number"><span>50k</span>+</div>
+                        <div class="svc-stat-label">Patients Served</div>
+                    </div>
+                    <div class="col-6 col-md-3 svc-stat-item">
+                        <div class="svc-stat-number"><span>99.9</span>%</div>
+                        <div class="svc-stat-label">Uptime Guaranteed</div>
+                    </div>
+                    <div class="col-6 col-md-3 svc-stat-item">
+                        <div class="svc-stat-number"><span>24</span>/7</div>
+                        <div class="svc-stat-label">Emergency Support</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════ TRUST BAR ═══════════ -->
+    <section class="svc-trust">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-auto">
+                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                        <div class="svc-trust-item">
+                            <div class="svc-trust-icon svc-trust-icon-green"><i class="fas fa-shield-halved"></i></div>
+                            <div class="svc-trust-text"><h6>HIPAA Compliant</h6><p>End-to-end encryption</p></div>
+                        </div>
+                        <div class="svc-trust-item">
+                            <div class="svc-trust-icon svc-trust-icon-blue"><i class="fas fa-cloud"></i></div>
+                            <div class="svc-trust-text"><h6>Cloud Native</h6><p>AWS infrastructure</p></div>
+                        </div>
+                        <div class="svc-trust-item">
+                            <div class="svc-trust-icon svc-trust-icon-amber"><i class="fas fa-bolt"></i></div>
+                            <div class="svc-trust-text"><h6>Real-time Sync</h6><p>Instant data updates</p></div>
+                        </div>
+                        <div class="svc-trust-item">
+                            <div class="svc-trust-icon svc-trust-icon-violet"><i class="fas fa-mobile-screen"></i></div>
+                            <div class="svc-trust-text"><h6>Mobile Ready</h6><p>Works on all devices</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════ SERVICES BENTO GRID ═══════════ -->
+    <section class="svc-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="svc-section-label justify-content-center">Platform Solutions</div>
+                <h2 class="svc-section-title">Everything Your Healthcare<br>Facility Needs</h2>
+                <p class="svc-section-desc mx-auto">Six powerful modules built to transform how healthcare is delivered, managed, and experienced.</p>
+            </div>
+
+            <div class="svc-bento">
+
+                <!-- FEATURED: Hospital SaaS -->
+                <div class="svc-card svc-card-featured">
+                    <div>
+                        <div class="svc-card-tag">Enterprise Solution</div>
+                        <h3>Hospital Management ERP</h3>
+                        <p>A full-scale enterprise resource planning system for large hospitals. Manage emergency departments, bed occupancy, inventory, billing, and cross-department workflows — all from one dashboard.</p>
+                        <ul class="svc-card-features">
+                            <li><i class="fas fa-check-circle"></i> Real-time bed & ward management</li>
+                            <li><i class="fas fa-check-circle"></i> Automated billing & insurance sync</li>
+                            <li><i class="fas fa-check-circle"></i> Staff scheduling & payroll</li>
+                            <li><i class="fas fa-check-circle"></i> Cross-department analytics</li>
+                        </ul>
+                        <a href="contact.html" class="svc-card-link">Request Enterprise Demo <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="svc-card-featured-visual">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                </div>
+
+                <!-- Clinic SaaS -->
+                <div class="svc-card theme-emerald">
+                    <div class="svc-card-icon"><i class="fas fa-stethoscope"></i></div>
+                    <div class="svc-card-tag">Practice Management</div>
+                    <h3>Clinic SaaS</h3>
+                    <p>Streamlined tools for small clinics: smart scheduling, digital prescriptions, and patient history tracking in one clean interface.</p>
+                    <ul class="svc-card-features">
+                        <li><i class="fas fa-check-circle"></i> Digital prescriptions</li>
+                        <li><i class="fas fa-check-circle"></i> Patient history tracking</li>
+                        <li><i class="fas fa-check-circle"></i> Automated reminders</li>
+                    </ul>
+                    <a href="contact.html" class="svc-card-link">Setup Clinic <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Online Consultation -->
+                <div class="svc-card theme-cyan">
+                    <div class="svc-card-icon"><i class="fas fa-video"></i></div>
+                    <div class="svc-card-tag">Virtual Health</div>
+                    <h3>Online Consultation</h3>
+                    <p>Connect with specialized doctors from anywhere via secure video calls and encrypted chat consultations.</p>
+                    <ul class="svc-card-features">
+                        <li><i class="fas fa-check-circle"></i> HD video consultations</li>
+                        <li><i class="fas fa-check-circle"></i> Encrypted messaging</li>
+                        <li><i class="fas fa-check-circle"></i> Digital prescriptions</li>
+                    </ul>
+                    <a href="doctors.html" class="svc-card-link">Find Doctors <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Psychology -->
+                <div class="svc-card theme-violet">
+                    <div class="svc-card-icon"><i class="fas fa-brain"></i></div>
+                    <div class="svc-card-tag">Mental Wellness</div>
+                    <h3>Psychological Center</h3>
+                    <p>Specialized virtual counseling for mental health, anxiety, and therapy. Professional psychologists available online.</p>
+                    <ul class="svc-card-features">
+                        <li><i class="fas fa-check-circle"></i> Licensed therapists</li>
+                        <li><i class="fas fa-check-circle"></i> Confidential sessions</li>
+                        <li><i class="fas fa-check-circle"></i> Progress tracking</li>
+                    </ul>
+                    <a href="psychology.html" class="svc-card-link">Book Session <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Blood Donation -->
+                <div class="svc-card theme-rose">
+                    <div class="svc-card-icon"><i class="fas fa-droplet"></i></div>
+                    <div class="svc-card-tag">Life Saving</div>
+                    <h3>Blood Donation Registry</h3>
+                    <p>A digital mapping system connecting donors with recipients. Register to save lives or find urgent donors in your area.</p>
+                    <ul class="svc-card-features">
+                        <li><i class="fas fa-check-circle"></i> Live donor locator</li>
+                        <li><i class="fas fa-check-circle"></i> Blood group matching</li>
+                        <li><i class="fas fa-check-circle"></i> Emergency alerts</li>
+                    </ul>
+                    <a href="blood-donation.html" class="svc-card-link">Donate Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Diet Planning -->
+                <div class="svc-card theme-amber">
+                    <div class="svc-card-icon"><i class="fas fa-salad"></i></div>
+                    <div class="svc-card-tag">Personalized Nutrition</div>
+                    <h3>Smart Diet Planning</h3>
+                    <p>Get AI-powered diet plans aligned to your health goals. Managed by expert nutritionists with real-time progress tracking.</p>
+                    <ul class="svc-card-features">
+                        <li><i class="fas fa-check-circle"></i> AI meal recommendations</li>
+                        <li><i class="fas fa-check-circle"></i> Goal-based planning</li>
+                        <li><i class="fas fa-check-circle"></i> Nutritionist support</li>
+                    </ul>
+                    <a href="diet_plan.html" class="svc-card-link">Start Planning <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Health Assessment -->
+                <div class="svc-card theme-blue">
+                    <div class="svc-card-icon"><i class="fas fa-heart-pulse"></i></div>
+                    <div class="svc-card-tag">Self Evaluation</div>
+                    <h3>Health Assessment</h3>
+                    <p>Use our built-in calculators to monitor your BMI, daily calorie limits, water intake targets, and blood donation eligibility.</p>
+                    <ul class="svc-card-features">
+                        <li><i class="fas fa-check-circle"></i> BMI & Calorie counters</li>
+                        <li><i class="fas fa-check-circle"></i> Hydration tracking</li>
+                        <li><i class="fas fa-check-circle"></i> Donation eligibility</li>
+                    </ul>
+                    <a href="health-assessment.html" class="svc-card-link">Check Health <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════ PROCESS TIMELINE ═══════════ -->
+    <section class="svc-section svc-process">
+        <div class="container">
+            <div class="text-center">
+                <div class="svc-section-label justify-content-center">How It Works</div>
+                <h2 class="svc-section-title">Get Started in 4 Steps</h2>
+                <p class="svc-section-desc mx-auto">From registration to receiving care, every step is designed to be effortless.</p>
+            </div>
+
+            <div class="svc-timeline">
+                <div class="svc-step">
+                    <div class="svc-step-dot">01</div>
+                    <h4>Register</h4>
+                    <p>Create your account or onboard your facility in under 5 minutes.</p>
+                </div>
+                <div class="svc-step">
+                    <div class="svc-step-dot">02</div>
+                    <h4>Connect</h4>
+                    <p>Link with hospitals, doctors, and specialists across the platform.</p>
+                </div>
+                <div class="svc-step">
+                    <div class="svc-step-dot">03</div>
+                    <h4>Manage</h4>
+                    <p>Use powerful dashboards to handle appointments, records, and billing.</p>
+                </div>
+                <div class="svc-step">
+                    <div class="svc-step-dot">04</div>
+                    <h4>Grow</h4>
+                    <p>Scale your healthcare operations with analytics and AI insights.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════ CTA SECTION ═══════════ -->
+    <section class="svc-cta">
+        <div class="container">
+            <div class="svc-cta-content">
+                <h2>Ready to Transform<br>Your Healthcare?</h2>
+                <p>Join hundreds of healthcare providers already using Med Nova to deliver better patient outcomes.</p>
+                <div class="svc-cta-actions">
+                    <a href="appointment.html" class="svc-btn-primary">
+                        <i class="fas fa-rocket"></i> Get Started Free
+                    </a>
+                    <a href="contact.html" class="svc-btn-ghost">
+                        <i class="fas fa-phone"></i> Talk to Sales
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FOOTER START -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold mb-4">Med Nova</h5>
+                    <p class="muted mb-4 fs-14">Advanced Digital Healthcare Platform for Kohat's First Smart Medical System. Reliable care at your fingertips.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="fw-bold mb-4">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="about.html">About Us</a></li>
+                        <li class="mb-2"><a href="services.html">Services</a></li>
+                        <li class="mb-2"><a href="doctors.html">Find Doctors</a></li>
+                        <li class="mb-2"><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold mb-4">Our Services</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="blood-donation.html">Blood Donation</a></li>
+                        <li class="mb-2"><a href="diet_plan.html">Smart Diet Plans</a></li>
+                        <li class="mb-2"><a href="emergency_sos.html">Emergency SOS</a></li>
+                        <li class="mb-2"><a href="health-assessment.html">Health Assessment</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h6 class="fw-bold mb-4">Visit Us</h6>
+                    <div class="rounded-4 overflow-hidden shadow-sm border map-iframe-container mb-3">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3326.68060!2d71.442308!3d33.50438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d8ef537d8e6371%3A0x6bba843f5509b53!2sKohat%20University%20of%20Science%20%26%20Short%20Technology!5e0!3m2!1sen!2spk!4v1712068000000!5m2!1sen!2spk"
+                            class="map-iframe" title="KUST Location Map"
+                            allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                    <p class="muted fs-13 mb-0"><i class="fas fa-map-marker-alt me-2 text-danger"></i> Kohat University of Science & Technology, KPK, Pakistan</p>
+                </div>
+            </div>
+
+            <hr>
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="muted small mb-md-0">© 2026 Med Nova. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="d-flex gap-4 justify-content-md-end">
+                        <a href="#" class="small muted text-decoration-none">Privacy Policy</a>
+                        <a href="#" class="small muted text-decoration-none">Terms of Service</a>
+                        <a href="https://wa.me/923001234567" class="small text-success fw-bold text-decoration-none"><i class="fab fa-whatsapp me-1"></i> Support</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER END -->
+    <!-- FOOTER END -->
+
+    <!-- Hospital Login Modal -->
+    <div class="modal fade" id="hospitalLoginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0 bg-gradient-primary">
+                    <div>
+                        <h5 class="modal-title text-white fw-bold mb-1"><i class="fas fa-hospital me-2"></i>Healthcare Portal Login</h5>
+                        <p class="text-white-50 mb-0 fs-13">Select your access level to continue</p>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="d-grid gap-3">
+                        <a href="../backend/?route=auth/login" class="text-decoration-none d-flex align-items-center p-3 rounded-14 transition-2 svc-admin-login-link" title="Super Admin Login">
+                            <div class="svc-admin-icon-box text-white me-3"><i class="fas fa-shield-halved"></i></div>
+                            <div><div class="fw-bold svc-admin-title">Super Admin</div><div class="fs-13 text-white-50">Global platform control</div></div>
+                            <i class="fas fa-chevron-right ms-auto svc-admin-chevron"></i>
+                        </a>
+                        <a href="../backend/?route=auth/login" class="text-decoration-none d-flex align-items-center p-3 rounded-14 transition-2 login-card-hospital" title="Hospital Login">
+                            <div class="bg-primary text-white rounded-circle icon-box-50 me-3"><i class="fas fa-hospital"></i></div>
+                            <div><div class="fw-bold">Hospital Admin</div><div class="fs-13">Emergency dispatch control</div></div>
+                            <i class="fas fa-chevron-right ms-auto"></i>
+                        </a>
+                        <a href="../backend/?route=auth/login" class="text-decoration-none d-flex align-items-center p-3 rounded-14 transition-2 login-card-clinic" title="Clinic Login">
+                            <div class="bg-success text-white rounded-circle icon-box-50 me-3"><i class="fas fa-clinic-medical"></i></div>
+                            <div><div class="fw-bold">Clinic Portal</div><div class="fs-13">Patient records & lab sync</div></div>
+                            <i class="fas fa-chevron-right ms-auto"></i>
+                        </a>
+                    </div>
+                    <p class="text-center text-muted mt-3 mb-0 fs-12">Credentials provided by your system administrator.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js?v=1780419041"></script>
+</body>
+
+</html>
+
+
+
+
+

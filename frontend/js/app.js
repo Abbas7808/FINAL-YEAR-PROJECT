@@ -1,0 +1,978 @@
+/**
+ * ==========================================================================
+ * MED NOVA - FRONTEND CORE LOGIC (app.js)
+ * ==========================================================================
+ * This file handles all dynamic client-side interactions, AJAX API calls,
+ * form submissions, validation, and visual animations for MedNova.
+ * 
+ * TABLE OF CONTENTS:
+ * 1. API SERVICE LAYER (Asynchronous fetch handlers)
+ * 2. GLOBAL UI ENHANCEMENTS (Scroll effects, nav animations, back-to-top)
+ * 3. REGIONAL DATA SYNC HELPERS (Regions, Hospitals, Departments, Doctors)
+ * 4. COMPONENT LOGIC (Doctors grid, universal facility search, details drawer)
+ * 5. FORM SUBMISSION LOGIC (Appointments, Diet Plans, Blood Donors, Blood Requests)
+ * 6. DYNAMIC BLOGS/NEWS ENGINE
+ * ==========================================================================
+ */
+
+// Step 1: Compute the Base API URL dynamically depending on local vs production environment
+const getBaseApiUrl = () => {
+    if (window.location.hostname === 'fyp.nexsoft.site' || window.location.hostname === 'www.fyp.nexsoft.site') {
+        return 'https://fyp.nexsoft.site/backend/index.php?route=api'; // Live host endpoint
+    }
+    const path = window.location.pathname;
+    const frontendIndex = path.indexOf('/frontend/');
+    if (frontendIndex !== -1) {
+        const projectFolder = path.substring(0, frontendIndex);
+        return `${window.location.origin}${projectFolder}/backend/index.php?route=api`; // Local XAMPP path
+    }
+    return '../backend/index.php?route=api'; // Fallback relative path
+};
+const API_URL = getBaseApiUrl(); 
+
+/* ==========================================================================
+   1. API SERVICE LAYER - Unified AJAX Handlers
+   ========================================================================== */
+const api = {
+    // Fetches list of all regions from the backend database
+    getRegions: async () => {
+        try {
+            const response = await fetch(`${API_URL}/regions`);
+            return await response.json();
+        } catch (error) {
+            return [];
+        }
+    },
+    // Fetches hospitals filtered by region and type
+    getHospitals: async (regionId = '', type = '') => {
+        try {
+            let url = `${API_URL}/hospitals`;
+            const separator = url.includes('?') ? '&' : '?';
+            const params = new URLSearchParams();
+            if (regionId) params.append('region_id', regionId);
+            if (type && type !== 'all') params.append('type', type);
+            const queryString = params.toString();
+            if (queryString) url += separator + queryString;
+            const response = await fetch(url);
+            return await response.json();
+        } catch (error) {
+            return [];
+        }
+    },
+    // Fetches doctors affiliated with a specific hospital
+    getDoctors: async (hospitalId = '') => {
+        try {
+            let url = `${API_URL}/doctors`;
+            const separator = url.includes('?') ? '&' : '?';
+            if (hospitalId) url += separator + `hospital_id=${hospitalId}`;
+            const response = await fetch(url);
+            return await response.json();
+        } catch (error) {
+            return [];
+        }
+    },
+    // Fetches clinical services/departments list
+    getServices: async () => {
+        try {
+            const response = await fetch(`${API_URL}/services`);
+            return await response.json();
+        } catch (error) {
+            return [];
+        }
+    },
+    // Books a patient appointment via POST request
+    bookAppointment: async (data) => {
+        const response = await fetch(`${API_URL}/appointment`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        return await response.json();
+    },
+    // Submits contact form message
+    sendMessage: async (data) => {
+        const response = await fetch(`${API_URL}/contact`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        return await response.json();
+    },
+    // Fetches details of a specific hospital via ID, email or slug
+    getHospital: async (identifier) => {
+        try {
+            let query = '';
+            if (String(identifier).includes('@')) {
+                query = `email=${identifier}`;
+            } else if (!isNaN(identifier)) {
+                query = `id=${identifier}`;
+            } else {
+                query = `slug=${identifier}`;
+            }
+            let url = `${API_URL}/hospitals`;
+            const separator = url.includes('?') ? '&' : '?';
+            const response = await fetch(`${url}${separator}${query}`);
+            return await response.json();
+        } catch (error) {
+            return null;
+        }
+    }
+};
+
+$(document).ready(function () {
+
+    /* ==========================================================================
+       2. GLOBAL UI ENHANCEMENTS (Animations & Interactions)
+       ========================================================================== */
+    (function initUiEnhancements() {
+        const $nav = $('nav.navbar').first();
+
+        // Normalizes navigation links and cleans up dynamic elements
+        const normalizeNavbar = () => {
+            const nav = document.querySelector('nav.navbar');
+            if (!nav) return;
+
+            nav.querySelectorAll('.nav-dot').forEach((dot) => dot.remove());
+
+            // Convert modal login trigger links to direct backend login redirects
+            nav.querySelectorAll('a[href="#hospitalLoginModal"]').forEach((link) => {
+                link.setAttribute('href', '../backend/?route=auth/login');
+                link.removeAttribute('data-bs-toggle');
+                link.removeAttribute('data-bs-target');
+            });
+
+            const smartDropdown = nav.querySelector('#smartFeaturesDropdown');
+            const smartMenu = smartDropdown ? smartDropdown.closest('.dropdown')?.querySelector('.dropdown-menu') : null;
+            const donateLink = nav.querySelector('a.nav-link[href="blood-donation.html"]');
+            const fastTriageHref = 'emergency_triage.html';
+
+            const urgentItem = nav.querySelector('#urgentResponseDropdown')?.closest('.nav-item');
+            if (urgentItem) urgentItem.remove();
+
+            if (smartMenu) {
+                if (donateLink && !smartMenu.querySelector('a[href="blood-donation.html"]')) {
+                    const donateItem = donateLink.closest('.nav-item');
+                    if (donateItem) donateItem.remove();
+
+                    const donateItemWrapper = document.createElement('li');
+                    donateItemWrapper.innerHTML = '<a class="dropdown-item" href="blood-donation.html"><i class="fas fa-tint text-danger me-2"></i>Donate Blood</a>';
+                    smartMenu.appendChild(donateItemWrapper);
+                }
+
+                if (!smartMenu.querySelector(`a[href="${fastTriageHref}"]`)) {
+                    const divider = document.createElement('li');
+                    divider.innerHTML = '<hr class="dropdown-divider opacity-50">';
+                    smartMenu.appendChild(divider);
+
+                    const triageItem = document.createElement('li');
+                    triageItem.innerHTML = '<a class="dropdown-item" href="emergency_triage.html"><i class="fas fa-stethoscope text-primary me-2"></i>Fast Triage</a>';
+                    smartMenu.appendChild(triageItem);
+                }
+            }
+        };
+
+        normalizeNavbar();
+
+        // Adds blur and shadows to the navbar upon page scrolling
+        const updateNav = () => {
+            if (!$nav.length) return;
+            const scrolled = window.scrollY > 8;
+            $nav.toggleClass('mn-nav-scrolled', scrolled);
+        };
+        updateNav();
+        window.addEventListener('scroll', updateNav, { passive: true });
+
+        // Injects back-to-top button dynamically
+        if (!document.getElementById('mn-back-to-top')) {
+            const btn = document.createElement('button');
+            btn.id = 'mn-back-to-top';
+            btn.type = 'button';
+            btn.className = 'mn-back-to-top';
+            btn.setAttribute('aria-label', 'Back to top');
+            btn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+            document.body.appendChild(btn);
+
+            const toggleBtn = () => {
+                btn.classList.toggle('is-visible', window.scrollY > 500);
+            };
+            toggleBtn();
+            window.addEventListener('scroll', toggleBtn, { passive: true });
+            btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        }
+
+        // Smooth scroll for local page anchors
+        document.addEventListener('click', (e) => {
+            const a = e.target.closest && e.target.closest('a[href^="#"]');
+            if (!a) return;
+            const href = a.getAttribute('href');
+            if (!href || href === '#' || a.hasAttribute('data-bs-toggle')) return;
+            const el = document.querySelector(href);
+            if (!el) return;
+            e.preventDefault();
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
+        // Creates a modern Material ripple effect on click
+        document.addEventListener('click', (e) => {
+            const target = e.target.closest && e.target.closest('.btn, .ripple-effect');
+            if (!target) return;
+            const rect = target.getBoundingClientRect();
+
+            const computed = window.getComputedStyle(target);
+            if (computed.position === 'static') target.style.position = 'relative';
+            target.style.overflow = 'hidden';
+
+            const ripple = document.createElement('span');
+            ripple.className = 'mn-ripple';
+            const size = Math.max(rect.width, rect.height);
+            ripple.style.width = ripple.style.height = `${size}px`;
+            ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
+            ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
+            target.appendChild(ripple);
+            ripple.addEventListener('animationend', () => ripple.remove());
+        }, { passive: true });
+
+        // Scroll Reveal effect via IntersectionObserver
+        const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+            const selectors = [
+                '.internal-hero .container',
+                '.hero-redesign .col-lg-6',
+                '.stat-card-blue',
+                '.service-pro-card',
+                '.doctor-pro-card',
+                '.doctor-card-pro',
+                '.blog-pro-card',
+                '.appointment-card',
+                '.bd-card',
+                '.card.shadow-sm',
+                '.card.shadow-lg'
+            ];
+
+            const nodes = Array.from(document.querySelectorAll(selectors.join(',')));
+            nodes.forEach((n, i) => {
+                if (n.classList.contains('mn-reveal')) return;
+                n.classList.add('mn-reveal');
+                if (i % 3 === 0) n.classList.add('mn-reveal--up');
+                if (i % 3 === 1) n.classList.add('mn-reveal--scale');
+                if (i % 3 === 2) n.classList.add('mn-reveal--right');
+            });
+
+            const io = new IntersectionObserver((entries) => {
+                for (const entry of entries) {
+                    if (!entry.isIntersecting) continue;
+                    entry.target.classList.add('is-visible');
+                    io.unobserve(entry.target);
+                }
+            }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+
+            nodes.forEach(n => io.observe(n));
+        }
+    })();
+
+    /* ==========================================================================
+       3. REGIONAL DATA SYNC HELPERS (Dynamic Dropdown Chains)
+       ========================================================================== */
+    
+    // Populates regions dropdown
+    function loadRegions(selectSelector) {
+        return $.getJSON(`${API_URL}/regions`, function (data) {
+            const regionSelect = $(selectSelector);
+            regionSelect.empty().append(new Option('Select Region', ''));
+            data.forEach(r => {
+                regionSelect.append(new Option(r.name, r.id));
+            });
+        }).fail(function (jqXHR, textStatus, errorThrown) {
+            // Silently handle error
+        });
+    }
+
+    // Handles Region selection change to reload Hospitals dropdown
+    async function onRegionChange(regionId, hospSelectSelector) {
+        const hospSelect = $(hospSelectSelector);
+        hospSelect.empty().append(new Option('Select Hospital', '')).prop('disabled', true);
+        // Reset doctor dropdown when region changes
+        $('#step-2-form select[name="doctor"]').empty().append(new Option('Select Hospital First', '')).prop('disabled', true);
+
+        if (regionId) {
+            hospSelect.prop('disabled', false).append(new Option('Loading...', ''));
+            try {
+                const hospitals = await $.getJSON(`${API_URL}/hospitals&region_id=${regionId}`);
+                hospSelect.empty().append(new Option('Select Hospital', ''));
+                hospitals.forEach(h => {
+                    hospSelect.append(new Option(h.name, h.id));
+                });
+            } catch (e) {
+                hospSelect.empty().append(new Option('Error loading hospitals', ''));
+            }
+        }
+    }
+
+    /* ==========================================================================
+       4. COMPONENT LOGIC (Facility Listing, Details Drawer, Search)
+       ========================================================================== */
+    
+    // Homepage Doctor Grid populator
+    if ($('#home-doctors-grid').length) {
+        api.getDoctors().then(doctors => {
+            const topDoctors = doctors.slice(0, 3);
+            const localDoctorImgs = [
+                'assets/doctor-fatima.jpg',
+                'assets/doctor-male-1.jpg',
+                'assets/doctor-male-2.jpg',
+                'assets/doctor-female-1.jpg'
+            ];
+            const doctorsHtml = topDoctors.map((doc, idx) => {
+                const fallback = localDoctorImgs[idx % localDoctorImgs.length];
+                return `
+                <div class="col-md-4">
+                    <div class="doctor-pro-card">
+                        <div class="doctor-img-box">
+                            <img src="${doc.image || fallback}" alt="${doc.name}" onerror="this.src='${fallback}'">
+                        </div>
+                        <h4 class="doctor-name">${doc.name}</h4>
+                        <div class="doctor-role">${doc.specialty}</div>
+                    </div>
+                </div>
+            `}).join('');
+            $('#home-doctors-grid').html(doctorsHtml || '<div class="col-12 text-center py-3 text-muted">No doctors found.</div>');
+        });
+    }
+
+    // Facility Directory/Doctors/Search panel Logic
+    if ($('#main-list-container').length) {
+        let allFacilities = [];
+        let currentType = 'hospital';
+        let currentRegion = '';
+
+        api.getRegions().then(regions => {
+            const regionSelect = $('#region-filter');
+            regions.forEach(r => {
+                regionSelect.append(new Option(r.name, r.id));
+            });
+        });
+
+        // Loads hospitals/clinics into directory
+        const loadFacilities = async () => {
+            $('#main-list-container').html('<div class="text-center p-5"><div class="spinner-border text-primary"></div></div>');
+            allFacilities = await api.getHospitals(currentRegion, currentType);
+            renderFacilities(allFacilities);
+        };
+
+        const hospitalImgs = [
+            'assets/hospital-1.png',
+            'assets/hospital-2.png',
+            'assets/hospital-3.png',
+            'assets/images/hospital_placeholder.png'
+        ];
+        const clinicImgs = [
+            'assets/images/hospital_placeholder.png',
+            'assets/hospital-3.png',
+            'assets/hospital-1.png'
+        ];
+        const doctorImgs = [
+            'assets/doctor-fatima.jpg',
+            'assets/doctor-male-1.jpg',
+            'assets/doctor-male-2.jpg',
+            'assets/doctor-female-1.jpg',
+            'assets/default-doctor.jpg'
+        ];
+
+        function pickImg(pool, seed) {
+            return pool[Math.abs(seed) % pool.length];
+        }
+
+        // Renders facility cards list
+        const renderFacilities = (facilities) => {
+            const searchQuery = $('#universal-search').val().toLowerCase();
+            const filtered = facilities.filter(f => {
+                return f.name.toLowerCase().includes(searchQuery) || (f.address || '').toLowerCase().includes(searchQuery);
+            });
+            $('#results-count').text(`${filtered.length} Facilities Found`);
+            const html = filtered.map((f, idx) => {
+                const isClinic = (f.type || '').toLowerCase().includes('clinic');
+                const pool = isClinic ? clinicImgs : hospitalImgs;
+                const hasRealImg = f.image && !f.image.includes('placeholder');
+                const imgSrc = hasRealImg ? f.image : pickImg(pool, f.id || idx);
+                const fallbackSrc = isClinic ? clinicImgs[0] : hospitalImgs[0];
+                const badge = isClinic
+                    ? `<span class="badge bg-success-subtle text-success rounded-pill ms-auto"><i class="fas fa-clinic-medical me-1"></i>Clinic</span>`
+                    : `<span class="badge bg-primary-subtle text-primary rounded-pill ms-auto"><i class="fas fa-hospital me-1"></i>Hospital</span>`;
+                return `
+                <div class="facility-card rounded-3 bg-white mb-2 shadow-sm border-0 overflow-hidden" style="cursor:pointer; transition: transform .15s, box-shadow .15s;" data-id="${f.id}" onclick="showFacilityDetails(${f.id})"
+                     onmouseenter="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(0,0,0,.10)'"
+                     onmouseleave="this.style.transform='';this.style.boxShadow=''"
+                >
+                    <div class="d-flex align-items-stretch">
+                        <div style="width:90px; min-height:90px; flex-shrink:0; overflow:hidden;">
+                            <img src="${imgSrc}" alt="${f.name}" onerror="this.src='${fallbackSrc}'"
+                                 style="width:100%; height:100%; object-fit:cover; object-position:center;">
+                        </div>
+                        <div class="p-3 d-flex flex-column justify-content-center flex-grow-1">
+                            <div class="d-flex align-items-start gap-2">
+                                <h6 class="mb-1 fw-bold text-dark flex-grow-1">${f.name}</h6>
+                                ${badge}
+                            </div>
+                            <div class="small text-muted"><i class="fas fa-map-marker-alt me-1"></i>${f.address || 'Kohat'}</div>
+                        </div>
+                    </div>
+                </div>
+            `}).join('');
+            $('#main-list-container').html(html || '<div class="text-center text-muted py-5">No facilities found.</div>');
+        };
+
+        // Renders specific facility detailed info card and doctor list
+        window.showFacilityDetails = async (id) => {
+            const facility = allFacilities.find(f => f.id == id);
+            if (!facility) return;
+
+            $('.facility-card').css('border-left', '');
+            $(`.facility-card[data-id="${id}"]`).css('border-left', '4px solid var(--bs-primary)');
+
+            const isClinic = (facility.type || '').toLowerCase().includes('clinic');
+            const facilityImgPool = isClinic ? clinicImgs : hospitalImgs;
+            const hasRealImg = facility.image && !facility.image.includes('placeholder');
+            const facilityImg = hasRealImg ? facility.image : pickImg(facilityImgPool, facility.id || id);
+            const facilityFallback = facilityImgPool[0];
+
+            $('#detail-panel').html('<div class="text-center p-5"><div class="spinner-border text-primary"></div></div>');
+            const doctors = await api.getDoctors(id);
+
+            const doctorsHtml = doctors.length > 0 ? doctors.map((d, i) => {
+                const hasDocImg = d.image && !d.image.includes('default-doctor');
+                const docImg = hasDocImg ? d.image : pickImg(doctorImgs, d.id || i);
+                const docFallback = 'assets/default-doctor.jpg';
+                return `
+                <div class="d-flex align-items-center gap-3 mb-3 p-2 rounded-3" style="background:#f8faff; transition: background .15s;"
+                     onmouseenter="this.style.background='#e8f0fe'" onmouseleave="this.style.background='#f8faff'">
+                     <div style="width:52px; height:52px; border-radius:50%; overflow:hidden; flex-shrink:0; border:2px solid #e3eeff;">
+                        <img src="${docImg}" alt="${d.name}" onerror="this.src='${docFallback}'"
+                             style="width:100%; height:100%; object-fit:cover; object-position:top;">
+                    </div>
+                    <div class="flex-grow-1">
+                        <div class="fw-bold small text-dark">${d.name}</div>
+                        <div class="text-muted" style="font-size:0.78rem;">${d.specialty || d.specialization || 'General Physician'}</div>
+                    </div>
+                    <a href="appointment.html?doctor=${encodeURIComponent(d.name)}&hospital=${encodeURIComponent(facility.name)}" class="btn btn-sm btn-primary rounded-pill px-3">Book</a>
+                </div>
+            `}).join('') : '<div class="text-center text-muted small py-3"><i class="fas fa-user-md fa-2x mb-2 d-block opacity-50"></i>No doctors listed yet.</div>';
+
+            $('#detail-panel').html(`
+                <div class="bg-white rounded-4 shadow overflow-hidden">
+                    <div style="height:180px; overflow:hidden; position:relative;">
+                        <img src="${facilityImg}" alt="${facility.name}" onerror="this.src='${facilityFallback}'"
+                             style="width:100%; height:100%; object-fit:cover; object-position:center;">
+                        <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,.85) 0%, rgba(0,0,0,.4) 50%, transparent 80%); display:flex; align-items:flex-end; padding:16px;">
+                            <div style="color:#ffffff; text-shadow: 0 2px 8px rgba(0,0,0,.9), 0 1px 3px rgba(0,0,0,.7);">
+                                <h5 class="fw-bold mb-1" style="color:#ffffff !important;">${facility.name}</h5>
+                                <div class="small" style="color:#ffffff !important;"><i class="fas fa-map-marker-alt me-1"></i>${facility.address || 'Kohat'}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h6 class="fw-bold text-muted small mb-3"><i class="fas fa-user-md me-2"></i>Available Doctors (${doctors.length})</h6>
+                        <div style="max-height: 380px; overflow-y: auto; padding-right:4px;">${doctorsHtml}</div>
+                    </div>
+                </div>
+            `).hide().fadeIn(300);
+        };
+
+        // Bind filter event handlers
+        $('#region-filter').change(function () { currentRegion = $(this).val(); loadFacilities(); });
+        $('#facility-tabs button').click(function () {
+            $('#facility-tabs button').removeClass('active');
+            $(this).addClass('active');
+            currentType = $(this).data('type');
+            loadFacilities();
+        });
+        $('#universal-search').on('input', function () { renderFacilities(allFacilities); });
+        $('#reset-filters').on('click', function () {
+            currentRegion = '';
+            $('#region-filter').val('');
+            $('#universal-search').val('');
+            $('#facility-tabs button').removeClass('active');
+            $('#facility-tabs button[data-type="hospital"]').addClass('active');
+            currentType = 'hospital';
+            loadFacilities();
+        });
+        loadFacilities();
+    }
+
+    /* ==========================================================================
+       5. FORM SUBMISSION LOGIC (Validation & API Calls)
+       ========================================================================== */
+
+    // Multi-Step Appointment Booking Form
+    if ($('#step-2-form').length) {
+        
+        // Dynamic doctors list loader per hospital selection — shows ALL doctors in the hospital
+        async function loadDoctorsForHospital(hospitalId) {
+            const docSelect = $('#step-2-form select[name="doctor"]');
+            docSelect.empty().append(new Option('Loading doctors...', '')).prop('disabled', true);
+
+            if (hospitalId) {
+                try {
+                    const doctors = await $.getJSON(`${API_URL}/doctors&hospital_id=${hospitalId}`);
+                    docSelect.empty().append(new Option('Any Available Doctor', ''));
+                    if (doctors && doctors.length > 0) {
+                        doctors.forEach(d => {
+                            const label = d.name + (d.specialty ? ' — ' + d.specialty : '');
+                            docSelect.append(new Option(label, d.id));
+                        });
+                        docSelect.prop('disabled', false);
+
+                        // Pre-select doctor if passed in URL query string
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const docParam = urlParams.get('doctor');
+                        if (docParam) {
+                            docSelect.find('option').each(function() {
+                                if ($(this).text().toLowerCase().includes(docParam.toLowerCase())) {
+                                    docSelect.val($(this).val());
+                                }
+                            });
+                        }
+                    } else {
+                        docSelect.empty().append(new Option('No registered doctors for this hospital', ''));
+                        docSelect.prop('disabled', true);
+                    }
+                } catch (e) {
+                    docSelect.empty().append(new Option('Error loading doctors', ''));
+                    docSelect.prop('disabled', true);
+                }
+            } else {
+                docSelect.empty().append(new Option('Select Hospital First', '')).prop('disabled', true);
+            }
+        }
+
+        // Initialize regions listing and query params checks
+        loadRegions('#step-2-form select[name="region"]').then(async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const hospitalParam = urlParams.get('hospital_id') || urlParams.get('hospital');
+            if (hospitalParam) {
+                const hospital = await api.getHospital(hospitalParam);
+                if (hospital && hospital.id) {
+                    $('#step-2-form select[name="region"]').val(hospital.region_id);
+                    await onRegionChange(hospital.region_id, '#step-2-form select[name="hospital"]');
+                    $('#step-2-form select[name="hospital"]').val(hospital.id);
+                    await loadDoctorsForHospital(hospital.id);
+                }
+            }
+        }).catch(error => {
+            console.error("Region listing failed", error);
+        });
+
+        $('#step-2-form select[name="region"]').change(function () {
+            onRegionChange($(this).val(), '#step-2-form select[name="hospital"]');
+        });
+
+        $('#step-2-form select[name="hospital"]').change(function () {
+            loadDoctorsForHospital($(this).val());
+        });
+
+        // Step 1 Form Submission (Personal Details)
+        $('#step-1-form').submit(function (e) {
+            e.preventDefault();
+            $('#step-1').addClass('d-none');
+            $('#step-2').removeClass('d-none');
+            $('#appointment-progress').css('width', '66%');
+            $('#step-label-1').removeClass('fw-bold text-primary').addClass('text-success');
+            $('#step-label-2').addClass('fw-bold text-primary');
+        });
+
+        // Back to Step 1
+        $('#back-to-step-1').click(function () {
+            $('#step-2').addClass('d-none');
+            $('#step-1').removeClass('d-none');
+            $('#appointment-progress').css('width', '33%');
+            $('#step-label-1').addClass('fw-bold text-primary').removeClass('text-success');
+            $('#step-label-2').removeClass('fw-bold text-primary');
+        });
+
+        // Step 2 Form Submission (Location/Doctor & Schedule Selection)
+        $('#step-2-form').submit(function (e) {
+            e.preventDefault();
+            
+            // Populate review details
+            $('#rev-name').text($('#name').val());
+            $('#rev-phone').text($('#phone').val());
+            $('#rev-email').text($('#email').val() || '—');
+            $('#rev-region').text($('#step-2-form select[name="region"] option:selected').text());
+            $('#rev-hospital').text($('#step-2-form select[name="hospital"] option:selected').text());
+            
+            const doctorText = $('#step-2-form select[name="doctor"]').val() ? $('#step-2-form select[name="doctor"] option:selected').text() : 'Any Doctor';
+            $('#rev-doctor').text(doctorText);
+            $('#rev-date').text($('#step-2-form input[name="date"]').val());
+            
+            const timeVal = $('#step-2-form select[name="time"]').val();
+            let timeText = 'Morning (9 AM - 12 PM)';
+            if (timeVal === 'afternoon') timeText = 'Afternoon (12 PM - 5 PM)';
+            if (timeVal === 'evening') timeText = 'Evening (5 PM - 9 PM)';
+            $('#rev-time').text(timeText);
+
+            $('#step-2').addClass('d-none');
+            $('#step-3').removeClass('d-none');
+            $('#appointment-progress').css('width', '100%');
+            $('#step-label-2').removeClass('fw-bold text-primary').addClass('text-success');
+            $('#step-label-3').addClass('fw-bold text-primary');
+        });
+
+        // Back to Step 2
+        $('#back-to-step-2').click(function () {
+            $('#step-3').addClass('d-none');
+            $('#step-2').removeClass('d-none');
+            $('#appointment-progress').css('width', '66%');
+            $('#step-label-2').addClass('fw-bold text-primary').removeClass('text-success');
+            $('#step-label-3').removeClass('fw-bold text-primary');
+        });
+
+        // Final Submit Booking AJAX Action
+        $('#submit-booking').click(async function () {
+            const btn = $(this);
+            const originalText = btn.html();
+            btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin me-2"></i>Processing...');
+
+            const selectedHospitalName = $('#step-2-form select[name="hospital"] option:selected').text();
+            const selectedDate = $('#step-2-form input[name="date"]').val();
+
+            const payload = {
+                name: $('#name').val().trim(),
+                phone: $('#phone').val().trim(),
+                email: $('#email').val().trim(),
+                date: selectedDate,
+                time: $('#step-2-form select[name="time"]').val(),
+                hospitalId: $('#step-2-form select[name="hospital"]').val(),
+                doctorId: $('#step-2-form select[name="doctor"]').val() || null,
+                type: 'consultation'
+            };
+
+            try {
+                const res = await api.bookAppointment(payload);
+                if (res.success) {
+                    $('#step-3').addClass('d-none');
+                    $('#confirm-name').text(payload.name);
+                    $('#confirm-hospital').text(selectedHospitalName);
+                    $('#confirm-date').text(selectedDate);
+                    // Show token number if returned by server
+                    if (res.token) {
+                        const tokenMsg = document.querySelector('#step-4 p.text-muted');
+                        if (tokenMsg && !document.getElementById('confirm-token')) {
+                            const tokenSpan = document.createElement('div');
+                            tokenSpan.className = 'alert alert-info mt-2 mb-0 rounded-3';
+                            tokenSpan.innerHTML = '<i class="fas fa-ticket-alt me-2"></i>Your Token Number: <strong>#' + res.token + '</strong>';
+                            tokenMsg.parentNode.insertBefore(tokenSpan, tokenMsg.nextSibling);
+                        }
+                    }
+                    $('#step-4').removeClass('d-none');
+                } else {
+                    alert(res.message || 'Booking failed. Please try again.');
+                    btn.prop('disabled', false).html(originalText);
+                }
+            } catch (e) {
+                alert('Connection error. Failed to save appointment.');
+                btn.prop('disabled', false).html(originalText);
+            }
+        });
+    }
+
+    // Diet Plan Request Form
+    if ($('#diet-plan-form').length) {
+        loadRegions('#diet-plan-form select[name="region"]');
+        
+        $('#diet-plan-form select[name="region"]').change(async function () {
+            const regionId = $(this).val();
+            const hospSelect = $('#diet-plan-form select[name="hospital"]');
+            const docSelect = $('#diet-plan-form select[name="doctor"]');
+            
+            hospSelect.empty().append(new Option('Select Hospital', '')).prop('disabled', true);
+            docSelect.empty().append(new Option('Select Hospital First', '')).prop('disabled', true);
+
+            if (regionId) {
+                hospSelect.prop('disabled', false).append(new Option('Loading...', ''));
+                try {
+                    const hospitals = await api.getHospitals(regionId);
+                    hospSelect.empty().append(new Option('Select Hospital', ''));
+                    if (hospitals && hospitals.length > 0) {
+                        hospitals.forEach(h => {
+                            hospSelect.append(new Option(h.name, h.id));
+                        });
+                        hospSelect.prop('disabled', false);
+                    } else {
+                        hospSelect.empty().append(new Option('No hospitals found', ''));
+                        hospSelect.prop('disabled', true);
+                    }
+                } catch (e) {
+                    hospSelect.empty().append(new Option('Error loading', ''));
+                }
+            }
+        });
+
+        $('#diet-plan-form select[name="hospital"]').change(async function () {
+            const hospitalId = $(this).val();
+            const docSelect = $('#diet-plan-form select[name="doctor"]');
+            docSelect.empty().append(new Option('Select Doctor', '')).prop('disabled', true);
+
+            if (hospitalId) {
+                docSelect.prop('disabled', false).append(new Option('Loading...', ''));
+                try {
+                    const doctors = await api.getDoctors(hospitalId);
+                    docSelect.empty().append(new Option('Any Available Doctor', ''));
+                    if (doctors && doctors.length > 0) {
+                        doctors.forEach(d => {
+                            const label = d.name + (d.specialty ? ' — ' + d.specialty : '');
+                            docSelect.append(new Option(label, d.id));
+                        });
+                        docSelect.prop('disabled', false);
+                    } else {
+                        docSelect.empty().append(new Option('No doctors listed', ''));
+                        docSelect.prop('disabled', true);
+                    }
+                } catch (e) {
+                    docSelect.empty().append(new Option('Error loading', ''));
+                }
+            }
+        });
+        
+        $('#diet-plan-form').submit(async function (e) {
+            e.preventDefault();
+            const btn = $(this).find('button[type="submit"]');
+            const originalText = btn.html();
+            btn.html('<i class="fas fa-spinner fa-spin"></i> Processing...').prop('disabled', true);
+            const formData = {
+                name: $(this).find('input[name="name"]').val(),
+                phone: $(this).find('input[name="phone"]').val(),
+                age: $(this).find('input[name="age"]').val(),
+                weight: $(this).find('input[name="weight"]').val(),
+                height: $(this).find('input[name="height"]').val(),
+                hospitalId: $(this).find('select[name="hospital"]').val(),
+                doctorId: $(this).find('select[name="doctor"]').val(),
+                goal: $(this).find('select[name="goal"]').val(),
+                conditions: $(this).find('textarea[name="conditions"]').val()
+            };
+            try {
+                const res = await $.ajax({
+                    url: `${API_URL}/dietPlan`,
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(formData)
+                });
+                if (res.success) {
+                    $('#diet-plan-form').addClass('d-none');
+                    $('#diet-success').removeClass('d-none');
+                } else {
+                    alert(res.message || 'Failed');
+                    btn.html(originalText).prop('disabled', false);
+                }
+            } catch (err) {
+                const errorMsg = err.responseJSON && err.responseJSON.message 
+                                 ? err.responseJSON.message 
+                                 : 'Connection Error';
+                alert(errorMsg);
+                btn.html(originalText).prop('disabled', false);
+            }
+        });
+    }
+
+    // Blood Donation Registration Form
+    if ($('#donor-form').length) {
+        loadRegions('#donor-form select[name="region"]');
+        $('#donor-form select[name="region"]').change(function () {
+            onRegionChange($(this).val(), '#donor-form select[name="hospital"]');
+        });
+        $('#donor-form').submit(async function (e) {
+            e.preventDefault();
+            const btn = $(this).find('button[type="submit"]');
+            btn.text('Registering...').prop('disabled', true);
+            const formData = {
+                name: $(this).find('input[name="name"]').val(),
+                age: $(this).find('input[name="age"]').val(),
+                blood_group: $(this).find('select[name="blood_group"]').val(),
+                phone: $(this).find('input[name="phone"]').val(),
+                location: $(this).find('input[name="location"]').val(),
+                hospitalId: $(this).find('select[name="hospital"]').val()
+            };
+            try {
+                const res = await $.ajax({
+                    url: `${API_URL}/registerDonor`,
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(formData)
+                });
+                if (res.success) {
+                    alert('Registered as donor!');
+                    this.reset();
+                } else {
+                    alert('Error: ' + res.message);
+                }
+            } catch (e) { alert('Connection error'); }
+            finally { btn.text('Register Now').prop('disabled', false); }
+        });
+    }
+
+    // Blood Request Broadcast Form
+    if ($('#patient-form').length) {
+        loadRegions('#patient-form select[name="region"]');
+        $('#patient-form select[name="region"]').change(function () {
+            onRegionChange($(this).val(), '#patient-form select[name="hospital"]');
+        });
+        $('#patient-form').submit(async function (e) {
+            e.preventDefault();
+            const btn = $(this).find('button[type="submit"]');
+            btn.text('Broadcasting...').prop('disabled', true);
+            const formData = {
+                patient_name: $(this).find('input[name="patient_name"]').val(),
+                blood_group: $(this).find('select[name="blood_group"]').val(),
+                urgency: $(this).find('select[name="urgency"]').val(),
+                phone: $(this).find('input[name="phone"]').val(),
+                hospitalId: $(this).find('select[name="hospital"]').val()
+            };
+            try {
+                const res = await $.ajax({
+                    url: `${API_URL}/requestBlood`,
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(formData)
+                });
+                if (res.success) {
+                    alert('Broadcasted successfully!');
+                    this.reset();
+                } else {
+                    alert('Error: ' + res.message);
+                }
+            } catch (e) { alert('Connection error'); }
+            finally { btn.text('Broadcast Request').prop('disabled', false); }
+        });
+    }
+
+    // Contact Us Inquiry Form
+    $('#contact-form-submit').submit(async function (e) {
+        e.preventDefault();
+        const btn = $(this).find('button[type="submit"]');
+        btn.prop('disabled', true).text('Sending...');
+        const formData = {
+            name: $(this).find('input[name="name"]').val(),
+            phone: $(this).find('input[name="phone"]').val(),
+            message: $(this).find('textarea[name="message"]').val()
+        };
+        try {
+            const res = await api.sendMessage(formData);
+            if (res.success) {
+                alert('Message sent!');
+                this.reset();
+            } else { alert('Error sending message'); }
+        } catch (e) { alert('Connection error'); }
+        finally { btn.prop('disabled', false).text('Send Message'); }
+    });
+
+    // Secondary Appointment Form (Alternate page)
+    if ($('#appointment-form').length) {
+        api.getDoctors().then(doctors => {
+            const doctorSelect = $('#appointment-form select[name="doctorId"]');
+            doctorSelect.empty().append('<option selected disabled>Choose Doctor</option>');
+            doctors.forEach(doctor => {
+                doctorSelect.append(`<option value="${doctor.id}">${doctor.name} - ${doctor.specialty}</option>`);
+            });
+        }).catch(error => {
+            // silent catch
+        });
+
+        $('#appointment-form').submit(async function (e) {
+            e.preventDefault();
+            const btn = $(this).find('button[type="submit"]');
+            btn.prop('disabled', true).text('Booking...');
+            const formData = {
+                name: $(this).find('input[name="name"]').val(),
+                phone: $(this).find('input[name="phone"]').val(),
+                date: $(this).find('input[name="date"]').val(),
+                doctorId: $(this).find('select[name="doctorId"]').val(),
+                healthType: $(this).find('select[name="healthType"]').val()
+            };
+            try {
+                const res = await api.bookAppointment(formData);
+                if (res.success) {
+                    alert('Appointment booked successfully!');
+                    this.reset();
+                } else { alert('Error booking appointment: ' + res.message); }
+            } catch (e) { alert('Connection error'); }
+            finally { btn.prop('disabled', false).text('Appointment Now'); }
+        });
+    }
+
+    // WhatsApp Newsletter Sign Up Form
+    $('.newsletter-input').submit(function (e) {
+        e.preventDefault();
+        const phone = $(this).find('input[type="tel"]').val();
+        alert(`We'll contact you on WhatsApp at ${phone}!`);
+        this.reset();
+    });
+
+    // Mobile Navbar Menu Toggles
+    $('#mobile-menu-btn').click(function () {
+        $('#mobile-menu').toggle();
+    });
+
+    /* ==========================================================================
+       6. DYNAMIC BLOGS/NEWS ENGINE
+       ========================================================================== */
+    function loadBlogsHome() {
+        const container = $('#blogs-container');
+        if (!container.length) return;
+
+        $.ajax({
+            url: '../backend/?route=blog/api_list',
+            method: 'GET',
+            success: function (response) {
+                if (response.status === 'success' && response.data && response.data.length > 0) {
+                    let html = '';
+                    const blogs = response.data.slice(0, 3);
+                    blogs.forEach(blog => {
+                        const date = new Date(blog.created_at).toLocaleDateString('en-US', {
+                            month: 'short', day: '2-digit', year: '2-digit'
+                        });
+                        
+                        let blogImg = blog.image;
+                        const title = (blog.title || '').toLowerCase();
+                        
+                        // Select dynamic visual placeholder depending on blog topic
+                        if (!blogImg || blogImg.includes('placeholder')) {
+                            if (title.includes('blood')) blogImg = 'assets/blood_registry.png';
+                            else if (title.includes('psychological') || title.includes('mental')) blogImg = 'assets/mental_health.png';
+                            else if (title.includes('booking') || title.includes('appointment')) blogImg = 'assets/smart_booking.png';
+                            else blogImg = 'https://placehold.co/600x400/eef6ff/2f7bff?text=MedNova+News';
+                        }
+
+                        const fullImageUrl = (blogImg.startsWith('http') || blogImg.startsWith('assets/')) ? blogImg : `../backend/${blogImg}`;
+
+                        html += `
+                            <div class="col-md-4">
+                                <div class="blog-pro-card h-100">
+                                     <div style="overflow: hidden; height: 200px; border-radius: 12px; background: #eef6ff;">
+                                        <img src="${fullImageUrl}" 
+                                            onerror="this.src='https://placehold.co/600x400/eef6ff/2f7bff?text=Medical+News'"
+                                            class="w-100 h-100" style="object-fit: cover;" alt="${blog.title}">
+                                    </div>
+                                    <div class="blog-body p-3 d-flex flex-column">
+                                        <div class="d-flex justify-content-between align-items-center mb-2">
+                                            <span class="blog-badge">${blog.category}</span>
+                                            <span class="text-muted small">${date}</span>
+                                        </div>
+                                        <h5 class="blog-title">${blog.title}</h5>
+                                        <p class="text-muted small">${blog.excerpt || ''}</p>
+                                        <a href="#" class="blog-link mt-auto">Read More &rarr;</a>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    container.html(html);
+                } else {
+                    container.html('<div class="col-12 text-center text-muted">No news updates available at the moment.</div>');
+                }
+            },
+            error: function () {
+                container.html('<div class="col-12 text-center text-danger">Failed to load news.</div>');
+            }
+        });
+    }
+
+    loadBlogsHome();
+});
